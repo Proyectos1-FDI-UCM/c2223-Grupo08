@@ -7,8 +7,7 @@ public class CameraMovement : MonoBehaviour
 
     private Transform _myTransform;
     private Transform _playerTransform;
-    [SerializeField] private float _followFactor = 1.0f;
-    [SerializeField] private float _offsetZ = 1.0f;
+    [SerializeField] private float _followFactor = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +17,10 @@ public class CameraMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
-        _myTransform.position = new Vector3(_playerTransform.position.x, _playerTransform.position.y, _playerTransform.position.z + _offsetZ) * _followFactor;
+        Vector2 direccion = Vector2.Lerp(_myTransform.position, _playerTransform.position, _followFactor);
+        if (direccion.magnitude > 0.15f)
+            _myTransform.position =new Vector3(direccion.x, direccion.y,-10);
     }
 }
