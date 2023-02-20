@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    static public PlayerManager instance;
+
+    private Transform _transform;
+    int _PlayerSize = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance= this;
+        _transform = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void incrementSize()
     {
-        
+        _PlayerSize++;
+        _transform.localScale
+    }
+
+    void resetSize()
+    {
+        _PlayerSize--;
     }
 }
