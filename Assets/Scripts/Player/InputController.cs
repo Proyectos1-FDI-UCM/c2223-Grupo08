@@ -11,6 +11,9 @@ public class InputController : MonoBehaviour
     private float _jumpTime = 2.5f;   //Valor inicial del contador 
     private float _jumpTimeCounter = 0f;    //Contador para el tiempo en el aire
 
+    [SerializeField]
+    private float _velocity = 5; // Valor con el que se moverá en el eje X
+
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +39,15 @@ public class InputController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             _isJumping = false;
+        }
+
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            SendMessage("Movement",_velocity);
+        }
+        else if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            SendMessage("Movement", -_velocity);
         }
     }
 
