@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 0.7
+  _velocity: 5
 --- !u!114 &490929570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpTime: 2.5
-  _velocity: 5
 --- !u!61 &490929571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6390c97b0dcea41ab705230e442621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 490929574}
   _followFactor: 0.1
 --- !u!1 &840999845
 GameObject:
