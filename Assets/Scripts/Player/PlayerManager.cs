@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    static public PlayerManager instance;
+    static public PlayerManager instance;   //Instancia del manager
 
     private Transform _transform;
-    int _PlayerSize = 1;
+    private int _PlayerSize = 0;    //Indica el tamaño del jugador
+
+    public int getSize() { return _PlayerSize; } //Devuelve el tamaño del jugador
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +18,17 @@ public class PlayerManager : MonoBehaviour
         _transform = GetComponent<Transform>();
     }
 
-    void incrementSize()
+    //Aumenta en 1 el tamaño
+    public void incrementSize()
     {
         _PlayerSize++;
-        _transform.localScale *= _PlayerSize + 3;
+        _transform.localScale += new  Vector3(0.2f,0.2f,0);
     }
 
-    void resetSize()
+    //Devuelve el tamaño a 0
+    public void resetSize()
     {
-        _PlayerSize--;
-        _transform.localScale *= _PlayerSize;
+        _PlayerSize = 0;
+        _transform.localScale = Vector3.one;
     }
 }

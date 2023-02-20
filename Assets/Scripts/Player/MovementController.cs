@@ -6,8 +6,11 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField]
-    private float jumpForce = 0.7f;
- 
+    private float jumpForce = 0.7f; // Valor de la fuerza del salto
+
+    [SerializeField]
+    private float _velocity = 5;    // Valor con el que se moverá en el eje X
+
     private Rigidbody2D _rigidbody2D;
 
     void Start()
@@ -20,9 +23,21 @@ public class MovementController : MonoBehaviour
         _rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    private void Movement(int velocity)
+    private void MoveRight(bool isGrounded = false)
     {
         float y = _rigidbody2D.velocity.y;
-        _rigidbody2D.velocity = new Vector2 (velocity,y);
+        if (!isGrounded)
+            _rigidbody2D.velocity = new Vector2(_velocity / 2, y);  //Se mueve la mitad si esta en el aire
+        else
+            _rigidbody2D.velocity = new Vector2(_velocity, y);
+    }
+
+    private void MoveLeft(bool isGrounded = false)
+    {
+        float y = _rigidbody2D.velocity.y;
+        if (!isGrounded) 
+            _rigidbody2D.velocity = new Vector2(-_velocity/2, y);   //Se mueve la mitad si esta en el aire
+        else
+            _rigidbody2D.velocity = new Vector2(-_velocity, y);
     }
 }

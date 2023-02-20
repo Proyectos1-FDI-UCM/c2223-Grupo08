@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EatingBallComponent : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Slime")
+        if (PlayerManager.instance.getSize() < 5)   //Impide que obtenga mas de 5 bolas
         {
             Destroy(gameObject);
+            PlayerManager.instance.incrementSize();
         }
     }
 }
