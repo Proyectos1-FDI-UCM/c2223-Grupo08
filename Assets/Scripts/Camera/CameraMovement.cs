@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 direccion = Vector2.Lerp(_myTransform.position, _playerTransform.position, _followFactor);
-        if (direccion.magnitude > 0.15f)    //Para si esta muy cerca del jugador
+        if (direccion.magnitude > 0.15f || direccion.magnitude > -0.15f)    //Para si esta muy cerca del jugador
             _myTransform.position =new Vector3(direccion.x, direccion.y,-10);
     }
 }

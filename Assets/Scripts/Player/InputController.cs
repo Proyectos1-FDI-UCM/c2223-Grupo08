@@ -8,7 +8,7 @@ public class InputController : MonoBehaviour
     private bool _isJumping = false;    //Indica si esta en la accion de saltar
 
     [SerializeField]
-    private float _jumpTime = 2.5f;   //Valor inicial del contador 
+    private float _jumpTime = 0.5f;   //Valor inicial del contador 
     private float _jumpTimeCounter = 0f;    //Contador para el tiempo en el aire
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class InputController : MonoBehaviour
             if (_jumpTimeCounter > 0)
             {
                 SendMessage("Jump");
-                _jumpTimeCounter -= 0.1f;
+                _jumpTimeCounter -= Time.deltaTime;
             }
             else
             {

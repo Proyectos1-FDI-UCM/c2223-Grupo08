@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField]
-    private float jumpForce = 0.7f; // Valor de la fuerza del salto
+    private float jumpForce = 0.3f; // Valor de la fuerza del salto
 
     [SerializeField]
     private float _velocity = 5;    // Valor con el que se moverá en el eje X
