@@ -26,18 +26,12 @@ public class MovementController : MonoBehaviour
     private void MoveRight(bool isGrounded = false)
     {
         float y = _rigidbody2D.velocity.y;
-        if (!isGrounded)
-            _rigidbody2D.velocity = new Vector2(_velocity / 2, y);  //Se mueve la mitad si esta en el aire
-        else
-            _rigidbody2D.velocity = new Vector2(_velocity, y);
+        _rigidbody2D.velocity = new Vector2(_velocity, y);
     }
 
     private void MoveLeft(bool isGrounded = false)
     {
         float y = _rigidbody2D.velocity.y;
-        if (!isGrounded) 
-            _rigidbody2D.velocity = new Vector2(-_velocity/2, y);   //Se mueve la mitad si esta en el aire
-        else
-            _rigidbody2D.velocity = new Vector2(-_velocity, y);
+        _rigidbody2D.velocity = new Vector2(-_velocity, y);
     }
 }
