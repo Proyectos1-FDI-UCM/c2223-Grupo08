@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    static public PlayerManager instance;   //Instancia del manager
+    static private PlayerManager _instance;   //Instancia del manager
+    static public PlayerManager Instance { get { return _instance; } }
 
     private Transform _transform;
     private int _PlayerSize = 0;    //Indica el tamaño del jugador
 
     public int getSize() { return _PlayerSize; } //Devuelve el tamaño del jugador
 
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        instance= this;
         _transform = GetComponent<Transform>();
     }
 
@@ -23,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
         _PlayerSize++;
         _transform.localScale += new  Vector3(0.2f,0.2f,0);
+        GameManager.Instance.CheckBoxes(_PlayerSize);
     }
 
     //Devuelve el tamaño a 0
@@ -30,5 +36,6 @@ public class PlayerManager : MonoBehaviour
     {
         _PlayerSize = 0;
         _transform.localScale = Vector3.one;
+        GameManager.Instance.CheckBoxes(_PlayerSize);
     }
 }
