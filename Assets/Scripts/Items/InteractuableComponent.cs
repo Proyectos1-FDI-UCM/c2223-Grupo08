@@ -25,7 +25,7 @@ public class InteractuableComponent : MonoBehaviour
         if (_activated)  //De momento solo lee el personaje, se tiene que mejorar
         {
             targetGameObject.SendMessage("DeactivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
-            _activated = true;
+            _activated = false;
         }
     }
 }
