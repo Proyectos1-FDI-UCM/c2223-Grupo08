@@ -5,10 +5,10 @@ using UnityEngine;
 public class BoxManager : MonoBehaviour
 {
     [SerializeField]
-    private int RequiredSize;
+    private int RequiredSize = 0;
     private Rigidbody2D _rigidbody2D;
 
-    private void Start()
+    private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
@@ -21,7 +21,6 @@ public class BoxManager : MonoBehaviour
         }
         else
         {
-            _rigidbody2D.constraints = RigidbodyConstraints2D.None;
             _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }

@@ -22,9 +22,12 @@ public class GameManager : MonoBehaviour
 
     public void CheckBoxes(int size) {
         BoxManager[] boxManagers = _boxes.GetComponentsInChildren<BoxManager>();
-        foreach (BoxManager box in boxManagers)
+        if (boxManagers.Length != 0)
         {
-            box.CheckBox(size);
+            foreach (BoxManager box in boxManagers)
+            {
+                box.CheckBox(size);
+            }
         }
     }
 }
