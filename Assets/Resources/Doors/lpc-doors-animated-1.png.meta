@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c00efe4151d08ed4aa591cbfc3467b47
+guid: 0f7786675298e3b459e722a511d76583
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,379 +104,442 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gooshido_spriteSheet_7
+      name: lpc-doors-animated-1_15
       rect:
         serializedVersion: 2
-        x: 4
-        y: 332
-        width: 30
-        height: 24
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+        x: 220
+        y: 272
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03cec055133ca6a44ad379af0e6833d7
-      internalID: 241359925
+      spriteID: a3c5c367b4cac82488fb0acb0edd8daf
+      internalID: 387651817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_8
+      name: lpc-doors-animated-1_16
       rect:
         serializedVersion: 2
-        x: 39
-        y: 332
-        width: 29
-        height: 24
+        x: 284
+        y: 272
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d872a3e4453ab934684dc3496ab174ed
-      internalID: 144513141
+      spriteID: f01eba0bfa6be8d4a97832024c72586d
+      internalID: 1637214698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_9
+      name: lpc-doors-animated-1_17
       rect:
         serializedVersion: 2
-        x: 73
-        y: 332
-        width: 30
-        height: 25
+        x: 348
+        y: 272
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19bd80f9c5c5a0d40b3f4127e3e0ae91
-      internalID: -1390477529
+      spriteID: 640e7d52228a0954faca67157d6d7441
+      internalID: -1938296416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_10
+      name: lpc-doors-animated-1_21
       rect:
         serializedVersion: 2
-        x: 108
-        y: 332
-        width: 31
-        height: 25
+        x: 220
+        y: 144
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3d5b8d2178ae0e4b8f0589bf82eca32
-      internalID: 1522094703
+      spriteID: 73faa8e2646629e44b68163593e37517
+      internalID: 1586176320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_11
+      name: lpc-doors-animated-1_22
       rect:
         serializedVersion: 2
-        x: 143
-        y: 332
-        width: 33
-        height: 25
+        x: 284
+        y: 144
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 222ee9b83aee4da4b9acc96ce99abbfa
-      internalID: 1135993944
+      spriteID: b0e2c0af40bdde24fb4d7758f82e3ac9
+      internalID: -403986561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_12
+      name: lpc-doors-animated-1_23
       rect:
         serializedVersion: 2
-        x: 181
-        y: 332
-        width: 33
-        height: 25
+        x: 348
+        y: 144
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d7bc991f5dc3a4ca7faa8c1c925b97
-      internalID: -1815285761
+      spriteID: 026b66305eac80948b233bceef43e40b
+      internalID: 2027270171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_13
+      name: lpc-doors-animated-1_27
       rect:
         serializedVersion: 2
-        x: 219
-        y: 332
-        width: 32
-        height: 25
+        x: 220
+        y: 80
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a00321017d0252a47a56a1f51e2f8384
-      internalID: -1631535329
+      spriteID: d5e33ecf59df56b419ca3214891fb2c5
+      internalID: 588498769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_14
+      name: lpc-doors-animated-1_28
       rect:
         serializedVersion: 2
-        x: 256
-        y: 332
-        width: 31
-        height: 25
+        x: 284
+        y: 80
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4423b252b6f4ce245bca4faf52ba8b5a
-      internalID: 1934391883
+      spriteID: 1ab9170993792b24a95780d18b2b7dda
+      internalID: -410839746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_37
+      name: lpc-doors-animated-1_29
       rect:
         serializedVersion: 2
-        x: 12
-        y: 199
-        width: 34
-        height: 20
+        x: 348
+        y: 80
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c773c21a97dfecd4eafb54c08c49df11
-      internalID: 1775537499
+      spriteID: b2f4d68c0cc2bec46be8676eb9831a5e
+      internalID: 1819513482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_38
+      name: lpc-doors-animated-1_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 199
-        width: 35
-        height: 20
+        x: 220
+        y: 16
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3a0d3f8e15b75148a5bf3815d37ff39
-      internalID: 412507192
+      spriteID: bc017a7696c428b44b6684292253c1b8
+      internalID: -202993104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_39
+      name: lpc-doors-animated-1_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 199
-        width: 37
-        height: 15
+        x: 284
+        y: 16
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b84739c7241fa646bf5387ffa7da637
-      internalID: -1732820494
+      spriteID: 8877747b4f7e06c4c84f1e7baaa494ed
+      internalID: -120816950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_40
+      name: lpc-doors-animated-1_2
       rect:
         serializedVersion: 2
-        x: 133
-        y: 199
-        width: 34
-        height: 17
+        x: 348
+        y: 16
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9b8d70c04bfad04487eba5f3e90d1c2
-      internalID: -1162420620
+      spriteID: 65e26725967c71d45a3f59b64855ec55
+      internalID: 1874898578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_53
+      name: lpc-doors-animated-1_6
       rect:
         serializedVersion: 2
-        x: 93
-        y: 93
-        width: 13
-        height: 15
+        x: 284
+        y: 208
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 930761a836b2f8649b5b09044d66d86a
-      internalID: 813745887
+      spriteID: 32678b5946ff6ae4788f015903a12633
+      internalID: 1655412976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_54
+      name: lpc-doors-animated-1_7
       rect:
         serializedVersion: 2
-        x: 126
-        y: 93
-        width: 13
-        height: 15
+        x: 220
+        y: 208
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94444258a27fc7a40b849a9c2aba2a00
-      internalID: 1835175269
+      spriteID: 892cdd653b8442a49bf5477b59a01328
+      internalID: 1410675115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_55
+      name: lpc-doors-animated-1_8
       rect:
         serializedVersion: 2
-        x: 19
-        y: 92
-        width: 21
-        height: 27
+        x: 348
+        y: 208
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23d827ecf043d0943ad74d8c541c0ba4
-      internalID: -262574529
+      spriteID: 2cd2d4348309d1e4dad557240846ccda
+      internalID: 426435563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_56
+      name: lpc-doors-animated-1_9
       rect:
         serializedVersion: 2
-        x: 49
-        y: 91
-        width: 24
-        height: 29
+        x: 220
+        y: 368
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83a36b9fd1377814caf92f0536e14fe4
-      internalID: 1328953002
+      spriteID: 153a9a51d838aed4aa59463899c5eab9
+      internalID: 980285355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_57
+      name: lpc-doors-animated-1_10
       rect:
         serializedVersion: 2
-        x: 83
-        y: 97
-        width: 7
-        height: 7
+        x: 284
+        y: 368
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24c60099808bc164e94a35481b0b20e1
-      internalID: -1491896171
+      spriteID: 767a20d90274a384fab6bc61dd2360e2
+      internalID: 301300973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gooshido_spriteSheet_58
+      name: lpc-doors-animated-1_11
       rect:
         serializedVersion: 2
-        x: 109
-        y: 93
-        width: 13
-        height: 15
+        x: 348
+        y: 368
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d5919b5e1776ce448871bb91834afbd
-      internalID: -1019773045
+      spriteID: 6192ec93c32f9ed419dce3a66cca8416
+      internalID: 375223913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors-animated-1_3
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 464
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4399deb499f416f48a0d7ce5150e8706
+      internalID: -1131246676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors-animated-1_4
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 464
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54f4b8aec4e481489f1f5f93ecbf1f2
+      internalID: 2123124500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors-animated-1_5
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 464
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e114417f69c7b7340852bef6ff1ba3d9
+      internalID: 1953917935
       vertices: []
       indices: 
       edges: []
@@ -492,73 +555,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gooshido_spriteSheet_56: 1328953002
-      gooshido_spriteSheet_57: -1491896171
-      gooshido_spriteSheet_47: -771013006
-      gooshido_spriteSheet_6: 354046696
-      gooshido_spriteSheet_21: -2070790113
-      gooshido_spriteSheet_43: 248132884
-      gooshido_spriteSheet_64: 978205416
-      gooshido_spriteSheet_5: -849833144
-      gooshido_spriteSheet_33: -577529833
-      gooshido_spriteSheet_54: 1835175269
-      gooshido_spriteSheet_9: -1390477529
-      gooshido_spriteSheet_30: 361233763
-      gooshido_spriteSheet_34: 454381746
-      gooshido_spriteSheet_36: -2076945791
-      gooshido_spriteSheet_26: -1068501375
-      gooshido_spriteSheet_35: -31639019
-      gooshido_spriteSheet_45: -551626594
-      gooshido_spriteSheet_19: 1862258621
-      gooshido_spriteSheet_46: -823256885
-      gooshido_spriteSheet_7: 241359925
-      gooshido_spriteSheet_38: 412507192
-      gooshido_spriteSheet_51: -1041977026
-      gooshido_spriteSheet_3: -624152705
-      gooshido_spriteSheet_53: 813745887
-      gooshido_spriteSheet_52: 57566202
-      gooshido_spriteSheet_15: -1193838401
-      gooshido_spriteSheet_12: -1815285761
-      gooshido_spriteSheet_40: -1162420620
-      gooshido_spriteSheet_32: 1156116961
-      gooshido_spriteSheet_65: -928688265
-      gooshido_spriteSheet_50: -1226648718
-      gooshido_spriteSheet_29: 1358625957
-      gooshido_spriteSheet_39: -1732820494
-      gooshido_spriteSheet_25: 1318469318
-      gooshido_spriteSheet_23: -989845736
-      gooshido_spriteSheet_28: -1831685786
-      gooshido_spriteSheet_42: 2101647269
-      gooshido_spriteSheet_48: 2116934377
-      gooshido_spriteSheet_17: -2079489144
-      gooshido_spriteSheet_27: 2086395469
-      gooshido_spriteSheet_49: 1398347113
-      gooshido_spriteSheet_22: 724711468
-      gooshido_spriteSheet_16: 2129598437
-      gooshido_spriteSheet_63: -904877759
-      gooshido_spriteSheet_41: -773291748
-      gooshido_spriteSheet_14: 1934391883
-      gooshido_spriteSheet_62: -292761212
-      gooshido_spriteSheet_44: -761044119
-      gooshido_spriteSheet_37: 1775537499
-      gooshido_spriteSheet_0: -769699635
-      gooshido_spriteSheet_11: 1135993944
-      gooshido_spriteSheet_4: -1518885643
-      gooshido_spriteSheet_66: -582835019
-      gooshido_spriteSheet_8: 144513141
-      gooshido_spriteSheet_2: 1178575478
-      gooshido_spriteSheet_10: 1522094703
-      gooshido_spriteSheet_13: -1631535329
-      gooshido_spriteSheet_31: -1100925879
-      gooshido_spriteSheet_60: -2072517202
-      gooshido_spriteSheet_59: -1702060520
-      gooshido_spriteSheet_58: -1019773045
-      gooshido_spriteSheet_20: -618308113
-      gooshido_spriteSheet_24: -1480396411
-      gooshido_spriteSheet_55: -262574529
-      gooshido_spriteSheet_18: -1673346466
-      gooshido_spriteSheet_1: 162041754
-      gooshido_spriteSheet_61: -1226307839
+      lpc-doors-animated-1_22: -403986561
+      lpc-doors-animated-1_27: 588498769
+      lpc-doors-animated-1_2: 1874898578
+      lpc-doors-animated-1_1: -120816950
+      lpc-doors-animated-1_12: 648184853
+      lpc-doors-animated-1_8: 426435563
+      lpc-doors-animated-1_16: 1637214698
+      lpc-doors-animated-1_9: 980285355
+      lpc-doors-animated-1_18: -1103309854
+      lpc-doors-animated-1_5: 1953917935
+      lpc-doors-animated-1_14: 461094226
+      lpc-doors-animated-1_20: -1354476892
+      lpc-doors-animated-1_7: 1410675115
+      lpc-doors-animated-1_24: 144315907
+      lpc-doors-animated-1_25: -1896571077
+      lpc-doors-animated-1_6: 1655412976
+      lpc-doors-animated-1_4: 2123124500
+      lpc-doors-animated-1_23: 2027270171
+      lpc-doors-animated-1_26: 1244128561
+      lpc-doors-animated-1_29: 1819513482
+      lpc-doors-animated-1_10: 301300973
+      lpc-doors-animated-1_0: -202993104
+      lpc-doors-animated-1_15: 387651817
+      lpc-doors-animated-1_21: 1586176320
+      lpc-doors-animated-1_13: 580258137
+      lpc-doors-animated-1_19: -1379712587
+      lpc-doors-animated-1_3: -1131246676
+      lpc-doors-animated-1_28: -410839746
+      lpc-doors-animated-1_17: -1938296416
+      lpc-doors-animated-1_11: 375223913
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

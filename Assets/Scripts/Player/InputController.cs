@@ -8,11 +8,8 @@ public class InputController : MonoBehaviour
     private bool _isJumping = false;    //Indica si esta en la accion de saltar
 
     [SerializeField]
-    private float _jumpTime = 2.5f;   //Valor inicial del contador 
+    private float _jumpTime = 0.5f;   //Valor inicial del contador 
     private float _jumpTimeCounter = 0f;    //Contador para el tiempo en el aire
-
-    [SerializeField]
-    private float _velocity = 5; // Valor con el que se moverá en el eje X
 
     // Update is called once per frame
     void Update()
@@ -28,7 +25,7 @@ public class InputController : MonoBehaviour
             if (_jumpTimeCounter > 0)
             {
                 SendMessage("Jump");
-                _jumpTimeCounter -= 0.1f;
+                _jumpTimeCounter -= Time.deltaTime;
             }
             else
             {
@@ -43,11 +40,16 @@ public class InputController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            SendMessage("Movement",_velocity);
+            SendMessage("MoveRight",_isGrounded);
         }
         else if(Input.GetKey(KeyCode.LeftArrow))
         {
-            SendMessage("Movement", -_velocity);
+            SendMessage("MoveLeft",_isGrounded);
+        }
+
+        if (Input.GetKey(KeyCode.X))
+        {
+            SendMessage("resetSize");
         }
     }
 
