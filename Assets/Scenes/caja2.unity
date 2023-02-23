@@ -21014,6 +21014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cf203bc2ff98d4bbfba8d18aa08097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetFrameRate: 120
   _boxes: {fileID: 1516735765}
 --- !u!4 &732618253
 Transform:
@@ -24271,10 +24272,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5059875968906271270, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 4876a1007f53d334e907e18fc0cafa02, type: 2}
     - target: {fileID: 5059875968906271274, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_Name
       value: Player

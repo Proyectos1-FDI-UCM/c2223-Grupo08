@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private int targetFrameRate = 120;
+    [SerializeField]
     private GameObject _boxes;
 
     static private GameManager _instance;
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
         CheckBoxes(0);
     }
 

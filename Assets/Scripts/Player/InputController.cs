@@ -8,8 +8,11 @@ public class InputController : MonoBehaviour
     private bool _isJumping = false;    //Indica si esta en la accion de saltar
 
     [SerializeField]
-    private float _jumpTime = 0.5f;   //Valor inicial del contador 
+    private float _jumpTime = 0.3f;   //Valor inicial del contador 
     private float _jumpTimeCounter = 0f;    //Contador para el tiempo en el aire
+    private float _frameTimeCounter = 0;
+
+
 
     // Update is called once per frame
     void Update()
@@ -19,17 +22,25 @@ public class InputController : MonoBehaviour
             _isJumping = true;
             _jumpTimeCounter = _jumpTime;
             SendMessage("Jump");
+            _frameTimeCounter = 0.1f;
         }
         //Aumenta el salto hasta cierto tiempo
         else if (Input.GetKey(KeyCode.Space) && _isJumping) {
-            if (_jumpTimeCounter > 0)
-            {
-                SendMessage("Jump");
-                _jumpTimeCounter -= Time.deltaTime;
+            if (_frameTimeCounter <= 0) {
+                if (_jumpTimeCounter > 0)
+                {
+                    SendMessage("Jump");
+                    _jumpTimeCounter -= 0.1f;
+                    _frameTimeCounter = 0.1f;
+                }
+                else
+                {
+                    _isJumping = false;
+                }
             }
             else
             {
-                _isJumping = false;
+                _frameTimeCounter -= Time.deltaTime;
             }
         }
         // en caso de levantar la tecla, impide volver a conseguir el impulso
