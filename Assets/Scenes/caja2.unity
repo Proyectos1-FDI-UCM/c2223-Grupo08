@@ -139,10 +139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caja
       objectReference: {fileID: 0}
-    - target: {fileID: 2910477665591882515, guid: c9e04367fd6cbe348b28cd11c975cec6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2910477665591882516, guid: c9e04367fd6cbe348b28cd11c975cec6, type: 3}
       propertyPath: m_Material
       value: 
@@ -24144,10 +24140,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caja (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2910477665591882515, guid: c9e04367fd6cbe348b28cd11c975cec6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2910477665591882516, guid: c9e04367fd6cbe348b28cd11c975cec6, type: 3}
       propertyPath: m_Material
       value: 
@@ -24272,6 +24264,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5059875968906271270, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4876a1007f53d334e907e18fc0cafa02, type: 2}
     - target: {fileID: 5059875968906271274, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_Name
       value: Player
