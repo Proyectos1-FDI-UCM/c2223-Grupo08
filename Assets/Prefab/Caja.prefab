@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 2910477665591882518}
   - component: {fileID: 2910477665591882517}
   - component: {fileID: 2910477665591882516}
+  - component: {fileID: 5719524443498730079}
   m_Layer: 8
   m_Name: Caja
   m_TagString: Untagged
@@ -226,6 +227,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5719524443498730079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910477665591882515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a020d4c6e017c04ea70d702ea7f5c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredSize: 0
 --- !u!1 &4686848657610968211
 GameObject:
   m_ObjectHideFlags: 0
