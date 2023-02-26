@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 2910477665591882516}
   - component: {fileID: 5719524443498730079}
   m_Layer: 8
-  m_Name: Caja
+  m_Name: Caja 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
