@@ -34,4 +34,24 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void ResetBoxes(int size)
+    {
+        BoxManager[] boxManagers = _boxes.GetComponentsInChildren<BoxManager>();
+        if (boxManagers.Length != 0)
+        {
+            foreach (BoxManager box in boxManagers)
+            {
+                box.SelfDestroy();
+            }
+        }
+
+        SpawnItem[] spawnManagers = _boxes.GetComponentsInChildren<SpawnItem>();
+        if (boxManagers.Length != 0)
+        {
+            foreach (SpawnItem box in spawnManagers)
+            {
+                box.Spawn();
+            }
+        }
+    }
 }

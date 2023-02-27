@@ -24,4 +24,9 @@ public class BoxManager : MonoBehaviour
             _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
+
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
 }
