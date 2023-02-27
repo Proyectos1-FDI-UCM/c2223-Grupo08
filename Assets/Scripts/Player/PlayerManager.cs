@@ -7,7 +7,9 @@ public class PlayerManager : MonoBehaviour
     static private PlayerManager _instance;   //Instancia del manager
     static public PlayerManager Instance { get { return _instance; } }
 
-    private Transform _transform;
+    [SerializeField]
+    private Transform[] _spawns;
+
     private MovementController _movementController;
     private int _PlayerSize = 0;    //Indica el tamaño del jugador
 
@@ -21,7 +23,6 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _transform = GetComponent<Transform>();
         _movementController = GetComponent<MovementController>();
     }
 
@@ -29,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     public void incrementSize()
     {
         _PlayerSize++;
-        _transform.localScale += new  Vector3(0.2f,0.2f,0);
+        transform.localScale += new  Vector3(0.2f,0.2f,0);
         GameManager.Instance.CheckBoxes(_PlayerSize);
         _movementController.SetSlowFactor(_PlayerSize);
         _movementController.SetJumpFactor(_PlayerSize);
@@ -39,9 +40,14 @@ public class PlayerManager : MonoBehaviour
     public void resetSize()
     {
         _PlayerSize = 0;
-        _transform.localScale = Vector3.one;
+        transform.localScale = Vector3.one;
         GameManager.Instance.CheckBoxes(_PlayerSize);
         _movementController.SetSlowFactor(_PlayerSize);
         _movementController.SetJumpFactor(_PlayerSize);
+    }
+
+    public void goToSpawn(int room)
+    {
+        transform.position = _spawns[room].position;
     }
 }

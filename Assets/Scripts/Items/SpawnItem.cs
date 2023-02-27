@@ -6,23 +6,29 @@ using UnityEngine;
 public class SpawnItem : MonoBehaviour
 {
     [SerializeField] private GameObject _object;
-
-    private Transform _spawnTransform;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _spawnTransform = transform;
-
-        Instantiate(_object, _spawnTransform);
-    }
+    private GameObject _obj;
 
     public void Spawn()
     {
-        Instantiate(_object, _spawnTransform);
-
+        if(_obj == null)
+            _obj = Instantiate(_object, transform);
     }
 
+    public void Delete()
+    {
+        if (_obj != null)
+            Destroy(_obj);
+    }
 
-    
+    public void ResetObj()
+    {
+        if (_obj != null)
+        {
+            _obj.transform.position = transform.position;
+        }
+        else
+        {
+            Spawn();
+        }
+    }
 }

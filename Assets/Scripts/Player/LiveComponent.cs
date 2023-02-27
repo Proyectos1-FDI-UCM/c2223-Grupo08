@@ -6,6 +6,6 @@ public class LiveComponent : MonoBehaviour
 {
     private void Muerte ()
     {
-        gameObject.SetActive (false);
+        GameManager.Instance.ResetRoom();
     }
 }
