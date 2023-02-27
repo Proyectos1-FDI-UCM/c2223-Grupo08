@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     static public PlayerManager Instance { get { return _instance; } }
 
     private Transform _transform;
+    private MovementController _movementController;
     private int _PlayerSize = 0;    //Indica el tamaño del jugador
 
     public int getSize() { return _PlayerSize; } //Devuelve el tamaño del jugador
@@ -21,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         _transform = GetComponent<Transform>();
+        _movementController = GetComponent<MovementController>();
     }
 
     //Aumenta en 1 el tamaño
@@ -29,6 +31,8 @@ public class PlayerManager : MonoBehaviour
         _PlayerSize++;
         _transform.localScale += new  Vector3(0.2f,0.2f,0);
         GameManager.Instance.CheckBoxes(_PlayerSize);
+        _movementController.SetSlowFactor(_PlayerSize);
+        _movementController.SetJumpFactor(_PlayerSize);
     }
 
     //Devuelve el tamaño a 0
@@ -37,5 +41,7 @@ public class PlayerManager : MonoBehaviour
         _PlayerSize = 0;
         _transform.localScale = Vector3.one;
         GameManager.Instance.CheckBoxes(_PlayerSize);
+        _movementController.SetSlowFactor(_PlayerSize);
+        _movementController.SetJumpFactor(_PlayerSize);
     }
 }
