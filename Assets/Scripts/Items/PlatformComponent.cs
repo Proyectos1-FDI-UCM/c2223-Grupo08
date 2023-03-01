@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractuableComponent : MonoBehaviour
+public class PlatformComponent : MonoBehaviour
 {
     [SerializeField]
     private GameObject targetGameObject;    //El objeto que va a activar
