@@ -17,10 +17,13 @@ public class CameraAreaScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (m_Collider.bounds.Contains(_playerTransform.position))
+        if (m_Collider.bounds.min.x < _playerTransform.position.x && m_Collider.bounds.max.x > _playerTransform.position.x)
         {
-            Debug.Log("a");
-            _cameraMovement.UpdateCamera();
+            _cameraMovement.UpdateTargetPositionX();
+        }
+        if (m_Collider.bounds.min.y < _playerTransform.position.y && m_Collider.bounds.max.y > _playerTransform.position.y)
+        {
+            _cameraMovement.UpdateTargetPositionY();
         }
     }
 }
