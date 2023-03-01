@@ -15,8 +15,9 @@ public class BotonComponent : MonoBehaviour
         _activated = true;
     }
 
-    private void ResetBoton()
+    public void ResetBoton()
     {
-       _activated= false;
+        targetGameObject.SendMessage("DeactivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
+        _activated = false;
     }
 }

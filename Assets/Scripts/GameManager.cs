@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     private GameObject _boxes;
     [SerializeField]
     private GameObject _balls;
+    [SerializeField]
+    private GameObject _buttons;
 
     private int _currentRoom = 0;
 
@@ -64,10 +67,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetButtons()
+    {
+        BotonComponent[] spawnManagers = _buttons.GetComponentsInChildren<BotonComponent>();
+        if (spawnManagers.Length != 0)
+        {
+            foreach (BotonComponent button in spawnManagers)
+            {
+                button.ResetBoton();
+            }
+        }
+    }
+
     public void ResetRoom()
     {
         ResetBoxes();
         ResetBalls();
+        ResetButtons();
         PlayerManager.Instance.resetSize();
         PlayerManager.Instance.goToSpawn(_currentRoom);
     }
