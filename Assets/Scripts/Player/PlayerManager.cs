@@ -46,8 +46,15 @@ public class PlayerManager : MonoBehaviour
         _movementController.SetJumpFactor(_PlayerSize);
     }
 
+    //Devuelve al jugador a su posicion inicial en esa sala
     public void goToSpawn(int room)
     {
         transform.position = _spawns[room].position;
+    }
+
+    //Quita los inputs del jugador
+    public void EnableInputs(bool enabled)
+    {
+        gameObject.GetComponent<InputController>().enabled = enabled;
     }
 }

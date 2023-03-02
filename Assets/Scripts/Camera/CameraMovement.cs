@@ -11,16 +11,19 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Vector3 _offset;
     private Vector2 _targetPos;
 
+    // Actualiza la x de la posicion destino
     public void UpdateTargetPositionX()
     {
          _targetPos.x = _playerTransform.position.x + _offset.x;
     }
 
+    // Actualiza la y de la posicion destino
     public void UpdateTargetPositionY()
     {
         _targetPos.y = _playerTransform.position.y + _offset.y;
     }
 
+    //Envia la camara hacia la posicion destino
     public void FixedUpdate()
     {
         Vector2 direccion = Vector2.Lerp(transform.position, _targetPos, _followFactor);
