@@ -62,6 +62,11 @@ public class InputController : MonoBehaviour
         {
             SendMessage("resetSize");
         }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            StartCoroutine(GameManager.Instance.ResetRoom());
+        }
     }
 
     private void Grounded()
