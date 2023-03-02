@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
         ResetButtons();
         PlayerManager.Instance.resetSize();
         PlayerManager.Instance.goToSpawn(_currentRoom);
+        PlayerManager.Instance.SendMessage("IsDeath", false);
 
         StartCoroutine(_uiManager.FadeOut());
         yield return new WaitWhile(() => _uiManager.IsInAnimation());

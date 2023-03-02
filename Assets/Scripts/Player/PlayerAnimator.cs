@@ -36,4 +36,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator.SetBool("isGrounded", false);
     }
+
+    private void IsDeath(bool b)
+    {
+        _animator.SetBool("IsDeath", b);
+    }
 }

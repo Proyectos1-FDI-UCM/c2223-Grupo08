@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class LiveComponent : MonoBehaviour
 {
-    private void Muerte ()
+    private Animator _animator;
+
+    private void Start()
+    {
+        _animator= GetComponent<Animator>();
+    }
+
+    private void Death ()
     {
         StartCoroutine(GameManager.Instance.ResetRoom());
     }
