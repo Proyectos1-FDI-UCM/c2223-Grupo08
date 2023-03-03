@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _fade;
     private bool _inAnimation;
+
+    [SerializeField]
+    private TMP_Text CounterText;
 
     public bool IsInAnimation() { return _inAnimation; }
 
@@ -46,5 +50,11 @@ public class UIManager : MonoBehaviour
         }
 
         _inAnimation = false;
+    }
+
+    public void UpdateCounter(int size) //Incrementa el contador de bolas de la UI en 1
+    {
+        string m = size.ToString() + "/5";
+        CounterText.text = m;
     }
 }

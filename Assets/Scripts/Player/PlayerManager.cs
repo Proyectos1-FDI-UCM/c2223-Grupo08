@@ -7,9 +7,6 @@ public class PlayerManager : MonoBehaviour
     static private PlayerManager _instance;   //Instancia del manager
     static public PlayerManager Instance { get { return _instance; } }
 
-    //[SerializeField] private GameObject BallsCounter;
-    private BallsCounter _myBallsCounterComponent;
-
     [SerializeField]
     private Transform[] _spawns;
 
@@ -27,7 +24,6 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         _movementController = GetComponent<MovementController>();
-       // _myBallsCounterComponent = BallsCounter.GetComponent<BallsCounter>();
     }
 
     //Aumenta en 1 el tamaño
@@ -38,7 +34,7 @@ public class PlayerManager : MonoBehaviour
         GameManager.Instance.CheckBoxes(_PlayerSize);
         _movementController.SetSlowFactor(_PlayerSize);
         _movementController.SetJumpFactor(_PlayerSize);
-        //_myBallsCounterComponent.IncreaseCounter();
+        GameManager.Instance.UpdateCounter(_PlayerSize);
     }
 
     //Devuelve el tamaño a 0
@@ -49,7 +45,7 @@ public class PlayerManager : MonoBehaviour
         GameManager.Instance.CheckBoxes(_PlayerSize);
         _movementController.SetSlowFactor(_PlayerSize);
         _movementController.SetJumpFactor(_PlayerSize);
-        //_myBallsCounterComponent.ResetCounter();
+        GameManager.Instance.UpdateCounter(_PlayerSize);
     }
 
     //Devuelve al jugador a su posicion inicial en esa sala

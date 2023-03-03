@@ -122,4 +122,10 @@ public class GameManager : MonoBehaviour
 
         PlayerManager.Instance.EnableInputs(true);
     }
+
+    public void UpdateCounter(int size) //Incrementa el contador de bolas de la UI en 1
+    {
+        _uiManager.UpdateCounter(size);
+    }
+
 }
