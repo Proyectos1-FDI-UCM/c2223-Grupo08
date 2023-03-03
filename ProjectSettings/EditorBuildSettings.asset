@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/puertas.unity
-    guid: b9b71d904d9101940bf870c711c23af1
+    path: Assets/Scenes/level 1 (PRUEBA).unity
+    guid: 57443f5d9ec947a4098696a1f530ae4e
+  - enabled: 1
+    path: Assets/Scenes/level 2 (PRUEBA).unity
+    guid: 54351450f51f9a34db9a622089ea6563
   m_configObjects: {}
