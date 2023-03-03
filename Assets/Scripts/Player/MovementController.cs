@@ -9,13 +9,16 @@ public class MovementController : MonoBehaviour
     private float _jumpForce = 3.5f; // Valor de la fuerza del salto
 
     [SerializeField]
-    private float _velocity = 5;    // Valor con el que se moverá en el eje X
+    private float _maxVelocity = 5;    // Valor maximo con el que se moverá en el eje X
+
+    [SerializeField]
+    private float _acceleration = 0.2f;    // Aceleracion con el que se moverá en el eje X
 
     [SerializeField]
     private float _slowPenalty = 0.5f;
 
     [SerializeField]
-    private float _jumpPenalty = 0.5f;
+    private float _jumpPenalty = 0.25f;
 
     private float _slowFactor = 0;
 
@@ -35,16 +38,30 @@ public class MovementController : MonoBehaviour
         _rigidbody2D.AddForce(Vector2.up * (_jumpForce - _jumpFactor), ForceMode2D.Impulse);
     }
 
-    private void MoveRight(bool isGrounded = false)
+    private void MoveRight()
     {
-        float y = _rigidbody2D.velocity.y;
-        _rigidbody2D.velocity = new Vector2(_velocity - _slowFactor, y);
+        if (_maxVelocity - _slowFactor > _rigidbody2D.velocity.x)
+        {
+            _rigidbody2D.velocity += new Vector2(_acceleration, 0);
+        }
+        else
+        {
+            float y = _rigidbody2D.velocity.y;
+            _rigidbody2D.velocity = new Vector2(_maxVelocity - _slowFactor, y);
+        }
     }
 
-    private void MoveLeft(bool isGrounded = false)
+    private void MoveLeft()
     {
-        float y = _rigidbody2D.velocity.y;
-        _rigidbody2D.velocity = new Vector2(-(_velocity - _slowFactor), y);
+        if (-(_maxVelocity - _slowFactor) < _rigidbody2D.velocity.x)
+        {
+            _rigidbody2D.velocity += new Vector2(-(_acceleration), 0);
+        }
+        else
+        {
+            float y = _rigidbody2D.velocity.y;
+            _rigidbody2D.velocity = new Vector2(-(_maxVelocity - _slowFactor), y);
+        }
     }
 
     public void SetSlowFactor(float size) {

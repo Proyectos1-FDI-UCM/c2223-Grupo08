@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpTime: 0.3
+  _frameTime: 0.1
 --- !u!114 &5059875968906271271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 3.5
-  _velocity: 5
+  _maxVelocity: 5
+  _acceleration: 0.2
   _slowPenalty: 0.5
   _jumpPenalty: 0.25
 --- !u!114 &5059875968906271265

@@ -10,6 +10,9 @@ public class InputController : MonoBehaviour
     [SerializeField]
     private float _jumpTime = 0.3f;   //Valor inicial del contador 
     private float _jumpTimeCounter = 0f;    //Contador para el tiempo en el aire
+
+    [SerializeField]
+    private float _frameTime = 0.1f;
     private float _frameTimeCounter = 0;
 
 
@@ -22,7 +25,7 @@ public class InputController : MonoBehaviour
             _isJumping = true;
             _jumpTimeCounter = _jumpTime;
             SendMessage("Jump");
-            _frameTimeCounter = 0.1f;
+            _frameTimeCounter = _frameTime;
         }
         //Aumenta el salto hasta cierto tiempo
         else if (Input.GetKey(KeyCode.Space) && _isJumping) {
@@ -30,8 +33,8 @@ public class InputController : MonoBehaviour
                 if (_jumpTimeCounter > 0)
                 {
                     SendMessage("Jump");
-                    _jumpTimeCounter -= 0.1f;
-                    _frameTimeCounter = 0.1f;
+                    _jumpTimeCounter -= _frameTime;
+                    _frameTimeCounter = _frameTime;
                 }
                 else
                 {
@@ -51,11 +54,11 @@ public class InputController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            SendMessage("MoveRight",_isGrounded);
+            SendMessage("MoveRight");
         }
         else if(Input.GetKey(KeyCode.LeftArrow))
         {
-            SendMessage("MoveLeft",_isGrounded);
+            SendMessage("MoveLeft");
         }
 
         if (Input.GetKey(KeyCode.X))
