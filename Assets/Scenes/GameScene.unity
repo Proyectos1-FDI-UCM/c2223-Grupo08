@@ -38944,8 +38944,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -437.43744, y: 188.54987}
-  m_SizeDelta: {x: -1014.4423, y: -472.7775}
+  m_AnchoredPosition: {x: -372.90027, y: 189.96515}
+  m_SizeDelta: {x: -885.368, y: -475.6081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &979084123
 MonoBehaviour:
@@ -41790,7 +41790,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -11, y: -9, z: 0}
-  m_Size: {x: 91, y: 12, z: 1}
+  m_Size: {x: 91, y: 16, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -43288,7 +43288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438916979910313721, guid: adf51fb89dc22654c95263885b1136bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5192728
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 5438916979910313721, guid: adf51fb89dc22654c95263885b1136bf, type: 3}
       propertyPath: m_LocalPosition.z
