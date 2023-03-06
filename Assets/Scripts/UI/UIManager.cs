@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -56,5 +57,10 @@ public class UIManager : MonoBehaviour
     {
         string m = size.ToString() + "/5";
         CounterText.text = m;
+    }
+
+    public void ChangeMenuToGameScene() //Carga la escena de juego desde el menu una vez pulsado el boton
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
