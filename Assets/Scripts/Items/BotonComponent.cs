@@ -15,7 +15,7 @@ public class BotonComponent : MonoBehaviour
         _animator= GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         targetGameObject.SendMessage("ActivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
         _activated = true;

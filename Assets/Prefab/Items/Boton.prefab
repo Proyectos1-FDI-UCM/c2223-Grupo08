@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9182286884997807436}
   - component: {fileID: -3966554712309231792}
   - component: {fileID: 4022099394039290805}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 9182286884997807439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.3959, y: -3.419, z: 0}
-  m_LocalScale: {x: 0.29955438, y: 0.940228, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -2.046695, y: 0.59884775}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7271075, y: 5.381443}
   m_EdgeRadius: 0
 --- !u!114 &-3966554712309231792
 MonoBehaviour:
