@@ -196,67 +196,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.994199, y: 9.020614}
   m_EdgeRadius: 0
---- !u!1001 &73758632
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 911812307}
-    m_Modifications:
-    - target: {fileID: -3966554712309231792, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: targetGameObject
-      value: 
-      objectReference: {fileID: 1048368613}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182286884997807439, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-      propertyPath: m_Name
-      value: Boton (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
 --- !u!1 &169235353
 GameObject:
   m_ObjectHideFlags: 0
@@ -39006,7 +38945,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1088140661}
-  - {fileID: 1350208558}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39021,7 +38959,6 @@ GameObject:
   - component: {fileID: 979084122}
   - component: {fileID: 979084125}
   - component: {fileID: 979084124}
-  - component: {fileID: 979084123}
   m_Layer: 5
   m_Name: BallsCounter
   m_TagString: Untagged
@@ -39049,18 +38986,6 @@ RectTransform:
   m_AnchoredPosition: {x: -324.1541, y: 189.96515}
   m_SizeDelta: {x: -787.8757, y: -475.6081}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &979084123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979084121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 845137a3d54fb0245930f051b994ad7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &979084124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41526,11 +41451,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!4 &1350208558 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
-  m_PrefabInstance: {fileID: 73758632}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1426999731
 GameObject:
   m_ObjectHideFlags: 0
@@ -42164,7 +42084,7 @@ PrefabInstance:
     - target: {fileID: 5059875968906271265, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: _myBallsCounterComponent
       value: 
-      objectReference: {fileID: 979084123}
+      objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -42208,10 +42128,6 @@ PrefabInstance:
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
-      propertyPath: _acceleration
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271274, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_Name
