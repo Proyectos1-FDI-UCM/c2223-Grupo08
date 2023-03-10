@@ -25,14 +25,14 @@ public class DoorComponent : MonoBehaviour
         CloseDoor();
     }
 
-    private void OpenDoor()
+    public void OpenDoor()
     {
         _collider.enabled = false;
         _animator.SetBool("isOpen", true);
         _isOpen= true;
     }
 
-    private void CloseDoor()
+    public void CloseDoor()
     {
         _collider.enabled = true;
         _animator.SetBool("isOpen", false);

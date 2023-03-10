@@ -16,8 +16,11 @@ public class GameManager : MonoBehaviour
     private GameObject _balls;
     [SerializeField]
     private GameObject _buttons;
+    [SerializeField]
+    private GameObject _cameraAreas;
 
     private int _currentRoom = 0;
+    private PlayerManager _playerManager;
 
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _playerManager = PlayerManager.Instance;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = targetFrameRate;
         Init();
@@ -37,18 +41,22 @@ public class GameManager : MonoBehaviour
     //Inicializa todo lo necesario antes de jugar
     private void Init()
     {
-        PlayerManager.Instance.EnableInputs(false);
+        _playerManager.EnableInputs(false);
 
         ResetBoxes();
         ResetBalls();
         ResetButtons();
-        PlayerManager.Instance.resetSize();
-        PlayerManager.Instance.goToSpawn(_currentRoom);
+        _playerManager.resetSize();
+        _playerManager.goToSpawn(_currentRoom);
+
+        Vector2 cameraPoint = _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.transform.position);
+        Camera.main.GetComponent<CameraMovement>().MoveCamera(cameraPoint);
+
         CheckBoxes(0);
 
         StartCoroutine(_uiManager.FadeOut());
 
-        PlayerManager.Instance.EnableInputs(true);
+        _playerManager.EnableInputs(true);
     }
 
     //Comprueba en cada caja si debe liberarse o no
@@ -113,19 +121,30 @@ public class GameManager : MonoBehaviour
         ResetBoxes();
         ResetBalls();
         ResetButtons();
-        PlayerManager.Instance.resetSize();
-        PlayerManager.Instance.goToSpawn(_currentRoom);
-        PlayerManager.Instance.SendMessage("IsDeath", false);
+        _playerManager.resetSize();
+        _playerManager.goToSpawn(_currentRoom);
+
+        Vector2 cameraPoint = _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.transform.position);
+        Camera.main.GetComponent<CameraMovement>().MoveCamera(cameraPoint);
+
+        _playerManager.SendMessage("IsDeath", false);
 
         StartCoroutine(_uiManager.FadeOut());
         yield return new WaitWhile(() => _uiManager.IsInAnimation());
 
-        PlayerManager.Instance.EnableInputs(true);
+        _playerManager.EnableInputs(true);
     }
 
     public void UpdateCounter(int size) //Incrementa el contador de bolas de la UI en 1
     {
         _uiManager.UpdateCounter(size);
+    }
+
+    public void nextRoom(DoorComponent door)
+    {
+        _currentRoom++;
+        _playerManager.EnableInputs(false);
+        _playerManager.moveToNextRoom(_currentRoom, _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.getSpawnPoint(_currentRoom)), door);
     }
 
 }

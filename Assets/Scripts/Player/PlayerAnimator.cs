@@ -6,11 +6,13 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rigidbody2D;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -40,5 +42,18 @@ public class PlayerAnimator : MonoBehaviour
     private void IsDeath(bool b)
     {
         _animator.SetBool("IsDeath", b);
+    }
+    public IEnumerator nextRoomAnim(Vector2 target, Vector2 cameraTarget, DoorComponent door)
+    {
+        Vector2 direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
+        Camera.main.GetComponent<CameraMovement>().MoveCamera(cameraTarget);
+        while (Vector2.Distance(transform.position, target) > 2f || Vector2.Distance(transform.position, target) < -2f)
+        {
+            _rigidbody2D.MovePosition(direction);
+            direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
+            yield return null;
+        }
+        door.CloseDoor();
+        PlayerManager.Instance.EnableInputs(true);
     }
 }

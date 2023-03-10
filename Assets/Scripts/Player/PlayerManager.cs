@@ -11,9 +11,12 @@ public class PlayerManager : MonoBehaviour
     private Transform[] _spawns;
 
     private MovementController _movementController;
+    private PlayerAnimator _playerAnimator;
     private int _PlayerSize = 0;    //Indica el tamaño del jugador
 
     public int getSize() { return _PlayerSize; } //Devuelve el tamaño del jugador
+
+    public Vector2 getSpawnPoint(int n) { return _spawns[n].position; }
 
     private void Awake()
     {
@@ -24,6 +27,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         _movementController = GetComponent<MovementController>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
     }
 
     //Aumenta en 1 el tamaño
@@ -58,5 +62,10 @@ public class PlayerManager : MonoBehaviour
     public void EnableInputs(bool enabled)
     {
         gameObject.GetComponent<InputController>().enabled = enabled;
+    }
+
+    public void moveToNextRoom(int currentRoom, Vector2 cameraPoint, DoorComponent door)
+    {
+        StartCoroutine(_playerAnimator.nextRoomAnim(_spawns[currentRoom].position,cameraPoint, door));
     }
 }

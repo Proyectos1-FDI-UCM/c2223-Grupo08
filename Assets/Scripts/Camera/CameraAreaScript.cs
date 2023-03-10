@@ -12,7 +12,7 @@ public class CameraAreaScript : MonoBehaviour
     private CameraMovement _cameraMovement;
     private Transform _playerTransform;
 
-    private void Start()
+    private void Awake()
     {
         m_Collider = GetComponent<Collider2D>();
         _cameraMovement = Camera.main.GetComponent<CameraMovement>();
@@ -30,5 +30,10 @@ public class CameraAreaScript : MonoBehaviour
         {
             _cameraMovement.UpdateTargetPositionY();
         }
+    }
+
+    public Vector2 ClosestPoint(Vector2 point)
+    {
+        return m_Collider.bounds.ClosestPoint(point);
     }
 }

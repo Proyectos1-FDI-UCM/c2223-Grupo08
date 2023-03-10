@@ -30,6 +30,4 @@ public class BotonComponent : MonoBehaviour
 
         _animator.SetBool("IsPressed", false);
     }
-
-
 }

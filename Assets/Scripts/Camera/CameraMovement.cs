@@ -11,6 +11,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Vector3 _offset;
     private Vector2 _targetPos;
 
+    public void MoveCamera(Vector2 target)
+    {
+        _targetPos = new Vector3(target.x, target.y, -10);
+    }
+
     // Actualiza la x de la posicion destino
     public void UpdateTargetPositionX()
     {
@@ -28,7 +33,7 @@ public class CameraMovement : MonoBehaviour
     {
         Vector2 direccion = Vector2.Lerp(transform.position, _targetPos, _followFactor);
 
-        if (direccion.magnitude > 0.15f || direccion.magnitude > -0.15f)    //Para si esta muy cerca del jugador
+        if (Vector2.Distance(transform.position, _targetPos) > 0.15f || Vector2.Distance(transform.position, _targetPos) < -0.15f)    //Para si esta muy cerca del jugador
             transform.position = new Vector3(direccion.x, direccion.y, -10);
     }
 }
