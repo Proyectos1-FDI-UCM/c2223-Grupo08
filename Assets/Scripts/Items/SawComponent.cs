@@ -57,7 +57,7 @@ public class SawComponent : MonoBehaviour
         _rigidbody.velocity = direction * _velocity;
     }
 
-    private void ResetObj()
+    public void ResetObj()
     {
         direction = (_endPoint.position - _startPoint.position).normalized;
         _rigidbody.velocity = direction * _velocity;
