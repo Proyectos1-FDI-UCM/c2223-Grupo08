@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
         _currentRoom++;
         _playerManager.EnableInputs(false);
         _playerManager.moveToNextRoom(_currentRoom, _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.getSpawnPoint(_currentRoom)), door);
+        PlayerManager.Instance.resetSize();
     }
 
 }

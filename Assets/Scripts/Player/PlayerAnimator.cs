@@ -55,5 +55,6 @@ public class PlayerAnimator : MonoBehaviour
         }
         door.CloseDoor();
         PlayerManager.Instance.EnableInputs(true);
+        
     }
 }

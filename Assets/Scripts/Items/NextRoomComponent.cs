@@ -8,5 +8,6 @@ public class NextRoomComponent : MonoBehaviour
     {
         gameObject.active = false;
         GameManager.Instance.nextRoom(GetComponentInParent<DoorComponent>());
-    }
+        
+    }   
 }
