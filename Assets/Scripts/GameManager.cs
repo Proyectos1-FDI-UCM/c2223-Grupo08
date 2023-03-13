@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
 
         ResetBoxes();
         ResetBalls();
-        ResetButtons();
+        ResetButtons(); 
+        ResetSaws();
         _playerManager.resetSize();
         _playerManager.goToSpawn(_currentRoom);
 
@@ -109,6 +110,19 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    
+    //Reinicia las botones a su posición inicial
+    public void ResetSaws()
+    {
+        SawComponent[] spawnManagers = _buttons.GetComponentsInChildren<SawComponent>();
+        if (spawnManagers.Length != 0)
+        {
+            foreach (SawComponent button in spawnManagers)
+            {
+                button.ResetObj();
+            }
+        }
+    }
 
     //Reinicia los objetos y el personaje de la sala con una pequeña animación
     public IEnumerator ResetRoom()
@@ -120,7 +134,8 @@ public class GameManager : MonoBehaviour
 
         ResetBoxes();
         ResetBalls();
-        ResetButtons();
+        ResetButtons(); 
+        ResetSaws();
         _playerManager.resetSize();
         _playerManager.goToSpawn(_currentRoom);
 
@@ -133,6 +148,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitWhile(() => _uiManager.IsInAnimation());
 
         _playerManager.EnableInputs(true);
+        _playerManager.SetAlive(true);
     }
 
     public void UpdateCounter(int size) //Incrementa el contador de bolas de la UI en 1

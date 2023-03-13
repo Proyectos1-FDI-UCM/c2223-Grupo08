@@ -12,9 +12,13 @@ public class PlayerManager : MonoBehaviour
 
     private MovementController _movementController;
     private PlayerAnimator _playerAnimator;
+    private bool _isAlive = true;
     private int _PlayerSize = 0;    //Indica el tamaño del jugador
 
     public int getSize() { return _PlayerSize; } //Devuelve el tamaño del jugador
+
+    public bool IsAlive() { return _isAlive; }
+    public void SetAlive(bool b) { _isAlive = b; }
 
     public Vector2 getSpawnPoint(int n) { return _spawns[n].position; }
 
