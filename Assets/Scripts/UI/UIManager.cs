@@ -63,4 +63,9 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void QuitGame() // Sale del juego una vez al pulsar boton de salir
+    {
+        Application.Quit();
+    }
 }

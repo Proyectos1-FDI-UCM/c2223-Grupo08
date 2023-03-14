@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Exulsion de tama\xF1o.unity"
     guid: 90e5d8d341c2f7349a6554408ea9fc8d
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 886396001f22f40678c1017979209155
   m_configObjects: {}
