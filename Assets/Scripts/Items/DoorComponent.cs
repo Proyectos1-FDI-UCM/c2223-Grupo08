@@ -10,7 +10,7 @@ public class DoorComponent : MonoBehaviour
     private Animator _animator;
     private BoxCollider2D _collider;
 
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
         _collider= GetComponent<BoxCollider2D>();

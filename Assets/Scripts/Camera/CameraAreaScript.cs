@@ -16,6 +16,10 @@ public class CameraAreaScript : MonoBehaviour
     {
         m_Collider = GetComponent<Collider2D>();
         _cameraMovement = Camera.main.GetComponent<CameraMovement>();
+    }
+
+    private void Start()
+    {
         _playerTransform = PlayerManager.Instance.gameObject.transform;
     }
 

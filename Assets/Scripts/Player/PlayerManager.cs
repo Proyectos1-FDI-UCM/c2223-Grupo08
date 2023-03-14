@@ -25,11 +25,6 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         _movementController = GetComponent<MovementController>();
         _playerAnimator = GetComponent<PlayerAnimator>();
     }

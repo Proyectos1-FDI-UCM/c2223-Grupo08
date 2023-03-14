@@ -10,7 +10,7 @@ public class BotonComponent : MonoBehaviour
     private bool _activated = false;
 
     private Animator _animator;
-    private void Start()
+    private void Awake()
     {
         _animator= GetComponent<Animator>();
     }

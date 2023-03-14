@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
     }
 
     private void Start()
     {
         _playerManager = PlayerManager.Instance;
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
         Init();
     }
 
@@ -160,8 +160,8 @@ public class GameManager : MonoBehaviour
     {
         _currentRoom++;
         _playerManager.EnableInputs(false);
+        _playerManager.resetSize();
         _playerManager.moveToNextRoom(_currentRoom, _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.getSpawnPoint(_currentRoom)), door);
-        PlayerManager.Instance.resetSize();
     }
 
 }
