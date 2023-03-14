@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
 
     public Vector2 getSpawnPoint(int n) { return _spawns[n].position; }
 
+    public ParticleSystem particles;
+
     private void Awake()
     {
         _instance = this;
@@ -42,13 +44,19 @@ public class PlayerManager : MonoBehaviour
 
     //Devuelve el tamaño a 0
     public void resetSize()
-    {
-        _PlayerSize = 0;
-        transform.localScale = Vector3.one;
-        GameManager.Instance.CheckBoxes(_PlayerSize);
-        _movementController.SetSlowFactor(_PlayerSize);
-        _movementController.SetJumpFactor(_PlayerSize);
-        GameManager.Instance.UpdateCounter(_PlayerSize);
+    { 
+        if(_PlayerSize > 0)
+        {
+            particles.Play();
+            _PlayerSize = 0;
+            transform.localScale = Vector3.one;
+            GameManager.Instance.CheckBoxes(_PlayerSize);
+            _movementController.SetSlowFactor(_PlayerSize);
+            _movementController.SetJumpFactor(_PlayerSize);
+            GameManager.Instance.UpdateCounter(_PlayerSize);
+        }
+
+
     }
 
     //Devuelve al jugador a su posicion inicial en esa sala
