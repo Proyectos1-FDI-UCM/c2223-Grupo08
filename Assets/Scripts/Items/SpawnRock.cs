@@ -7,17 +7,14 @@ public class SpawnRock : MonoBehaviour
 {
     [SerializeField] private GameObject _object;
 
-    [SerializeField] private float _minSpawnInterval;
-
-    [SerializeField] private float _maxSpawnInterval;
+    [SerializeField] private float _spawnInterval;
 
     private float _timeToSpawn;
 
-    void Start()
+    private void Start()
     {
-        _timeToSpawn = UnityEngine.Random.Range(_minSpawnInterval, _maxSpawnInterval);
+        _timeToSpawn = _spawnInterval;
     }
-
     void Update()
     {
         _timeToSpawn -= Time.deltaTime;
@@ -25,7 +22,7 @@ public class SpawnRock : MonoBehaviour
         if( _timeToSpawn < 0)
         {
             Instantiate(_object, transform);
-            _timeToSpawn = UnityEngine.Random.Range(_minSpawnInterval, _maxSpawnInterval);
+            _timeToSpawn = _spawnInterval;
         }
     }
 }

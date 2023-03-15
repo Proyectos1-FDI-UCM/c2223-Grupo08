@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _object: {fileID: 3557192896298496642, guid: 65940b17f6f31c64790082e43fdbaa37, type: 3}
-  _minSpawnInterval: 5
-  _maxSpawnInterval: 10
+  _spawnInterval: 5
 --- !u!1 &763411398
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3557192896298496670, guid: 65940b17f6f31c64790082e43fdbaa37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.56
+      value: 2.96
       objectReference: {fileID: 0}
     - target: {fileID: 3557192896298496670, guid: 65940b17f6f31c64790082e43fdbaa37, type: 3}
       propertyPath: m_LocalPosition.y
