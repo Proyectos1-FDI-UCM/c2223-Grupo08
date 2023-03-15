@@ -6,6 +6,7 @@ public class RockComponent : MonoBehaviour
 {
 
     private Animator _anim;
+    private float time = 1;
 
     private void Awake()
     {
@@ -15,11 +16,13 @@ public class RockComponent : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _anim.SetTrigger("Destruido");
-        Invoke("Destruir", 1);
+        StartCoroutine(Destruir(time));
     }
 
-    private void Destruir()
+    IEnumerator Destruir(float time)
     {
+        yield return new WaitForSeconds(time);
+
         Destroy(gameObject);
     }
 }
