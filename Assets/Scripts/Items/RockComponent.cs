@@ -4,8 +4,25 @@ using UnityEngine;
 
 public class RockComponent : MonoBehaviour
 {
+
+    private Animator _anim;
+    private float time = 1;
+
+    private void Awake()
+    {
+        _anim = GetComponentInChildren<Animator>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        _anim.SetTrigger("Destruido");
+        StartCoroutine(Destruir(time));
+    }
+
+    IEnumerator Destruir(float time)
+    {
+        yield return new WaitForSeconds(time);
+
         Destroy(gameObject);
     }
 }
