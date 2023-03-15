@@ -8,10 +8,11 @@ public class PlayerAnimator : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
 
+    private bool faceRight = true;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -19,13 +20,19 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator.SetFloat("velocityX", GetComponent<Rigidbody2D>().velocity.x);
         _animator.SetFloat("velocityY", GetComponent<Rigidbody2D>().velocity.y);
-        if (GetComponent<Rigidbody2D>().velocity.x < -0.5f)
+        if (GetComponent<Rigidbody2D>().velocity.x < -0.5f && faceRight)
         {
-            _spriteRenderer.flipX = true;
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale; 
+            faceRight = false;
         }
-        else if (GetComponent<Rigidbody2D>().velocity.x > 0.5f)
+        else if (GetComponent<Rigidbody2D>().velocity.x > 0.5f && !faceRight)
         {
-            _spriteRenderer.flipX = false;
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale; 
+            faceRight = true;
         }
     }
 

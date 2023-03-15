@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &5059875968906271270
 Rigidbody2D:
   serializedVersion: 4
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0075559616, y: -0.08454013}
+  m_Offset: {x: 0.20266694, y: -0.08454013}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -139,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0654845, y: 0.6495776}
+  m_Size: {x: 0.6752626, y: 0.6495776}
   m_EdgeRadius: 0.1
 --- !u!114 &5059875968906271264
 MonoBehaviour:
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9f93d2fc3cbc348ae462dd57fe6334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 3.5
+  _jumpForce: 4
   _maxVelocity: 5
   _acceleration: 0.2
   _slowPenalty: 0.5
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawns: []
+  particles: {fileID: 0}
 --- !u!95 &1254578445258793804
 Animator:
   serializedVersion: 4
@@ -275,7 +276,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018755466, y: -0.01889348}
+  m_Offset: {x: 0.2123785, y: -0.01889348}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -286,7 +287,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1197512, y: 0.06699991}
+  m_Size: {x: 0.7325051, y: 0.06699991}
   m_EdgeRadius: 0
 --- !u!114 &5059875969473517837
 MonoBehaviour:
@@ -345,7 +346,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016833425, y: -0.074067116}
+  m_Offset: {x: 0.20312229, y: -0.08580184}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -356,5 +357,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0067335, y: 0.60946417}
+  m_Size: {x: 0.6752276, y: 0.64466834}
   m_EdgeRadius: 0
