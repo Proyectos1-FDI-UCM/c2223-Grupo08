@@ -35,7 +35,8 @@ public class PlayerManager : MonoBehaviour
     public void incrementSize()
     {
         _PlayerSize++;
-        transform.localScale += new  Vector3(0.2f,0.2f,0);
+        Vector2 scale = new Vector2(transform.localScale.x, transform.localScale.y);
+        transform.localScale += new Vector3(Mathf.Sign(transform.localScale.x) * 0.2f , 0.2f , 0);
         GameManager.Instance.CheckBoxes(_PlayerSize);
         _movementController.SetSlowFactor(_PlayerSize);
         _movementController.SetJumpFactor(_PlayerSize);

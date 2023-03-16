@@ -44408,14 +44408,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
-      propertyPath: _jumpForce
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
-      propertyPath: _jumpPenalty
-      value: 0.32
-      objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271274, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_Name
       value: Player
