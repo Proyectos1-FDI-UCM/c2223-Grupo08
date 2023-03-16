@@ -22,6 +22,7 @@ public class PlayerAnimator : MonoBehaviour
         _animator.SetFloat("velocityY", GetComponent<Rigidbody2D>().velocity.y);
         if (GetComponent<Rigidbody2D>().velocity.x < -0.5f && faceRight)
         {
+            Debug.Log("a");
             Vector3 newScale = transform.localScale;
             newScale.x *= -1;
             transform.localScale = newScale; 
@@ -29,6 +30,7 @@ public class PlayerAnimator : MonoBehaviour
         }
         else if (GetComponent<Rigidbody2D>().velocity.x > 0.5f && !faceRight)
         {
+            Debug.Log("b");
             Vector3 newScale = transform.localScale;
             newScale.x *= -1;
             transform.localScale = newScale; 
