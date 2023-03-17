@@ -58,14 +58,4 @@ public class UIManager : MonoBehaviour
         string m = size.ToString() + "/5";
         CounterText.text = m;
     }
-
-    public void ChangeMenuToGameScene() //Carga la escena de juego desde el menu una vez pulsado el boton
-    {
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void QuitGame() // Sale del juego una vez al pulsar boton de salir
-    {
-        Application.Quit();
-    }
 }
