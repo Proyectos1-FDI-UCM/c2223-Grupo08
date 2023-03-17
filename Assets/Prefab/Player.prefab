@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpForce: 4
   _maxVelocity: 5
-  _acceleration: 0.2
+  _acceleration: 0.5
   _slowPenalty: 0.5
   _jumpPenalty: 0.32
 --- !u!114 &5059875968906271265
