@@ -6,7 +6,7 @@ public class RockComponent : MonoBehaviour
 {
 
     private Animator _anim;
-    private float time = 1;
+    private float time = 0.3f;
 
     private void Awake()
     {
