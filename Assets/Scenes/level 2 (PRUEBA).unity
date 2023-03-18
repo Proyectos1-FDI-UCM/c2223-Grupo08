@@ -153,7 +153,7 @@ Transform:
   m_Children:
   - {fileID: 351381697}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &214516888 stripped
 Transform:
@@ -375,7 +375,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21152,6 +21152,7 @@ MonoBehaviour:
   _boxes: {fileID: 1516735765}
   _balls: {fileID: 1952975575}
   _buttons: {fileID: 1014436201}
+  _cameraAreas: {fileID: 0}
 --- !u!4 &732618253
 Transform:
   m_ObjectHideFlags: 0
@@ -21165,7 +21166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &813523045
 PrefabInstance:
@@ -21315,7 +21316,7 @@ Transform:
   m_Children:
   - {fileID: 1923248398}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1249801587
 GameObject:
@@ -21400,7 +21401,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1249801591
 MonoBehaviour:
@@ -21471,7 +21472,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24354,7 +24355,7 @@ Transform:
   - {fileID: 1957064790}
   - {fileID: 1647938417}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1593380364
 PrefabInstance:
@@ -24461,7 +24462,7 @@ Transform:
   - {fileID: 1385230719}
   - {fileID: 656967338}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1647938417 stripped
 Transform:
@@ -24626,7 +24627,7 @@ Transform:
   - {fileID: 1466722392}
   - {fileID: 214516888}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1957064790 stripped
 Transform:
