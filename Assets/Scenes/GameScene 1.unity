@@ -38508,6 +38508,7 @@ GameObject:
   - component: {fileID: 655397974}
   - component: {fileID: 655397977}
   - component: {fileID: 655397976}
+  - component: {fileID: 655397978}
   m_Layer: 5
   m_Name: Relleno barra
   m_TagString: Untagged
@@ -38530,11 +38531,11 @@ RectTransform:
   m_Father: {fileID: 85577925}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -518.1, y: 224.40997}
-  m_SizeDelta: {x: 2.6074, y: 17.4626}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -465.04425, y: 225.47021}
+  m_SizeDelta: {x: 156.1456, y: 13.9285}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &655397976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38573,6 +38574,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655397973}
   m_CullTransparentMesh: 1
+--- !u!114 &655397978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655397973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe1b639ccd0cd442aea004206883db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &732618251
 GameObject:
   m_ObjectHideFlags: 0
@@ -38739,6 +38752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fade: {fileID: 169235353}
+  _stuffedBar: {fileID: 655397978}
   CounterText: {fileID: 0}
 --- !u!1001 &765207483
 PrefabInstance:
@@ -41805,7 +41819,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 13, y: 2, z: 0}
@@ -41821,7 +41835,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 29, y: 2, z: 0}

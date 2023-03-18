@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _fade;
+    private GameObject _fade; 
+    
+    [SerializeField]
+    private IncrementSizeBarra _stuffedBar;
     private bool _inAnimation;
 
     [SerializeField]
@@ -57,5 +60,10 @@ public class UIManager : MonoBehaviour
     {
         string m = size.ToString() + "/5";
         CounterText.text = m;
+    }
+
+    public void ResizeBar(int size)
+    {
+        _stuffedBar.ResizeBar(size);
     }
 }
