@@ -981,7 +981,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 496040025}
         m_TargetAssemblyTypeName: MenusManager, Assembly-CSharp
-        m_MethodName: ChangeToGameScene
+        m_MethodName: UnpauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
