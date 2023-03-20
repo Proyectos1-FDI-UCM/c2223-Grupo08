@@ -15,6 +15,11 @@ public class CameraMovement : MonoBehaviour
     {
         _targetPos = new Vector3(target.x, target.y, -10);
     }
+    public void setPosition(Vector2 target)
+    {
+        _targetPos = new Vector3(target.x, target.y, -10);
+        transform.position = _targetPos;
+    }
 
     // Actualiza la x de la posicion destino
     public void UpdateTargetPositionX()

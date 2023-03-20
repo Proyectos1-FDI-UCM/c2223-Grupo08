@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _playerManager = PlayerManager.Instance;
+        _currentRoom = SaveScript.room;
+        Debug.Log(SaveScript.room);
         Init();
     }
 
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
         _playerManager.goToSpawn(_currentRoom);
 
         Vector2 cameraPoint = _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.transform.position);
-        Camera.main.GetComponent<CameraMovement>().MoveCamera(cameraPoint);
+        Camera.main.GetComponent<CameraMovement>().setPosition(cameraPoint);
 
         CheckBoxes(0);
 
@@ -142,7 +144,7 @@ public class GameManager : MonoBehaviour
         _playerManager.goToSpawn(_currentRoom);
 
         Vector2 cameraPoint = _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.transform.position);
-        Camera.main.GetComponent<CameraMovement>().MoveCamera(cameraPoint);
+        Camera.main.GetComponent<CameraMovement>().setPosition(cameraPoint);
 
         _playerManager.SendMessage("IsDeath", false);
 
@@ -153,7 +155,7 @@ public class GameManager : MonoBehaviour
         _playerManager.SetAlive(true);
     }
 
-    public void UpdateCounter(int size) //Incrementa el contador de bolas de la UI en 1
+    public void UpdateCounter(int size) //Cambia el contador de bolas de la UI
     {
         _uiManager.ResizeBar(size);
     }
@@ -164,5 +166,10 @@ public class GameManager : MonoBehaviour
         _playerManager.EnableInputs(false);
         _playerManager.resetSize();
         _playerManager.moveToNextRoom(_currentRoom, _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.getSpawnPoint(_currentRoom)), door);
+    }
+
+    public void saveGame()
+    {
+        SaveScript.SaveFile(_currentRoom, SceneManager.GetActiveScene().name);
     }
 }

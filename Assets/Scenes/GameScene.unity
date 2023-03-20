@@ -5158,7 +5158,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 750560866}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5942,7 +5942,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: -332.48077, y: 226.85748}
-  m_SizeDelta: {x: 217.1016, y: 20.9962}
+  m_SizeDelta: {x: 156.1456, y: 13.9285}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &310739462
 MonoBehaviour:
@@ -6746,8 +6746,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 169235354}
   - {fileID: 1079731700}
+  - {fileID: 169235354}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7649,7 +7649,7 @@ RectTransform:
   - {fileID: 310739461}
   - {fileID: 1650534543}
   m_Father: {fileID: 750560866}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -46107,7 +46107,7 @@ GameObject:
   - component: {fileID: 1650534545}
   - component: {fileID: 1650534544}
   m_Layer: 5
-  m_Name: Barra
+  m_Name: Marco barra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46130,8 +46130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -274, y: 226.91785}
-  m_SizeDelta: {x: 270.9075, y: 48.4832}
+  m_AnchoredPosition: {x: -304.4, y: 226.91785}
+  m_SizeDelta: {x: 195.0245, y: 31.8566}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650534544
 MonoBehaviour:
@@ -48510,7 +48510,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 76, y: 0, z: 0}

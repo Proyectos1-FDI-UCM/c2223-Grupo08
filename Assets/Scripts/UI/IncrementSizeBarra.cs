@@ -14,6 +14,5 @@ public class IncrementSizeBarra : MonoBehaviour
     public void ResizeBar(int size)
     {
         transform.localScale = new Vector3 ((_scale.x/5)*size , _scale.y,1);
-        Debug.Log(_scale);
     }
 }
