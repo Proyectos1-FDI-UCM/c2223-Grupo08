@@ -6,6 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MenusManager : MonoBehaviour
 {
+    static private bool IsPaused = false;
+    void Update()
+    {
+
+        Scene CurrentScene = SceneManager.GetActiveScene(); // Cogemos  la escena en la que está para que no pueda pausar el juego si no está en la escena de gamescene
+        Scene GameScene = SceneManager.GetSceneByName("GameScene");
+
+        if (Input.GetKeyDown(KeyCode.Escape) && GameScene == CurrentScene && IsPaused == false)
+        {
+            PauseGame();
+            IsPaused = true;
+        }
+    }
     public void ChangeToGameScene() //Carga la escena de juego desde el menu una vez pulsado el boton
     {
         SceneManager.LoadScene("GameScene");
@@ -19,6 +32,7 @@ public class MenusManager : MonoBehaviour
     public void ChangeToMenuScene() //Carga la escena de juego desde el menu una vez pulsado el boton
     {
         SceneManager.LoadScene("Menu");
+        IsPaused = false;
     }
 
     public void PauseGame() // Pausa el juego y abre el menu de pausa
@@ -30,6 +44,7 @@ public class MenusManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("Pausa");
         Time.timeScale = 1.0f;
+        IsPaused = false;
     }
 
     public void LoadGame()
