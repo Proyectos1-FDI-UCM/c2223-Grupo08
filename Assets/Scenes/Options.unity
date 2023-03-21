@@ -646,7 +646,19 @@ MonoBehaviour:
       m_Image: {fileID: 913102807, guid: c50bec62cf61d0649b119d465c5d8f91, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1308243429}
+        m_TargetAssemblyTypeName: ConfigScript, Assembly-CSharp
+        m_MethodName: ChangeFPS
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &253847069
 MonoBehaviour:
@@ -1959,7 +1971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 650009562}
   m_Layer: 5
-  m_Name: Resolition
+  m_Name: Resolution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2059,8 +2071,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -336.39532, y: 108}
-  m_SizeDelta: {x: 191.9591, y: 30}
+  m_AnchoredPosition: {x: -349.11072, y: 108}
+  m_SizeDelta: {x: 217.3899, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711119461
 MonoBehaviour:
@@ -2082,7 +2094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resolucion
+  m_text: Resolucion Ventana
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2860,7 +2872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 640 x 480
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3663,17 +3675,29 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: 30
+    - m_Text: 640 x 480
       m_Image: {fileID: 913102807, guid: c50bec62cf61d0649b119d465c5d8f91, type: 3}
-    - m_Text: 60
+    - m_Text: 960 x 540
       m_Image: {fileID: 913102807, guid: c50bec62cf61d0649b119d465c5d8f91, type: 3}
-    - m_Text: 120
+    - m_Text: 1280 x 720
       m_Image: {fileID: 913102807, guid: c50bec62cf61d0649b119d465c5d8f91, type: 3}
-    - m_Text: 144
+    - m_Text: 1920 x 1080
       m_Image: {fileID: 913102807, guid: c50bec62cf61d0649b119d465c5d8f91, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1308243429}
+        m_TargetAssemblyTypeName: ConfigScript, Assembly-CSharp
+        m_MethodName: ChangeResolution
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1179801570
 MonoBehaviour:
@@ -4069,8 +4093,9 @@ GameObject:
   - component: {fileID: 1308243427}
   - component: {fileID: 1308243426}
   - component: {fileID: 1308243425}
+  - component: {fileID: 1308243429}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ConfigMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4159,6 +4184,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1308243429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308243424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43af1c265cce719478ee3250d13cc00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FPS_dropdown: {fileID: 253847068}
+  Mode_dropdown: {fileID: 1961216360}
+  Resolution_dropdown: {fileID: 1179801569}
+  Volume_Slider: {fileID: 1838459438}
 --- !u!1 &1313789894
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,7 +7174,19 @@ MonoBehaviour:
       m_Image: {fileID: 913102807, guid: c50bec62cf61d0649b119d465c5d8f91, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1308243429}
+        m_TargetAssemblyTypeName: ConfigScript, Assembly-CSharp
+        m_MethodName: ChangeWindowMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1961216361
 MonoBehaviour:
