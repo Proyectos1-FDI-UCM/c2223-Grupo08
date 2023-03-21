@@ -21,7 +21,6 @@ public static class SaveScript
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file, data);
         file.Close();
-        Debug.Log(currentRoom);
     }
 
     public static void LoadFile()

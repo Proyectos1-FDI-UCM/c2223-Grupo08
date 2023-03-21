@@ -71,11 +71,6 @@ public class InputController : MonoBehaviour
         {
             StartCoroutine(GameManager.Instance.ResetRoom());
         }
-
-        if (Input.GetKey(KeyCode.P))//Tecla temporal para guardar
-        {
-            GameManager.Instance.saveGame();
-        }
     }
 
     private void Grounded()

@@ -53,4 +53,8 @@ public class MenusManager : MonoBehaviour
         SceneManager.LoadScene(SaveScript.scene);
         Time.timeScale = 1.0f;
     }
+    public void SaveGame()
+    {
+        GameManager.Instance.saveGame();
+    }
 }

@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     {
         _playerManager = PlayerManager.Instance;
         _currentRoom = SaveScript.room;
-        Debug.Log(SaveScript.room);
         Init();
     }
 

@@ -9,8 +9,8 @@ public class ConfigScript : MonoBehaviour
     public static int Volume = 100;
     public static FullScreenMode WindowMode = FullScreenMode.ExclusiveFullScreen;
     public static int FPS = 120;
+    public static int Resolution_Value = 3;
     private static int FPS_Value = 2;
-    private static int Resolution_Value = 3;
 
     [SerializeField]
     private TMP_Dropdown FPS_dropdown;
