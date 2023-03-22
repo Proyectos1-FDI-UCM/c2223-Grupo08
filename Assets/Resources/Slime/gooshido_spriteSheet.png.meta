@@ -481,6 +481,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 233
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a88c0b82ad0edca429dfabe7d6dfe9fd
+      internalID: -769699635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 233
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0820c618f24e8aa4c82c71b42f22aa11
+      internalID: 162041754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 232
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd47d89e17f7b14f9437961fec28587
+      internalID: 1178575478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 232
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6e16db82aaf66439a63913342b214f
+      internalID: -624152705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 161
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de789a3075c907c42bd19ba786a619c9
+      internalID: -1518885643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 161
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a80b0d9123e9397429b3b712c3960a82
+      internalID: -849833144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 159
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9220809a1147341a4400c9d2b93ee8
+      internalID: 354046696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gooshido_spriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 158
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d157d19a25c04d646ad3934d2482bf73
+      internalID: -1193838401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -519,14 +687,14 @@ TextureImporter:
       gooshido_spriteSheet_52: 57566202
       gooshido_spriteSheet_15: -1193838401
       gooshido_spriteSheet_12: -1815285761
-      gooshido_spriteSheet_40: -1162420620
-      gooshido_spriteSheet_32: 1156116961
-      gooshido_spriteSheet_65: -928688265
       gooshido_spriteSheet_50: -1226648718
+      gooshido_spriteSheet_23: -989845736
+      gooshido_spriteSheet_65: -928688265
+      gooshido_spriteSheet_40: -1162420620
       gooshido_spriteSheet_29: 1358625957
       gooshido_spriteSheet_39: -1732820494
       gooshido_spriteSheet_25: 1318469318
-      gooshido_spriteSheet_23: -989845736
+      gooshido_spriteSheet_32: 1156116961
       gooshido_spriteSheet_28: -1831685786
       gooshido_spriteSheet_42: 2101647269
       gooshido_spriteSheet_48: 2116934377

@@ -6052,10 +6052,10 @@ RectTransform:
   m_Father: {fileID: 1079731700}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -332.48077, y: 226.85748}
-  m_SizeDelta: {x: 156.1456, y: 13.9285}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -78.14809, y: 0.1060009}
+  m_SizeDelta: {x: 156.5697, y: 12.564501}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &310739462
 MonoBehaviour:
@@ -7938,10 +7938,10 @@ RectTransform:
   m_Father: {fileID: 750560866}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -410.8, y: 202}
+  m_SizeDelta: {x: -901.79553, y: -486.6083}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1088140661 stripped
 Transform:
@@ -8128,6 +8128,7 @@ GameObject:
   - component: {fileID: 1249801589}
   - component: {fileID: 1249801588}
   - component: {fileID: 1249801591}
+  - component: {fileID: 1249801592}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8216,6 +8217,39 @@ MonoBehaviour:
   _playerTransform: {fileID: 2062685881}
   _followFactor: 0.1
   _offset: {x: 0, y: 3, z: 0}
+--- !u!114 &1249801592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249801587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1336209212
 GameObject:
   m_ObjectHideFlags: 0
@@ -46417,8 +46451,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -304.4, y: 226.91785}
-  m_SizeDelta: {x: 195.0245, y: 31.8566}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 195.0245, y: 29.8566}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650534544
 MonoBehaviour:
@@ -48521,6 +48555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae01a0a6f9b277743a10faabfb194da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 0}
 --- !u!4 &1762772896
 Transform:
   m_ObjectHideFlags: 0
@@ -48619,8 +48654,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2048520293
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -49393,7 +49428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50876,7 +50911,7 @@ PrefabInstance:
       objectReference: {fileID: 223162333}
     - target: {fileID: 7966366157688639610, guid: 1b240fb103fc9d74e8c5ad419dfcf8bc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7966366157688639610, guid: 1b240fb103fc9d74e8c5ad419dfcf8bc, type: 3}
       propertyPath: m_LocalPosition.x

@@ -22,6 +22,13 @@ public class MenusManager : MonoBehaviour
             IsPaused = true;
         }
     }
+    public void NewGame() //Carga la escena de juego desde el menu una vez pulsado el boton
+    {
+        SaveScript.room = 0;
+        SaveScript.scene = "GameScene";
+        ChangeToGameScene();
+    }
+
     public void ChangeToGameScene() //Carga la escena de juego desde el menu una vez pulsado el boton
     {
         SceneManager.LoadScene("GameScene");
