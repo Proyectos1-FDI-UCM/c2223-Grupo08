@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ConfigScript : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class ConfigScript : MonoBehaviour
     public static int FPS = 120;
     public static int Resolution_Value = 3;
     private static int FPS_Value = 2;
+
+    public static MenusManager PreviusSceneManager;
+    public static bool IsMenu;
 
     [SerializeField]
     private TMP_Dropdown FPS_dropdown;
@@ -93,4 +97,35 @@ public class ConfigScript : MonoBehaviour
         }
         Resolution_Value = Resolution_dropdown.value;
     }
+
+    private void Update()
+    {
+        if (MenusManager.IsInConfig)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (IsMenu) {
+                    ChangeToMenu(); 
+                }
+                else
+                {
+                    ChangeToPause();
+                }
+            }
+        }
+    }
+
+    public void ChangeToPause()
+    {
+        SceneManager.LoadSceneAsync("Pausa", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Options");
+    }
+
+    public void ChangeToMenu()
+    {
+        SceneManager.UnloadSceneAsync("Options");
+        PreviusSceneManager.ToggleUI();
+    }
+
+
 }

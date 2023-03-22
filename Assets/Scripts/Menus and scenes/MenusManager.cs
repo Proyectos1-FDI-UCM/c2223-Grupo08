@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MenusManager : MonoBehaviour
 {
+    [SerializeField] private GameObject UI;
     static private bool IsPaused = false;
+    static public bool IsInConfig = false;
+
     void Update()
     {
 
@@ -56,5 +59,29 @@ public class MenusManager : MonoBehaviour
     public void SaveGame()
     {
         GameManager.Instance.saveGame();
+    }
+
+    public void ChangePauseToOptions()
+    {
+        SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Pausa");
+        ConfigScript.IsMenu = false;
+    }
+    public void ChangeMenuToOptions()
+    {
+        IsPaused = false;
+        IsInConfig = true;
+        SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
+        UI.active = false;
+        ConfigScript.IsMenu = true;
+        ConfigScript.PreviusSceneManager = this;
+    }
+
+    public void ToggleUI()
+    {
+        IsPaused = false;
+        IsInConfig = true;
+        UI.active = !UI.active;
+        ConfigScript.PreviusSceneManager = this;
     }
 }
