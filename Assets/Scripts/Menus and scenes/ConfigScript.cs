@@ -4,17 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class ConfigScript : MonoBehaviour
 {
     public static int Volume = 100;
     public static FullScreenMode WindowMode = FullScreenMode.ExclusiveFullScreen;
     public static int FPS = 120;
-    public static int Resolution_Value = 3;
-    private static int FPS_Value = 2;
 
     public static MenusManager PreviusSceneManager;
     public static bool IsMenu;
+    private ConfigData _configData = new ConfigData(2,2,3);
 
     [SerializeField]
     private TMP_Dropdown FPS_dropdown;
@@ -27,7 +28,9 @@ public class ConfigScript : MonoBehaviour
 
     private void Start()
     {
-        QualitySettings.vSyncCount = 0;
+        Screen.fullScreen = true;
+        LoadConfig();
+        /*QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = FPS;
         FPS_dropdown.value = FPS_Value;
 
@@ -35,7 +38,7 @@ public class ConfigScript : MonoBehaviour
         Screen.fullScreenMode = WindowMode;
 
         Resolution_dropdown.value = Resolution_Value;
-        ChangeResolution();
+        ChangeResolution();*/
     }
 
     public void ChangeFPS()
@@ -56,7 +59,7 @@ public class ConfigScript : MonoBehaviour
                 break;
         }
 
-        FPS_Value = FPS_dropdown.value;
+        _configData.FPS_Value = FPS_dropdown.value;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = FPS;
     }
@@ -77,6 +80,7 @@ public class ConfigScript : MonoBehaviour
                 WindowMode = FullScreenMode.ExclusiveFullScreen;
                 break;
         }
+        _configData.Mode_Value = Mode_dropdown.value;
     }
     public void ChangeResolution()
     {
@@ -95,7 +99,7 @@ public class ConfigScript : MonoBehaviour
                 Screen.SetResolution(1920 , 1080, WindowMode);
                 break;
         }
-        Resolution_Value = Resolution_dropdown.value;
+        _configData.Resolution_Value = Resolution_dropdown.value;
     }
 
     private void Update()
@@ -117,15 +121,74 @@ public class ConfigScript : MonoBehaviour
 
     public void ChangeToPause()
     {
+        SaveFile();
         SceneManager.LoadSceneAsync("Pausa", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Options");
     }
 
     public void ChangeToMenu()
     {
+        SaveFile();
         SceneManager.UnloadSceneAsync("Options");
         PreviusSceneManager.ToggleUI();
     }
 
+    private void SaveFile()
+    {
+        string destination = Application.persistentDataPath + "/config.dat";
+        FileStream file;
 
+        if (File.Exists(destination)) file = File.OpenWrite(destination);
+        else file = File.Create(destination);
+
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(file, _configData);
+        file.Close();
+    }
+
+    public bool LoadFile()
+    {
+        string destination = Application.persistentDataPath + "/config.dat";
+        FileStream file;
+
+        if (File.Exists(destination)) file = File.OpenRead(destination);
+        else
+        {
+            Debug.LogError("File not found");
+            return false;
+        }
+
+        BinaryFormatter bf = new BinaryFormatter();
+        ConfigData data = (ConfigData)bf.Deserialize(file);
+        file.Close();
+
+        _configData.FPS_Value = data.FPS_Value;
+        _configData.Mode_Value = data.Mode_Value;
+        _configData.Resolution_Value = data.Resolution_Value;
+        return true;
+    }
+
+    public void LoadConfig()
+    {
+        LoadFile();
+        FPS_dropdown.value = _configData.FPS_Value;
+        Resolution_dropdown.value = _configData.Resolution_Value;
+        Mode_dropdown.value = _configData.Mode_Value;
+    }
 }
+
+[System.Serializable]
+struct ConfigData
+{
+    public int FPS_Value;
+    public int Mode_Value;
+    public int Resolution_Value;
+
+    public ConfigData(int FPS_Value, int Mode_Value, int Resolution_Value)
+    {
+        this.FPS_Value = FPS_Value;
+        this.Mode_Value = Mode_Value;
+        this.Resolution_Value = Resolution_Value;
+    }
+}
+
