@@ -48521,6 +48521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae01a0a6f9b277743a10faabfb194da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 0}
 --- !u!4 &1762772896
 Transform:
   m_ObjectHideFlags: 0
@@ -48619,8 +48620,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2048520293
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -49393,7 +49394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50876,7 +50877,7 @@ PrefabInstance:
       objectReference: {fileID: 223162333}
     - target: {fileID: 7966366157688639610, guid: 1b240fb103fc9d74e8c5ad419dfcf8bc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7966366157688639610, guid: 1b240fb103fc9d74e8c5ad419dfcf8bc, type: 3}
       propertyPath: m_LocalPosition.x
