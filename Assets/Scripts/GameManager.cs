@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
 
+    public bool isPaused = false;
+
     private void Awake()
     {
         _instance = this;

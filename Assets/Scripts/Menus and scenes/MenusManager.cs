@@ -3,37 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum MenuState { StartMenu, PauseMenu, ConfigMenu, None};
 
 public class MenusManager : MonoBehaviour
 {
     [SerializeField] private GameObject UI;
-    static public bool IsPaused = false;
-    static public bool IsInConfig = false;
-    private bool firstTimeRuning = true;
+    private static bool firstTimeRuning = true;
+
+
+    public static MenuState menuState;
 
     private void Start()
     {
         if (firstTimeRuning)
         {
             ConfigScript.LoadInputs();
-            firstTimeRuning = false;
+            firstTimeRuning = false; 
+            menuState = MenuState.StartMenu;
         }
     }
 
     void Update()
     {
-        Scene CurrentScene = SceneManager.GetActiveScene(); // Cogemos  la escena en la que está para que no pueda pausar el juego si no está en la escena de gamescene
-        Scene GameScene = SceneManager.GetSceneByName("GameScene");
-        Scene Level2 = SceneManager.GetSceneByName("Level2");
-        Scene Level3 = SceneManager.GetSceneByName("Level3");
-
-        if (Input.GetKeyDown(KeyCode.Escape) && IsPaused == false)
-        {
-            if(CurrentScene == GameScene || CurrentScene == Level2 || CurrentScene == Level3)
+        if (GameManager.Instance != null) {
+            if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.isPaused && menuState == MenuState.PauseMenu)
             {
-                PauseGame();
-                IsPaused = true;
-            }
+                UnpauseGame();
+            } 
         }
     }
     public void NewGame() //Carga la escena de juego desde el menu una vez pulsado el boton
@@ -56,19 +52,23 @@ public class MenusManager : MonoBehaviour
     public void ChangeToMenuScene() //Carga la escena de juego desde el menu una vez pulsado el boton
     {
         SceneManager.LoadScene("Menu");
-        IsPaused = false;
     }
 
-    public void PauseGame() // Pausa el juego y abre el menu de pausa
+    public static void PauseGame() // Pausa el juego y abre el menu de pausa
     {
+        Input.ResetInputAxes();
         SceneManager.LoadSceneAsync("Pausa", LoadSceneMode.Additive);
         Time.timeScale= 0f;
+        menuState = MenuState.PauseMenu;
+        GameManager.Instance.isPaused = true;
     }
    public void UnpauseGame() // Reanuda el juego cerrando el menu de pausa
     {
+        Input.ResetInputAxes();
         SceneManager.UnloadSceneAsync("Pausa");
         Time.timeScale = 1.0f;
-        IsPaused = false;
+        menuState = MenuState.None;
+        GameManager.Instance.isPaused = false;
     }
 
     public void LoadGame()
@@ -87,21 +87,19 @@ public class MenusManager : MonoBehaviour
         SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Pausa");
         ConfigScript.IsMenu = false;
+        menuState = MenuState.ConfigMenu;
     }
     public void ChangeMenuToOptions()
     {
-        IsPaused = false;
-        IsInConfig = true;
         SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
         UI.active = false;
         ConfigScript.IsMenu = true;
         ConfigScript.PreviusSceneManager = this;
+        menuState = MenuState.ConfigMenu;
     }
 
     public void ToggleUI()
     {
-        IsPaused = false;
-        IsInConfig = true;
         UI.active = !UI.active;
         ConfigScript.PreviusSceneManager = this;
     }
