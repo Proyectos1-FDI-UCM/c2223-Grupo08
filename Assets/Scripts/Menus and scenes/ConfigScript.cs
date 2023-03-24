@@ -152,7 +152,6 @@ public class ConfigScript : MonoBehaviour
                 {
                     if (Input.GetKey(vKey))
                     {
-                        Debug.Log(ButtonsCodes);
                         if (ButtonsCodes.Contains(vKey)) {
                             int p = ButtonsCodes.IndexOf(vKey);
                             ButtonsCodes[p] = KeyCode.None;
