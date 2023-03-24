@@ -9,6 +9,16 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private GameObject UI;
     static public bool IsPaused = false;
     static public bool IsInConfig = false;
+    private bool firstTimeRuning = true;
+
+    private void Start()
+    {
+        if (firstTimeRuning)
+        {
+            ConfigScript.LoadInputs();
+            firstTimeRuning = false;
+        }
+    }
 
     void Update()
     {
