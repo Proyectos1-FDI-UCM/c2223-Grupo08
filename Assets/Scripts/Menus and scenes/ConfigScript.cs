@@ -114,12 +114,14 @@ public class ConfigScript : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("Pausa", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Options");
+        MenusManager.menuState = MenuState.PauseMenu;
     }
 
     public void ChangeToMenu()
     {
         SceneManager.UnloadSceneAsync("Options");
         PreviusSceneManager.ToggleUI();
+        MenusManager.menuState = MenuState.StartMenu;
     }
 
     public void ChangeButton(int position)
@@ -241,7 +243,7 @@ public class ConfigScript : MonoBehaviour
 
     private void Update()
     {
-        if (MenusManager.IsInConfig && !IsGettingKey)
+        if (MenusManager.menuState == MenuState.ConfigMenu && !IsGettingKey)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

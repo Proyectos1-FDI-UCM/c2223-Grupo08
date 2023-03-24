@@ -71,6 +71,11 @@ public class InputController : MonoBehaviour
         {
             StartCoroutine(GameManager.Instance.ResetRoom());
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isPaused)
+        {
+            MenusManager.PauseGame();
+        }
     }
 
     private void Grounded()
