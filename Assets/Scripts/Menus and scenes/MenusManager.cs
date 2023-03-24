@@ -7,19 +7,33 @@ using UnityEngine.SceneManagement;
 public class MenusManager : MonoBehaviour
 {
     [SerializeField] private GameObject UI;
-    static private bool IsPaused = false;
+    static public bool IsPaused = false;
     static public bool IsInConfig = false;
+    private bool firstTimeRuning = true;
+
+    private void Start()
+    {
+        if (firstTimeRuning)
+        {
+            ConfigScript.LoadInputs();
+            firstTimeRuning = false;
+        }
+    }
 
     void Update()
     {
-
         Scene CurrentScene = SceneManager.GetActiveScene(); // Cogemos  la escena en la que está para que no pueda pausar el juego si no está en la escena de gamescene
         Scene GameScene = SceneManager.GetSceneByName("GameScene");
+        Scene Level2 = SceneManager.GetSceneByName("Level2");
+        Scene Level3 = SceneManager.GetSceneByName("Level3");
 
-        if (Input.GetKeyDown(KeyCode.Escape) && GameScene == CurrentScene && IsPaused == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && IsPaused == false)
         {
-            PauseGame();
-            IsPaused = true;
+            if(CurrentScene == GameScene || CurrentScene == Level2 || CurrentScene == Level3)
+            {
+                PauseGame();
+                IsPaused = true;
+            }
         }
     }
     public void NewGame() //Carga la escena de juego desde el menu una vez pulsado el boton

@@ -22,14 +22,14 @@ public class InputController : MonoBehaviour
     void Update()
     {
         //Da un impulso inicia e inicializa el contador en el aire
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded) {
+        if (Input.GetKeyDown(ConfigScript.ButtonsCodes[(int)Buttons.Jump]) && _isGrounded) {
             _isJumping = true;
             _jumpTimeCounter = _jumpTime;
             SendMessage("Jump");
             _frameTimeCounter = _frameTime;
         }
         //Aumenta el salto hasta cierto tiempo
-        else if (Input.GetKey(KeyCode.Space) && _isJumping) {
+        else if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Jump]) && _isJumping) {
             if (_frameTimeCounter <= 0) {
                 if (_jumpTimeCounter > 0)
                 {
@@ -48,26 +48,26 @@ public class InputController : MonoBehaviour
             }
         }
         // en caso de levantar la tecla, impide volver a conseguir el impulso
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Jump]))
         {
             _isJumping = false;
         }
 
-        if(Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Right]))
         {
             SendMessage("MoveRight");
         }
-        else if(Input.GetKey(KeyCode.LeftArrow))
+        else if(Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Left]))
         {
             SendMessage("MoveLeft");
         }
 
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Drop]))
         {
             SendMessage("resetSize");
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Reset]))
         {
             StartCoroutine(GameManager.Instance.ResetRoom());
         }
