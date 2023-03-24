@@ -56,14 +56,4 @@ public class UIManager : MonoBehaviour
         _inAnimation = false;
     }
 
-    public void UpdateCounter(int size) //Incrementa el contador de bolas de la UI en 1
-    {
-        string m = size.ToString() + "/5";
-        CounterText.text = m;
-    }
-
-    public void ResizeBar(int size)
-    {
-        _stuffedBar.ResizeBar(size);
-    }
 }

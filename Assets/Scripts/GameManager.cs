@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         ResetButtons(); 
         ResetSaws();
         _playerManager.resetSize();
-        _uiManager.ResizeBar(_playerManager.getSize());
+       
         _playerManager.goToSpawn(_currentRoom);
 
         Vector2 cameraPoint = _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.transform.position);
@@ -154,11 +154,6 @@ public class GameManager : MonoBehaviour
 
         _playerManager.EnableInputs(true);
         _playerManager.SetAlive(true);
-    }
-
-    public void UpdateCounter(int size) //Cambia el contador de bolas de la UI
-    {
-        _uiManager.ResizeBar(size);
     }
 
     public void nextRoom(DoorComponent door)
