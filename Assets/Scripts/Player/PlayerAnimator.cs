@@ -50,6 +50,10 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator.SetBool("IsDeath", b);
     }
+    public void LoadScene()
+    {
+        _animator.SetBool("LoadScene", true);
+    }
     public IEnumerator nextRoomAnim(Vector2 target, Vector2 cameraTarget, DoorComponent door)
     {
         Vector2 direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
@@ -62,6 +66,6 @@ public class PlayerAnimator : MonoBehaviour
         }
         door.CloseDoor();
         PlayerManager.Instance.EnableInputs(true);
-        
     }
+    
 }

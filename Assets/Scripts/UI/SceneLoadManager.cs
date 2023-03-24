@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadManager : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerAnimator _playerAnimator;
     private Animator transitionAnimator;
     void Start()
     {
         transitionAnimator = GetComponentInChildren<Animator>();
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (true)
-        {
-            LoadNextScene();
-        }
+    { 
+        PlayerManager.Instance.EnableInputs(false);
+        _playerAnimator.LoadScene();
+        LoadNextScene();
     }
     void LoadNextScene()
     {
