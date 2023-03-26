@@ -14,7 +14,7 @@ public class SceneLoadManager : MonoBehaviour
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    { 
+    {
         PlayerManager.Instance.EnableInputs(false);
         _playerAnimator.LoadScene();
         LoadNextScene();

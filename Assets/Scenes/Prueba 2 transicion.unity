@@ -6747,11 +6747,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181463687223650868, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.05522
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4181463687223650868, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0738016
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4181463687223650868, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7045,6 +7045,8 @@ MonoBehaviour:
   _balls: {fileID: 1952975575}
   _buttons: {fileID: 911812306}
   _cameraAreas: {fileID: 2029200232}
+  isPaused: 0
+  IsShowingOpenDoor: 0
 --- !u!4 &732618253
 Transform:
   m_ObjectHideFlags: 0
