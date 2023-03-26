@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadManager : MonoBehaviour
 {
+    [Tooltip("True para que la siguiente escena sea el main menu")]
+    public bool NextSceneMenu = false;
+
     [SerializeField]
     private PlayerAnimator _playerAnimator;
     private Animator transitionAnimator;
@@ -21,7 +24,15 @@ public class SceneLoadManager : MonoBehaviour
     }
     void LoadNextScene()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        int nextSceneIndex;
+        if (NextSceneMenu)
+        {
+            nextSceneIndex = 0;
+        }
+        else
+        {
+            nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        }
         StartCoroutine(SceneLoad(nextSceneIndex));
     }
 
