@@ -26,11 +26,11 @@ public class CameraAreaScript : MonoBehaviour
     //Actualiza la camara si esta en los limites pero separando los limites de x e y
     void FixedUpdate()
     {
-        if (m_Collider.bounds.min.x < _playerTransform.position.x && m_Collider.bounds.max.x > _playerTransform.position.x)
+        if (m_Collider.bounds.min.x < _playerTransform.position.x && m_Collider.bounds.max.x > _playerTransform.position.x && GameManager.Instance.IsShowingOpenDoor == false)
         {
             _cameraMovement.UpdateTargetPositionX();
         }
-        if (m_Collider.bounds.min.y < _playerTransform.position.y && m_Collider.bounds.max.y > _playerTransform.position.y)
+        if (m_Collider.bounds.min.y < _playerTransform.position.y && m_Collider.bounds.max.y > _playerTransform.position.y && GameManager.Instance.IsShowingOpenDoor == false)
         {
             _cameraMovement.UpdateTargetPositionY();
         }

@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused = false;
 
+    public bool IsShowingOpenDoor = false;
+
     private void Awake()
     {
         _instance = this;
