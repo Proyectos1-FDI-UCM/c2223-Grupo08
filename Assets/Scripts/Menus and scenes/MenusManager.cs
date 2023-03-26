@@ -35,13 +35,13 @@ public class MenusManager : MonoBehaviour
     public void NewGame() //Carga la escena de juego desde el menu una vez pulsado el boton
     {
         SaveScript.room = 0;
-        SaveScript.scene = "GameScene";
+        SaveScript.scene = "Level 1";
         ChangeToGameScene();
     }
 
     public void ChangeToGameScene() //Carga la escena de juego desde el menu una vez pulsado el boton
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Level 1");
         Time.timeScale = 1.0f;
     }
 

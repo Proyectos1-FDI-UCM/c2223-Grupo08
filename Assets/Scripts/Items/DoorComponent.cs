@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DoorComponent : MonoBehaviour
 {
-    [SerializeField]
-    private bool _isOpen = false;
-    [SerializeField]
+    private bool _isFirstTime = false;
     private CameraMovement CameraMovementComponent;
+    [SerializeField]
+    private CameraAreaScript _CameraArea;
 
     private Animator _animator;
     private BoxCollider2D _collider;
@@ -33,37 +33,38 @@ public class DoorComponent : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (_isOpen == false)
+        if (_isFirstTime == false)
         {
             CameraAnimToDoor();
         }
         _collider.enabled = false;
         _animator.SetBool("isOpen", true);
-        _isOpen = true;
+        _isFirstTime = true;
     }
 
     public void CloseDoor()
     {
         _collider.enabled = true;
         _animator.SetBool("isOpen", false);
-        _isOpen = false;
     }
 
-    public void CamaraToDoor()
+    public void CameraToDoor()
     {
         CameraMovementComponent.MoveCamera(DoorPosition);
         GameManager.Instance.IsShowingOpenDoor= true;
+        PlayerManager.Instance.EnableInputs(false);
     }
 
     public void CameraReturnToPlayer()
     {
-        CameraMovementComponent.MoveCamera(PlayerManager.Instance.transform.position);
+        CameraMovementComponent.MoveCamera(_CameraArea.ClosestPoint(PlayerManager.Instance.transform.position));
         GameManager.Instance.IsShowingOpenDoor = false;
+        PlayerManager.Instance.EnableInputs(true);
     }
 
     private void CameraAnimToDoor()
     {
-        CamaraToDoor();
+        CameraToDoor();
         Invoke("CameraReturnToPlayer", 2f);
     }
 }

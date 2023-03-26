@@ -5849,6 +5849,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4093482759395015467, guid: ed49a37da5fd0f845ba975c4fa094b12, type: 3}
+      propertyPath: _CameraArea
+      value: 
+      objectReference: {fileID: 9274297}
     - target: {fileID: 4093482759395015470, guid: ed49a37da5fd0f845ba975c4fa094b12, type: 3}
       propertyPath: m_Name
       value: Door (1)
@@ -52121,6 +52125,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4093482759395015467, guid: ed49a37da5fd0f845ba975c4fa094b12, type: 3}
+      propertyPath: _CameraArea
+      value: 
+      objectReference: {fileID: 877523704}
     - target: {fileID: 4093482759395015470, guid: ed49a37da5fd0f845ba975c4fa094b12, type: 3}
       propertyPath: m_Name
       value: Door
