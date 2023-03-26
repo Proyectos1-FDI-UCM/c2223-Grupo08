@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         GameManager.Instance.CheckBoxes(_PlayerSize);
         _movementController.SetSlowFactor(_PlayerSize);
         _movementController.SetJumpFactor(_PlayerSize);
-     
+        GameManager.Instance.ResizeBallsBar(_PlayerSize);
     }
 
     //Devuelve el tamaño a 0
@@ -53,6 +53,7 @@ public class PlayerManager : MonoBehaviour
             GameManager.Instance.CheckBoxes(_PlayerSize);
             _movementController.SetSlowFactor(_PlayerSize);
             _movementController.SetJumpFactor(_PlayerSize);
+            GameManager.Instance.ResizeBallsBar(_PlayerSize);
         }
 
 

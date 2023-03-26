@@ -11,11 +11,8 @@ public class UIManager : MonoBehaviour
     private GameObject _fade; 
     
     [SerializeField]
-    private IncrementSizeBarra _stuffedBar;
+    private IncrementSizeBarra _balls;
     private bool _inAnimation;
-
-    [SerializeField]
-    private TMP_Text CounterText;
 
     public bool IsInAnimation() { return _inAnimation; }
 
@@ -56,4 +53,8 @@ public class UIManager : MonoBehaviour
         _inAnimation = false;
     }
 
+    public void ResizeBallsBar(int size)
+    {
+        _balls.ResizeBar(size);
+    }
 }

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class IncrementSizeBarra : MonoBehaviour
 {
-    private Vector2 _scale;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _scale= transform.localScale;
-    }
+    [SerializeField]
+    private GameObject[] _rellenoBolas;
 
     public void ResizeBar(int size)
     {
-        transform.localScale = new Vector3 ((_scale.x/5)*size , _scale.y,1);
+        for (int i = 0; i < 5; i++)
+        {
+            if(i < size)
+            {
+                _rellenoBolas[i].active = true;
+            }
+            else
+            {
+                _rellenoBolas[i].active = false;
+            }
+        }
     }
 }

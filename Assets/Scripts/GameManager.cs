@@ -170,4 +170,9 @@ public class GameManager : MonoBehaviour
     {
         SaveScript.SaveFile(_currentRoom, SceneManager.GetActiveScene().name);
     }
+
+    public void ResizeBallsBar(int size)
+    {
+        _uiManager.ResizeBallsBar(size);
+    }
 }
