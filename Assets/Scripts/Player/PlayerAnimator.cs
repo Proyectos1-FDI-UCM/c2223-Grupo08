@@ -58,7 +58,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         Vector2 direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
         Camera.main.GetComponent<CameraMovement>().MoveCamera(cameraTarget);
-        while (Vector2.Distance(transform.position, target) > 2f || Vector2.Distance(transform.position, target) < -2f)
+        while (Vector2.Distance(transform.position, target) > 1f || Vector2.Distance(transform.position, target) < -1f)
         {
             _rigidbody2D.MovePosition(direction);
             direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
