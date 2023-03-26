@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2678596820132649484}
   - component: {fileID: 418728363238473014}
   m_Layer: 0
-  m_Name: Down
+  m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 550829198110287711}
   - component: {fileID: 2599874212561392727}
   m_Layer: 8
-  m_Name: Up
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4686848657610968211}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 2c2a9cdac2a33c24d83389650a694151, type: 2}
+  m_Material: {fileID: 6200000, guid: 6fb0b89ede31e534baae99ff363f725b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
