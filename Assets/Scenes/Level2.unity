@@ -123309,7 +123309,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 8, y: -4, z: 0}
@@ -123645,7 +123645,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 22, y: 13, z: 0}
@@ -123976,8 +123976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fade: {fileID: 737283374}
-  _stuffedBar: {fileID: 555160967}
-  CounterText: {fileID: 0}
+  _balls: {fileID: 0}
 --- !u!114 &523412391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124092,6 +124091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe1b639ccd0cd442aea004206883db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rellenoBolas: []
 --- !u!114 &555160968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128005,7 +128005,7 @@ PrefabInstance:
     - target: {fileID: -3966554712309231792, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
       propertyPath: targetGameObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1888322444}
     - target: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -134755,6 +134755,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2292580387552849482, guid: 075c42f1406b64cbb9a655af03cfda8e, type: 3}
   m_PrefabInstance: {fileID: 2292580387172175005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1888322444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4093482759395015470, guid: 588e9dc562054dc4cac3410543d1ba2c, type: 3}
+  m_PrefabInstance: {fileID: 1386326033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1890329919
 GameObject:
   m_ObjectHideFlags: 0
@@ -134845,6 +134850,22 @@ PrefabInstance:
       propertyPath: _spawns.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5059875968906271265, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _spawns.Array.data[0]
+      value: 
+      objectReference: {fileID: 680101090}
+    - target: {fileID: 5059875968906271265, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _spawns.Array.data[1]
+      value: 
+      objectReference: {fileID: 313887427}
+    - target: {fileID: 5059875968906271265, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _spawns.Array.data[2]
+      value: 
+      objectReference: {fileID: 469621456}
+    - target: {fileID: 5059875968906271265, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _spawns.Array.data[3]
+      value: 
+      objectReference: {fileID: 1929444038}
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_RootOrder
       value: 3
