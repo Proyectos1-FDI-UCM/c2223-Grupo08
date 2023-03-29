@@ -134812,6 +134812,7 @@ MonoBehaviour:
   _balls: {fileID: 1890329919}
   _buttons: {fileID: 24409924}
   _cameraAreas: {fileID: 319689164}
+  _doors: {fileID: 1160985839}
   isPaused: 0
   IsShowingOpenDoor: 0
 --- !u!4 &1836824296

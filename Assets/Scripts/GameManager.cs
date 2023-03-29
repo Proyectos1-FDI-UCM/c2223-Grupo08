@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private GameObject _buttons;
     [SerializeField]
     private GameObject _cameraAreas;
+    [SerializeField]
+    private GameObject _doors;
 
     private int _currentRoom = 0;
     private PlayerManager _playerManager;
@@ -118,6 +120,19 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    //Reinicia las puertas a como si fuese la primera vez que se abren
+    public void ResetDoors()
+    {
+        DoorComponent[] components = _doors.GetComponentsInChildren<DoorComponent>();
+        if (components.Length != 0)
+        {
+            foreach (DoorComponent door in components)
+            {
+                door.resetFirstTime();
+            }
+        }
+    }
+
     //Reinicia las botones a su posición inicial
     public void ResetSaws()
     {
@@ -143,6 +158,7 @@ public class GameManager : MonoBehaviour
         ResetBalls();
         ResetButtons(); 
         ResetSaws();
+        ResetDoors();
         _playerManager.resetSize();
         _playerManager.goToSpawn(_currentRoom);
 

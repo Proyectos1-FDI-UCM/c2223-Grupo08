@@ -39,6 +39,11 @@ public class DoorComponent : MonoBehaviour
         CloseDoor();
     }
 
+    public void resetFirstTime()
+    {
+        _isFirstTime = false;
+    }
+
     public void OpenDoor()
     {
         if (_isFirstTime == false)

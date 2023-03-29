@@ -6787,6 +6787,7 @@ MonoBehaviour:
   _balls: {fileID: 958787770}
   _buttons: {fileID: 154619063}
   _cameraAreas: {fileID: 62178856}
+  _doors: {fileID: 520212429}
   isPaused: 0
   IsShowingOpenDoor: 0
 --- !u!4 &472069737
@@ -125059,7 +125060,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 89, y: 10, z: 0}
