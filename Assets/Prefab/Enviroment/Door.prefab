@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1321358316177895763}
   - component: {fileID: 6196663256845679339}
   - component: {fileID: 8831351495446285672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Limit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4093482759395015467}
   - component: {fileID: 6862732863509081616}
   - component: {fileID: 7089467348932170107}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51479939465e7644881544837a1db61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isOpen: 0
+  _CameraArea: {fileID: 0}
 --- !u!95 &6862732863509081616
 Animator:
   serializedVersion: 4
