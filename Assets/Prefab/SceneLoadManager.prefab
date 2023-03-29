@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1731208457232648325}
   - component: {fileID: 6772003231055778303}
   - component: {fileID: 4011114818030445820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3740492004819048379}
   - component: {fileID: 1636154272619112908}
   - component: {fileID: 2126346560788680874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SceneLoadManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68baeef4028ff4cb3db4c1580e1c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextSceneMenu: 0
+  _playerAnimator: {fileID: 0}
 --- !u!1 &5901910972996186747
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +216,7 @@ GameObject:
   - component: {fileID: 1085056678419771938}
   - component: {fileID: 1345683323521591457}
   - component: {fileID: 2771757477087249779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

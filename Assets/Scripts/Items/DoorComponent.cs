@@ -14,12 +14,20 @@ public class DoorComponent : MonoBehaviour
 
     private Vector2 DoorPosition;
 
+    [SerializeField]
+    private bool _isOpenFromBeginning = false;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _collider= GetComponent<BoxCollider2D>();
         CameraMovementComponent = Camera.main.GetComponent<CameraMovement>();
         DoorPosition = this.transform.position;
+        if (_isOpenFromBeginning)
+        {
+            _isFirstTime = true;
+            OpenDoor();
+        }
     }
 
     private void ActivateGameObject()
