@@ -7,11 +7,12 @@ using TMPro;
 
 public class Signs : MonoBehaviour
 {
-    [SerializeField] private Text SignText;
+    [SerializeField] private TMP_Text SignText;
+    [TextArea][SerializeField] private string text;
 
     // Start is called before the first frame update
     void Start()
     {
-        SignText.text = "Hola";
+        SignText.text = text;
     }
 }

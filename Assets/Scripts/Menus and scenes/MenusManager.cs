@@ -57,7 +57,7 @@ public class MenusManager : MonoBehaviour
     public static void PauseGame() // Pausa el juego y abre el menu de pausa
     {
         Input.ResetInputAxes();
-        SceneManager.LoadSceneAsync("Pausa", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Pausa", LoadSceneMode.Additive);
         Time.timeScale= 0f;
         menuState = MenuState.PauseMenu;
         GameManager.Instance.isPaused = true;
@@ -65,7 +65,7 @@ public class MenusManager : MonoBehaviour
    public void UnpauseGame() // Reanuda el juego cerrando el menu de pausa
     {
         Input.ResetInputAxes();
-        SceneManager.UnloadSceneAsync("Pausa");
+        SceneManager.UnloadScene("Pausa");
         Time.timeScale = 1.0f;
         menuState = MenuState.None;
         GameManager.Instance.isPaused = false;
@@ -84,14 +84,14 @@ public class MenusManager : MonoBehaviour
 
     public void ChangePauseToOptions()
     {
-        SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("Pausa");
+        SceneManager.LoadScene("Options", LoadSceneMode.Additive);
+        SceneManager.UnloadScene("Pausa");
         ConfigScript.IsMenu = false;
         menuState = MenuState.ConfigMenu;
     }
     public void ChangeMenuToOptions()
     {
-        SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Options", LoadSceneMode.Additive);
         UI.active = false;
         ConfigScript.IsMenu = true;
         ConfigScript.PreviusSceneManager = this;

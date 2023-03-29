@@ -3881,7 +3881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c07003f4fb6654a81a997f4c74b838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SignText: {fileID: 0}
+  SignText: {fileID: 2089428275}
+  text: Hola
 --- !u!1001 &1389607270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46994,6 +46995,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
   m_PrefabInstance: {fileID: 1884787857}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2089428275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687017317052762838, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 122533074}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2093469567
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,10 +12,6 @@ enum Buttons { Left = 0, Right = 1, Jump = 2, Drop = 3, Reset = 4};
 
 public class ConfigScript : MonoBehaviour
 {
-    public static int Volume = 100;
-    public static FullScreenMode WindowMode = FullScreenMode.ExclusiveFullScreen;
-    public static int FPS = 120;
-
     public static MenusManager PreviusSceneManager;
     public static bool IsMenu;
 
@@ -46,6 +42,7 @@ public class ConfigScript : MonoBehaviour
 
     public void ChangeFPS()
     {
+        int FPS = 0;
         switch (FPS_dropdown.value)
         {
             case 0:
@@ -73,17 +70,14 @@ public class ConfigScript : MonoBehaviour
         {
             case 0:
                 Screen.fullScreenMode = FullScreenMode.Windowed;
-                WindowMode = FullScreenMode.Windowed;
                 break;
             case 1:
                 Screen.fullScreen = true;
                 Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-                WindowMode = FullScreenMode.FullScreenWindow;
                 break;
             case 2:
                 Screen.fullScreen = true;
                 Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
-                WindowMode = FullScreenMode.ExclusiveFullScreen;
                 break;
         }
         _configData.Mode_Value = Mode_dropdown.value;
@@ -91,19 +85,20 @@ public class ConfigScript : MonoBehaviour
     }
     public void ChangeResolution()
     {
+
         switch (Resolution_dropdown.value)
         {
             case 0:
-                Screen.SetResolution(640, 480, WindowMode);
+                Screen.SetResolution(640, 480, Screen.fullScreenMode);
                 break;
             case 1:
-                Screen.SetResolution(960, 540, WindowMode);
+                Screen.SetResolution(960, 540, Screen.fullScreenMode);
                 break;
             case 2:
-                Screen.SetResolution(1280, 720, WindowMode);
+                Screen.SetResolution(1280, 720, Screen.fullScreenMode);
                 break;
             case 3:
-                Screen.SetResolution(1920, 1080, WindowMode);
+                Screen.SetResolution(1920, 1080, Screen.fullScreenMode);
                 break;
         }
         _configData.Resolution_Value = Resolution_dropdown.value;
