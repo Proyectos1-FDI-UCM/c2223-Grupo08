@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51479939465e7644881544837a1db61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isOpen: 0
+  _CameraArea: {fileID: 0}
 --- !u!95 &6862732863509081616
 Animator:
   serializedVersion: 4
@@ -129,7 +129,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4093482759395015470}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c4c114cf8da8e8a44a9374e8838f8f38, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
