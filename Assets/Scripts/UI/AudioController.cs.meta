@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 36781187c92be4230afebe307a74258c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _audioDoorOpen: {fileID: 8300000, guid: f5f9be7ddd48c9c408ee2223a3aad48f, type: 3}
+  - _audioDoorClosed: {instanceID: 0}
+  - _audioButton: {instanceID: 0}
+  - _audioPlatform: {instanceID: 0}
+  - _audioRock: {instanceID: 0}
+  - _audioMechanicalSaw: {instanceID: 0}
+  - _audioMusicMenu: {instanceID: 0}
+  - _audioMenuButton: {instanceID: 0}
+  - _audioWalk: {instanceID: 0}
+  - _audioJump: {instanceID: 0}
+  - _audioDeath: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
