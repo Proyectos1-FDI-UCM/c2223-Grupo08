@@ -78,6 +78,11 @@ public class InputController : MonoBehaviour
         }
     }
 
+    public void StopJumping()
+    {
+        _isJumping = false;
+    }
+
     private void Grounded()
     {
         _isGrounded = true;
