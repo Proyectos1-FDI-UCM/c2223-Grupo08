@@ -36,7 +36,6 @@ public class InputController : MonoBehaviour
                     SendMessage("Jump");
                     _jumpTimeCounter -= _frameTime;
                     _frameTimeCounter += _frameTime;
-                    Debug.Log(_frameTimeCounter);
                 }
                 else
                 {
