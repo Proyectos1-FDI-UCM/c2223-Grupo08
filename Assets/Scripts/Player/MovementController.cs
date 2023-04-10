@@ -15,10 +15,10 @@ public class MovementController : MonoBehaviour
     private float _acceleration = 0.2f;    // Aceleracion con el que se moverá en el eje X
 
     [SerializeField]
-    private float _slowPenalty = 0.5f;
+    private float _slowPenalty = 0.5f;  // Penalización por tamaño en el movimiento
 
     [SerializeField]
-    private float _jumpPenalty = 0.25f;
+    private float _jumpPenalty = 0.25f; // Penalización por tamaño en el salto
 
     private float _slowFactor = 0;
 
@@ -40,9 +40,11 @@ public class MovementController : MonoBehaviour
 
     private void MoveRight()
     {
-        if (_maxVelocity - _slowFactor > _rigidbody2D.velocity.x)
+        if (_maxVelocity - _slowFactor > _acceleration)
         {
-            _rigidbody2D.velocity += new Vector2(_acceleration, 0);
+            _acceleration += _maxVelocity * Time.deltaTime;
+            float y = _rigidbody2D.velocity.y;
+            _rigidbody2D.velocity = new Vector2(_acceleration, y);
         }
         else
         {
@@ -53,15 +55,21 @@ public class MovementController : MonoBehaviour
 
     private void MoveLeft()
     {
-        if (-(_maxVelocity - _slowFactor) < _rigidbody2D.velocity.x)
+        if (-(_maxVelocity - _slowFactor) < _acceleration)
         {
-            _rigidbody2D.velocity += new Vector2(-(_acceleration), 0);
+            _acceleration -= _maxVelocity * Time.deltaTime;
+            float y = _rigidbody2D.velocity.y;
+            _rigidbody2D.velocity = new Vector2(_acceleration, y);
         }
         else
         {
             float y = _rigidbody2D.velocity.y;
             _rigidbody2D.velocity = new Vector2(-(_maxVelocity - _slowFactor), y);
         }
+    }
+    private void StopMoving()
+    {
+        _acceleration = 0;
     }
 
     public void SetSlowFactor(float size) {

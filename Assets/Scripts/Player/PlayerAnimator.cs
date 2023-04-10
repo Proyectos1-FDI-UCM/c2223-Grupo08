@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
 
     private bool faceRight = true;
@@ -20,14 +19,14 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator.SetFloat("velocityX", GetComponent<Rigidbody2D>().velocity.x);
         _animator.SetFloat("velocityY", GetComponent<Rigidbody2D>().velocity.y);
-        if (GetComponent<Rigidbody2D>().velocity.x < -0.5f && faceRight)
+        if (GetComponent<Rigidbody2D>().velocity.x < -0.01f && faceRight)
         {
             Vector3 newScale = transform.localScale;
             newScale.x *= -1;
             transform.localScale = newScale; 
             faceRight = false;
         }
-        else if (GetComponent<Rigidbody2D>().velocity.x > 0.5f && !faceRight)
+        else if (GetComponent<Rigidbody2D>().velocity.x > 0.01f && !faceRight)
         {
             Vector3 newScale = transform.localScale;
             newScale.x *= -1;

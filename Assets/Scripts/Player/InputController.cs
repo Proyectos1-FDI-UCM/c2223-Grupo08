@@ -61,6 +61,10 @@ public class InputController : MonoBehaviour
         {
             SendMessage("MoveLeft");
         }
+        else if (Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Right]))
+        {
+            SendMessage("StopMoving");
+        }
 
         if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Drop]))
         {

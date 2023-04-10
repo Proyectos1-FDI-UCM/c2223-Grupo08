@@ -98,7 +98,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: velocityX
-    m_EventTreshold: -0.5
+    m_EventTreshold: -0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 348022237469484133}
   m_Solo: 0
@@ -197,7 +197,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New State
+  m_Name: LoadScene
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -840,7 +840,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: velocityX
-    m_EventTreshold: 0.5
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 348022237469484133}
   m_Solo: 0

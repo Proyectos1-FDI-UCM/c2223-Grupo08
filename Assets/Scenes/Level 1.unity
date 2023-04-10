@@ -2100,7 +2100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 750560867}
-  targetFrameRate: 120
+  targetFrameRate: 60
   _boxes: {fileID: 1516735765}
   _balls: {fileID: 1952975575}
   _buttons: {fileID: 911812306}
@@ -45218,7 +45218,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 13, y: 2, z: 0}
@@ -45780,6 +45780,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 491064637390026162, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271265, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: UI
       value: 
@@ -45855,6 +45859,14 @@ PrefabInstance:
     - target: {fileID: 5059875968906271268, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _maxVelocity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _acceleration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5059875968906271274, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: m_Name
