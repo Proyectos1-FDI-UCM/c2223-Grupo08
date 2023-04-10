@@ -44827,7 +44827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae01a0a6f9b277743a10faabfb194da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 0}
+  UI: {fileID: 750560862}
 --- !u!4 &1762772896
 Transform:
   m_ObjectHideFlags: 0
@@ -45266,7 +45266,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
