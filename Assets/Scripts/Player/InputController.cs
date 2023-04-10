@@ -30,12 +30,13 @@ public class InputController : MonoBehaviour
         }
         //Aumenta el salto hasta cierto tiempo
         else if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Jump]) && _isJumping) {
-            if (_frameTimeCounter <= 0) {
+            if (_frameTimeCounter < 0) {
                 if (_jumpTimeCounter > 0)
                 {
                     SendMessage("Jump");
                     _jumpTimeCounter -= _frameTime;
-                    _frameTimeCounter = _frameTime;
+                    _frameTimeCounter += _frameTime;
+                    Debug.Log(_frameTimeCounter);
                 }
                 else
                 {
