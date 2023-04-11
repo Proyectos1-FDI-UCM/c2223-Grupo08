@@ -6,9 +6,24 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveScript
 {
+    #region properties
+    /// <summary>
+    /// La sala guardada
+    /// </summary>
     public static int room = 0;
-    public static string scene = "Level1";
 
+    /// <summary>
+    /// La escena guardada
+    /// </summary>
+    public static string scene = "Level1";
+    #endregion
+
+    #region methods
+    /// <summary>
+    /// Guarda la partida
+    /// </summary>
+    /// <param name="currentRoom">Sala a guardar</param>
+    /// <param name="sceneName">Escena a guardar</param>
     public static void SaveFile(int currentRoom, string sceneName)
     {
         string destination = Application.persistentDataPath + "/save.dat";
@@ -23,6 +38,9 @@ public static class SaveScript
         file.Close();
     }
 
+    /// <summary>
+    /// Carga la partida
+    /// </summary>
     public static void LoadFile()
     {
         string destination = Application.persistentDataPath + "/save.dat";
@@ -42,8 +60,12 @@ public static class SaveScript
         SaveScript.room = data.room;
         SaveScript.scene = data.scene;
     }
+    #endregion
 }
 
+/// <summary>
+/// Datos de la partida a guardar y cargar
+/// </summary>
 [System.Serializable]
 struct GameData
 {
