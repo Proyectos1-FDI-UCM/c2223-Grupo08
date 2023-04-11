@@ -4,25 +4,63 @@ using UnityEngine;
 
 public class SawComponent : MonoBehaviour
 {
+    #region references
+    /// <summary>
+    /// Punto de inicio de la ruta a seguir
+    /// </summary>
     [SerializeField]
     private Transform _startPoint;
+    /// <summary>
+    /// El punto final de la ruta a seguir
+    /// </summary>
     [SerializeField]
     private Transform _endPoint;
+
+    /// <summary>
+    /// Velocidad de la sierra
+    /// </summary>
     [SerializeField]
     private float _velocity;
+    #endregion
 
+    #region properties
+    /// <summary>
+    /// Punto minimo del vector de direccion
+    /// </summary>
     private Vector2 minV;
+
+    /// <summary>
+    /// Punto maximo del vector de direccion
+    /// </summary>
     private Vector2 maxV;
+
+    /// <summary>
+    /// Vector de direccion normalizado
+    /// </summary>
     private Vector2 direction;
 
+    /// <summary>
+    /// Referencia al rigidbody de la sierra
+    /// </summary>
     private Rigidbody2D _rigidbody;
+    #endregion
+
+    #region methods
+    /// <summary>
+    /// Reinicia la sierra a su estado inicial
+    /// </summary>
+    public void ResetObj()
+    {
+        direction = (_endPoint.position - _startPoint.position).normalized;
+        _rigidbody.velocity = direction * _velocity;
+    }
+    #endregion
 
     private void Start()
     {
         transform.position = _startPoint.position;
         _rigidbody = GetComponent<Rigidbody2D>();
         direction = (_endPoint.position - _startPoint.position).normalized;
-        Debug.Log(direction);
 
         if (direction.x >= 0)
         {
@@ -54,12 +92,6 @@ public class SawComponent : MonoBehaviour
                 direction = -direction;
         }
 
-        _rigidbody.velocity = direction * _velocity;
-    }
-
-    public void ResetObj()
-    {
-        direction = (_endPoint.position - _startPoint.position).normalized;
         _rigidbody.velocity = direction * _velocity;
     }
 }

@@ -7,10 +7,18 @@ using TMPro;
 
 public class Signs : MonoBehaviour
 {
+    #region references
+    /// <summary>
+    /// Referencia al text del cartel
+    /// </summary>
     [SerializeField] private TMP_Text SignText;
-    [TextArea][SerializeField] private string text;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Mensaje a mostrar en el cartel
+    /// </summary>
+    [TextArea][SerializeField] private string text;
+    #endregion
+
     void Start()
     {
         SignText.text = text;

@@ -16,6 +16,9 @@ public class InputController : MonoBehaviour
     private float _frameTime = 0.1f;
     private float _frameTimeCounter = 0;
 
+    [SerializeField]
+    private MovementController _movementController;
+
 
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(ConfigScript.ButtonsCodes[(int)Buttons.Jump]) && _isGrounded) {
             _isJumping = true;
             _jumpTimeCounter = _jumpTime;
-            SendMessage("Jump");
+           _movementController.Jump();
             _frameTimeCounter = _frameTime;
         }
         //Aumenta el salto hasta cierto tiempo
@@ -33,7 +36,7 @@ public class InputController : MonoBehaviour
             if (_frameTimeCounter < 0) {
                 if (_jumpTimeCounter > 0)
                 {
-                    SendMessage("Jump");
+                    _movementController.Jump(); ;
                     _jumpTimeCounter -= _frameTime;
                     _frameTimeCounter += _frameTime;
                 }
@@ -55,15 +58,15 @@ public class InputController : MonoBehaviour
 
         if(Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Right]))
         {
-            SendMessage("MoveRight");
+            _movementController.MoveRight();
         }
         else if(Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Left]))
         {
-            SendMessage("MoveLeft");
+            _movementController.MoveLeft();
         }
-        else if (Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Right]))
+        if (Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Right]))
         {
-            SendMessage("StopMoving");
+            _movementController.StopMoving();
         }
 
         if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Drop]))

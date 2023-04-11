@@ -24,7 +24,7 @@ public class PlatformComponent : MonoBehaviour
     private int _count = 0;
     #endregion
 
-    //Cambiar el SendMessage por un OpenDoor
+    //Cambiar el SendMessage por un OpenDoor y revisar tag
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag != "IgnoreAll")
@@ -38,7 +38,7 @@ public class PlatformComponent : MonoBehaviour
         }
     }
 
-    //Cambiar el SendMessage por un OpenDoor
+    //Cambiar el SendMessage por un OpenDoor y revisar tag
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag != "IgnoreAll")

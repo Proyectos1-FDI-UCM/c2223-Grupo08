@@ -12,7 +12,7 @@ public class MovementController : MonoBehaviour
     private float _maxVelocity = 5;    // Valor maximo con el que se moverá en el eje X
 
     [SerializeField]
-    private float _acceleration = 0.2f;    // Aceleracion con el que se moverá en el eje X
+    private float _acceleration = 0f;    // Aceleracion con el que se moverá en el eje X
 
     [SerializeField]
     private float _slowPenalty = 0.5f;  // Penalización por tamaño en el movimiento
@@ -33,17 +33,18 @@ public class MovementController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void Jump()
+    public void Jump()
     {
         _rigidbody2D.AddForce(Vector2.up * (_jumpForce - _jumpFactor), ForceMode2D.Impulse);
     }
 
-    private void MoveRight()
+    public void MoveRight()
     {
         if (_maxVelocity - _slowFactor > _acceleration)
         {
             _acceleration += _maxVelocity * Time.deltaTime;
             float y = _rigidbody2D.velocity.y;
+            Debug.Log(y);
             _rigidbody2D.velocity = new Vector2(_acceleration, y);
         }
         else
@@ -53,7 +54,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void MoveLeft()
+    public void MoveLeft()
     {
         if (-(_maxVelocity - _slowFactor) < _acceleration)
         {
@@ -67,7 +68,7 @@ public class MovementController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(-(_maxVelocity - _slowFactor), y);
         }
     }
-    private void StopMoving()
+    public void StopMoving()
     {
         _acceleration = 0;
     }
