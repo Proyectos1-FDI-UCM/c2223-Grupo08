@@ -4,52 +4,87 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    static private PlayerManager _instance;   //Instancia del manager
-    static public PlayerManager Instance { get { return _instance; } }
-
+    #region references
+    /// <summary>
+    /// Array con los puntos de spawn del player
+    /// </summary>
     [SerializeField]
     private Transform[] _spawns;
+    #endregion
 
+    #region properties
+    /// <summary>
+    /// Instancia del PlayerManager
+    /// </summary>
+    static private PlayerManager _instance;
+
+    /// <summary>
+    /// Get de la instancia del PlayerManager
+    /// </summary>
+    static public PlayerManager Instance { get { return _instance; } }
+
+    /// <summary>
+    /// Referencia al MovementController
+    /// </summary>
     private MovementController _movementController;
+
+    /// <summary>
+    /// Referencia al PlayerAnimator
+    /// </summary>
     private PlayerAnimator _playerAnimator;
+
+    /// <summary>
+    /// Indica si esta vivo el jugador
+    /// </summary>
     private bool _isAlive = true;
-    private int _PlayerSize = 0;    //Indica el tamaño del jugador
+
+    /// <summary>
+    /// Indica el tamaño del jugador
+    /// </summary>
+    private int _PlayerSize = 0;
 
     public int getSize() { return _PlayerSize; } //Devuelve el tamaño del jugador
 
     public bool IsAlive() { return _isAlive; }
     public void SetAlive(bool b) { _isAlive = b; }
 
+    /// <summary>
+    /// Devuelve el punto de spawn en esa sala
+    /// </summary>
+    /// <param name="n">Numero de la sala</param>
+    /// <returns>El punto de spawn en esa sala</returns>
     public Vector2 getSpawnPoint(int n) { return _spawns[n].position; }
 
+    /// <summary>
+    /// Referencia al ParticleSystem
+    /// </summary>
     public ParticleSystem particles;
+    #endregion
 
-    private void Awake()
-    {
-        _instance = this;
-        _movementController = GetComponent<MovementController>();
-        _playerAnimator = GetComponent<PlayerAnimator>();
-    }
-
-    //Aumenta en 1 el tamaño
+    #region methods
+    /// <summary>
+    /// Aumenta en 1 el tamaño
+    /// </summary>
     public void incrementSize()
     {
         _PlayerSize++;
-        transform.localScale += new Vector3(Mathf.Sign(transform.localScale.x) * 0.2f , 0.2f , 0);
+        transform.localScale += new Vector3(Mathf.Sign(transform.localScale.x) * 0.2f, 0.2f, 0);
         GameManager.Instance.CheckBoxes(_PlayerSize);
         _movementController.SetSlowFactor(_PlayerSize);
         _movementController.SetJumpFactor(_PlayerSize);
         GameManager.Instance.ResizeBallsBar(_PlayerSize);
     }
 
-    //Devuelve el tamaño a 0
+    /// <summary>
+    /// Devuelve el tamaño a 0
+    /// </summary>
     public void resetSize()
-    { 
-        if(_PlayerSize > 0)
+    {
+        if (_PlayerSize > 0)
         {
             particles.Play();
             _PlayerSize = 0;
-            transform.localScale =new Vector3(Mathf.Sign(transform.localScale.x),1,0);
+            transform.localScale = new Vector3(Mathf.Sign(transform.localScale.x), 1, 0);
             GameManager.Instance.CheckBoxes(_PlayerSize);
             _movementController.SetSlowFactor(_PlayerSize);
             _movementController.SetJumpFactor(_PlayerSize);
@@ -59,20 +94,41 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    //Devuelve al jugador a su posicion inicial en esa sala
+    /// <summary>
+    /// Devuelve al jugador a su posicion inicial en esa sala
+    /// </summary>
+    /// <param name="room">Sala actual</param>
     public void goToSpawn(int room)
     {
         transform.position = _spawns[room].position;
     }
 
-    //Quita los inputs del jugador
+    /// <summary>
+    /// Quita o pone los inputs del jugador
+    /// </summary>
+    /// <param name="enabled">Si estan activos o no</param>
     public void EnableInputs(bool enabled)
     {
         gameObject.GetComponent<InputController>().enabled = enabled;
+        if (!enabled)
+            _movementController.StopMoving();
     }
 
+    /// <summary>
+    /// Mueve al personaje a la siguiente sala
+    /// </summary>
+    /// <param name="currentRoom">Sala actual</param>
+    /// <param name="cameraPoint">Punto final de la camara</param>
+    /// <param name="door">Puerta que realiza la accion</param>
     public void moveToNextRoom(int currentRoom, Vector2 cameraPoint, DoorComponent door)
     {
-        StartCoroutine(_playerAnimator.nextRoomAnim(_spawns[currentRoom].position,cameraPoint, door));
+        StartCoroutine(_playerAnimator.nextRoomAnim(_spawns[currentRoom].position, cameraPoint, door));
+    }
+    #endregion
+    private void Awake()
+    {
+        _instance = this;
+        _movementController = GetComponent<MovementController>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
     }
 }

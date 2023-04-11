@@ -64,6 +64,7 @@ public class PlayerAnimator : MonoBehaviour
     /// <param name="cameraTarget">Punto al que tiene que ir la camara</param>
     /// <param name="door">La puerta que realiza la animacion</param>
     /// <returns></returns>
+    // Mirar si se puede quitar la corutina
     public IEnumerator nextRoomAnim(Vector2 target, Vector2 cameraTarget, DoorComponent door)
     {
         Vector2 direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
