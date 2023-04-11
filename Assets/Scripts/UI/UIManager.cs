@@ -84,4 +84,5 @@ public class UIManager : MonoBehaviour
     {
         _balls.ResizeBar(size);
     }
+    #endregion
 }
