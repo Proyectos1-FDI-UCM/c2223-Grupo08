@@ -4,34 +4,69 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-
+    #region references
+    /// <summary>
+    /// Transform del player
+    /// </summary>
     [SerializeField] private Transform _playerTransform;
+
+    /// <summary>
+    /// El factor de seguimiento de la camara
+    /// </summary>
     [SerializeField] private float _followFactor = 0.1f;
+
+    /// <summary>
+    /// El offset respecto al punto a mostrar
+    /// </summary>
     [Space]
     [SerializeField] private Vector3 _offset;
-    private Vector2 _targetPos;
 
+    #endregion
+
+    #region properties
+    /// <summary>
+    /// El punto a mostrar en pantalla
+    /// </summary>
+    private Vector2 _targetPos;
+    #endregion
+
+    #region methods
+    /// <summary>
+    /// Mueve la camara hacia una posicion dada con animacion
+    /// </summary>
+    /// <param name="target">Posicion a la que se quiere mover la camara</param>
+    //Comprobar si el -10 sobra
     public void MoveCamera(Vector2 target)
     {
         _targetPos = new Vector3(target.x, target.y, -10);
     }
+
+    /// <summary>
+    /// Pone la camara en una posicion dada sin animacion
+    /// </summary>
+    /// <param name="target">Posicion a la que se quiere mover la camara</param>
     public void setPosition(Vector2 target)
     {
         _targetPos = new Vector3(target.x, target.y, -10);
         transform.position = _targetPos;
     }
 
-    // Actualiza la x de la posicion destino
+    /// <summary>
+    /// Actualiza la x de la posicion destino
+    /// </summary>
     public void UpdateTargetPositionX()
     {
-         _targetPos.x = _playerTransform.position.x + _offset.x;
+        _targetPos.x = _playerTransform.position.x + _offset.x;
     }
 
-    // Actualiza la y de la posicion destino
+    /// <summary>
+    /// Actualiza la y de la posicion destino
+    /// </summary>
     public void UpdateTargetPositionY()
     {
         _targetPos.y = _playerTransform.position.y + _offset.y;
     }
+    #endregion
 
     //Envia la camara hacia la posicion destino
     public void FixedUpdate()
