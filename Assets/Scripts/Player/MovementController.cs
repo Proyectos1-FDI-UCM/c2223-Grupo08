@@ -5,39 +5,88 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    #region references
+    /// <summary>
+    /// Valor de la fuerza del salto
+    /// </summary>
     [SerializeField]
-    private float _jumpForce = 3.5f; // Valor de la fuerza del salto
+    private float _jumpForce = 3.5f;
 
+    /// <summary>
+    /// Valor maximo con el que se moverá en el eje X
+    /// </summary>
     [SerializeField]
-    private float _maxVelocity = 5;    // Valor maximo con el que se moverá en el eje X
+    private float _maxVelocity = 5;
 
+    /// <summary>
+    /// Aceleracion con el que se moverá en el eje X
+    /// </summary>
     [SerializeField]
-    private float _acceleration = 0f;    // Aceleracion con el que se moverá en el eje X
+    private float _acceleration = 0f;
 
+    /// <summary>
+    /// Penalización por tamaño en el movimiento
+    /// </summary>
     [SerializeField]
-    private float _slowPenalty = 0.5f;  // Penalización por tamaño en el movimiento
+    private float _slowPenalty = 0.5f;
 
+    /// <summary>
+    ///  Penalización por tamaño en el salto
+    /// </summary>
     [SerializeField]
-    private float _jumpPenalty = 0.25f; // Penalización por tamaño en el salto
+    private float _jumpPenalty = 0.25f;
+    #endregion
 
+    #region properties
+    /// <summary>
+    /// Factor de ralentizado al moverse
+    /// </summary>
     private float _slowFactor = 0;
 
+    /// <summary>
+    /// Factor de penalizacion de salto
+    /// </summary>
     private float _jumpFactor = 0;
 
+    /// <summary>
+    /// Referencia al RigidBody2D
+    /// </summary>
     private Rigidbody2D _rigidbody2D;
 
     public float getSlowFactor() { return _slowFactor; }
 
-    void Start()
+    /// <summary>
+    /// Actualiza el factor de ralentizado al moverse
+    /// </summary>
+    /// <param name="size">Tamaño del juagdor</param>
+    public void SetSlowFactor(float size)
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _slowFactor = _slowPenalty * size;
     }
 
+    /// <summary>
+    /// Actualiza el factor de penalizacion de salto
+    /// </summary>
+    /// <param name="size">Tamaño del juagor</param>
+    public void SetJumpFactor(float size)
+    {
+        _jumpFactor = _jumpPenalty * size;
+    }
+    #endregion
+
+    #region methods
+
+    /// <summary>
+    /// Hace saltar al jugador
+    /// </summary>
     public void Jump()
     {
         _rigidbody2D.AddForce(Vector2.up * (_jumpForce - _jumpFactor), ForceMode2D.Impulse);
     }
 
+    /// <summary>
+    /// Mueve a la derecha al juagdor
+    /// </summary>
     public void MoveRight()
     {
         if (_maxVelocity - _slowFactor > _acceleration)
@@ -53,6 +102,9 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Mueve a la izquierda al juagdor
+    /// </summary>
     public void MoveLeft()
     {
         if (-(_maxVelocity - _slowFactor) < _acceleration)
@@ -67,16 +119,19 @@ public class MovementController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(-(_maxVelocity - _slowFactor), y);
         }
     }
+
+    /// <summary>
+    /// Para al juagdor en el eje x
+    /// </summary>
     public void StopMoving()
     {
         _acceleration = 0;
     }
+    #endregion
 
-    public void SetSlowFactor(float size) {
-        _slowFactor = _slowPenalty * size;
-    }
-    public void SetJumpFactor(float size)
+    void Start()
     {
-        _jumpFactor = _jumpPenalty * size;
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
+
 }
