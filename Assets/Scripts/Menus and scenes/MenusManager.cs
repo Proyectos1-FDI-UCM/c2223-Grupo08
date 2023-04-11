@@ -7,11 +7,23 @@ public enum MenuState { StartMenu, PauseMenu, ConfigMenu, None};
 
 public class MenusManager : MonoBehaviour
 {
+    #region references
+    /// <summary>
+    /// GameObject de la UI
+    /// </summary>
     [SerializeField] private GameObject UI;
+    #endregion
+    #region properties
+    /// <summary>
+    /// Indica si es la primera vez que se inicia el script
+    /// </summary>
     private static bool firstTimeRuning = true;
 
-
+    /// <summary>
+    /// Indica que estado se encuenta el menu
+    /// </summary>
     public static MenuState menuState;
+    #endregion
 
     private void Start()
     {
@@ -32,29 +44,47 @@ public class MenusManager : MonoBehaviour
             } 
         }
     }
-    public void NewGame() //Carga la escena de juego desde el menu una vez pulsado el boton
+
+    #region methods
+    /// <summary>
+    /// Carga la escena de juego desde el menu una vez pulsado el boton
+    /// </summary>
+    public void NewGame()
     {
         SaveScript.room = 0;
         SaveScript.scene = "Level 1";
         ChangeToGameScene();
     }
 
-    public void ChangeToGameScene() //Carga la escena de juego desde el menu una vez pulsado el boton
+    /// <summary>
+    /// Carga la escena de juego desde el menu una vez pulsado el boton
+    /// </summary>
+    public void ChangeToGameScene() 
     {
         SceneManager.LoadScene("Level 1");
         Time.timeScale = 1.0f;
     }
 
-    public void QuitGame() // Sale del juego una vez al pulsar boton de salir
+    /// <summary>
+    /// Sale del juego una vez al pulsar boton de salir
+    /// </summary>
+    public void QuitGame()
     {
         Application.Quit();
     }
-    public void ChangeToMenuScene() //Carga la escena de juego desde el menu una vez pulsado el boton
+
+    /// <summary>
+    /// Carga la escena de juego desde el menu una vez pulsado el boton
+    /// </summary>
+    public void ChangeToMenuScene()
     {
         SceneManager.LoadScene("Menu");
     }
 
-    public static void PauseGame() // Pausa el juego y abre el menu de pausa
+    /// <summary>
+    /// Pausa el juego y abre el menu de pausa
+    /// </summary>
+    public static void PauseGame()
     {
         Input.ResetInputAxes();
         SceneManager.LoadScene("Pausa", LoadSceneMode.Additive);
@@ -62,7 +92,11 @@ public class MenusManager : MonoBehaviour
         menuState = MenuState.PauseMenu;
         GameManager.Instance.isPaused = true;
     }
-   public void UnpauseGame() // Reanuda el juego cerrando el menu de pausa
+
+    /// <summary>
+    /// Reanuda el juego cerrando el menu de pausa
+    /// </summary>
+    public void UnpauseGame()
     {
         Input.ResetInputAxes();
         SceneManager.UnloadScene("Pausa");
@@ -71,17 +105,27 @@ public class MenusManager : MonoBehaviour
         GameManager.Instance.isPaused = false;
     }
 
+    /// <summary>
+    /// Carga la partida guardada
+    /// </summary>
     public void LoadGame()
     {
         SaveScript.LoadFile();
         SceneManager.LoadScene(SaveScript.scene);
         Time.timeScale = 1.0f;
     }
+
+    /// <summary>
+    /// Guarda el juego
+    /// </summary>
     public void SaveGame()
     {
         GameManager.Instance.saveGame();
     }
 
+    /// <summary>
+    /// Cambia del menu de pausa al de opciones
+    /// </summary>
     public void ChangePauseToOptions()
     {
         SceneManager.LoadScene("Options", LoadSceneMode.Additive);
@@ -89,6 +133,10 @@ public class MenusManager : MonoBehaviour
         ConfigScript.IsMenu = false;
         menuState = MenuState.ConfigMenu;
     }
+
+    /// <summary>
+    /// Cambia del menu principal al de opciones
+    /// </summary>
     public void ChangeMenuToOptions()
     {
         SceneManager.LoadScene("Options", LoadSceneMode.Additive);
@@ -98,9 +146,13 @@ public class MenusManager : MonoBehaviour
         menuState = MenuState.ConfigMenu;
     }
 
+    /// <summary>
+    /// Activa o desactiva la UI
+    /// </summary>
     public void ToggleUI()
     {
         UI.active = !UI.active;
         ConfigScript.PreviusSceneManager = this;
     }
+    #endregion
 }
