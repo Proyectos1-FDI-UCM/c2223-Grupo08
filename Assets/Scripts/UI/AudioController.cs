@@ -26,48 +26,9 @@ public class AudioController : MonoBehaviour
         _audio.Play();
     }
 
-    private void AudioDoorOpen()
-    {
-        _audio.PlayOneShot(_audioDoorOpen);
-    }
-    private void AudioDoorClosed()
-    {
-        _audio.PlayOneShot(_audioDoorClosed);
-    }
-    private void AudioButton()
-    {
-        _audio.PlayOneShot(_audioButton);
-    }
-    private void AudioPlatform()
-    {
-        _audio.PlayOneShot(_audioPlatform);
-    }
-    private void AudioRock()
-    {
-        _audio.PlayOneShot(_audioRock);
-    }
-    private void AudioMechanicalSaw()
-    {
-        _audio.PlayOneShot(_audioMechanicalSaw);
-    }
-    private void AudioMusicMenu()
-    {
-        _audio.PlayOneShot(_audioMusicMenu);
-    }
-    private void AudioMenuBotton()
-    {
-        _audio.PlayOneShot(_audioMenuButton);
-    }
-    private void AudioWalk()
-    {
-        _audio.PlayOneShot(_audioWalk);
-    }
-    private void AudioJump()
-    {
-        _audio.PlayOneShot(_audioJump);
-    }
-    private void AudioDeath()
-    {
-        _audio.PlayOneShot(_audioDeath);
+    public void PlaySound(AudioClip clip) 
+    { 
+
+
     }
 }
