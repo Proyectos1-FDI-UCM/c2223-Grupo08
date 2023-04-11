@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class Signsposts : MonoBehaviour
 {
-    [SerializeField] private GameObject Info; // Mensaje del cartel
+    #region references
+    /// <summary>
+    ///  Mensaje del cartel
+    /// </summary>
+    [SerializeField] private GameObject Info;
     
-
+    /// <summary>
+    /// La LayerMask del personaje
+    /// </summary>
     [SerializeField] private LayerMask Character;
+    #endregion
 
+    #region properties
+    /// <summary>
+    /// Indica si la informacion esta activada
+    /// </summary>
     public bool InfoEnabled;
-    
+    #endregion
+
 
     // Start is called before the first frame update
     void Start()
