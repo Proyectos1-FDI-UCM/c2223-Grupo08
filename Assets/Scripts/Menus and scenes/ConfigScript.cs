@@ -45,25 +45,41 @@ public class ConfigScript : MonoBehaviour
     #endregion
 
     #region properties
+    /// <summary>
+    /// Manager del menu anterior
+    /// </summary>
     public static MenusManager PreviusSceneManager;
+
+    /// <summary>
+    /// Indica si esta en el menu principal o en el de pausa
+    /// </summary>
     public static bool IsMenu;
 
+    /// <summary>
+    /// Array con los textos de los botones
+    /// </summary>
     private string[] buttonsTexts = { "LeftArrow", "RightArrow", "Space", "X", "R"};
 
-
+    /// <summary>
+    /// Indica si esta obteniendo una tecla
+    /// </summary>
     private bool IsGettingKey = false;
 
+    /// <summary>
+    /// Lista de los codigos de los botones
+    /// </summary>
     public static List<KeyCode> ButtonsCodes =new List<KeyCode>{ KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Space, KeyCode.X, KeyCode.R };
 
-
+    /// <summary>
+    /// Datos del guardado de configuracion
+    /// </summary>
     private ConfigData _configData = new ConfigData(2, 2, 3);
     #endregion
+    #region methods
 
-    private void Start()
-    {
-        LoadConfig();
-    }
-
+    /// <summary>
+    /// Cambia los FPS del desplegable y lo guarda
+    /// </summary>
     public void ChangeFPS()
     {
         int FPS = 0;
@@ -88,6 +104,10 @@ public class ConfigScript : MonoBehaviour
         Application.targetFrameRate = FPS;
         SaveFile();
     }
+    
+    /// <summary>
+     /// Cambia el modo de la ventana del desplegable y lo guarda
+     /// </summary>
     public void ChangeWindowMode()
     {
         switch (Mode_dropdown.value)
@@ -107,6 +127,10 @@ public class ConfigScript : MonoBehaviour
         _configData.Mode_Value = Mode_dropdown.value;
         SaveFile();
     }
+
+    /// <summary>
+    /// Cambia la resolucion del desplegable y lo guarda
+    /// </summary>
     public void ChangeResolution()
     {
 
@@ -129,6 +153,9 @@ public class ConfigScript : MonoBehaviour
         SaveFile();
     }
 
+    /// <summary>
+    /// Vuelve al menu de pausa
+    /// </summary>
     public void ChangeToPause()
     {
         SceneManager.LoadSceneAsync("Pausa", LoadSceneMode.Additive);
@@ -136,6 +163,9 @@ public class ConfigScript : MonoBehaviour
         MenusManager.menuState = MenuState.PauseMenu;
     }
 
+    /// <summary>
+    /// Vuelve al menu principal
+    /// </summary>
     public void ChangeToMenu()
     {
         SceneManager.UnloadSceneAsync("Options");
@@ -143,19 +173,32 @@ public class ConfigScript : MonoBehaviour
         MenusManager.menuState = MenuState.StartMenu;
     }
 
+    /// <summary>
+    /// Cambia el boton por la tecla deseada
+    /// </summary>
+    /// <param name="position">Posicion del boton pulsado</param>
     public void ChangeButton(int position)
     {
         IsGettingKey = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        TMP_Text button = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>(); 
+        TMP_Text button = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>();
         EventSystem.current.SetSelectedGameObject(null);
         string prevText = button.text;
         button.text = "";
 
-        StartCoroutine(GettingKey(position,button,prevText));
+        StartCoroutine(GettingKey(position, button, prevText));
     }
 
+    /// <summary>
+    /// recoge la tecla deseada
+    /// </summary>
+    /// <param name="position">Posicion del boton pulsado</param>
+    /// <param name="button">Text del boton pulsado</param>
+    /// <param name="prevText">Texto del boton antes de pulsarse</param>
+    /// <returns></returns>
+    
+    //Ver si se puede quitar la corutina
     IEnumerator GettingKey(int position, TMP_Text button, string prevText)
     {
         yield return null;
@@ -173,7 +216,8 @@ public class ConfigScript : MonoBehaviour
                 {
                     if (Input.GetKey(vKey))
                     {
-                        if (ButtonsCodes.Contains(vKey)) {
+                        if (ButtonsCodes.Contains(vKey))
+                        {
                             int p = ButtonsCodes.IndexOf(vKey);
                             ButtonsCodes[p] = KeyCode.None;
                             buttons_texts[p].text = "";
@@ -182,7 +226,7 @@ public class ConfigScript : MonoBehaviour
                         ButtonsCodes[position] = vKey;
                         button.text = e;
                         buttonsTexts[position] = e;
-                        exit = true; 
+                        exit = true;
                     }
                 }
             }
@@ -199,6 +243,9 @@ public class ConfigScript : MonoBehaviour
         Input.ResetInputAxes();
     }
 
+    /// <summary>
+    /// Guarda el los datos en un fichero
+    /// </summary>
     private void SaveFile()
     {
         string destination = Application.persistentDataPath + "/config.dat";
@@ -212,6 +259,10 @@ public class ConfigScript : MonoBehaviour
         file.Close();
     }
 
+    /// <summary>
+    /// Carga los datos desde el fichero
+    /// </summary>
+    /// <returns>Devuelve true si carga correctamente los datos</returns>
     public bool LoadFile()
     {
         string destination = Application.persistentDataPath + "/config.dat";
@@ -228,7 +279,7 @@ public class ConfigScript : MonoBehaviour
         ConfigData data = (ConfigData)bf.Deserialize(file);
         file.Close();
 
-        if(data.FPS_Value != null)
+        if (data.FPS_Value != null)
             _configData.FPS_Value = data.FPS_Value;
 
         if (data.Mode_Value != null)
@@ -246,6 +297,9 @@ public class ConfigScript : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Carga toda la configuracion y actualiza la UI
+    /// </summary>
     public void LoadConfig()
     {
         LoadFile();
@@ -260,24 +314,9 @@ public class ConfigScript : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (MenusManager.menuState == MenuState.ConfigMenu && !IsGettingKey)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (IsMenu)
-                {
-                    ChangeToMenu();
-                }
-                else
-                {
-                    ChangeToPause();
-                }
-            }
-        }
-    }
-
+    /// <summary>
+    /// Carga los inputs de los datos
+    /// </summary>
     public static void LoadInputs()
     {
         string destination = Application.persistentDataPath + "/config.dat";
@@ -297,8 +336,37 @@ public class ConfigScript : MonoBehaviour
         if (data.ButtonsCodes != null)
             ButtonsCodes = data.ButtonsCodes;
     }
+    #endregion
+
+    private void Start()
+    {
+        LoadConfig();
+    }
+
+    
+
+    private void Update()
+    {
+        if (MenusManager.menuState == MenuState.ConfigMenu && !IsGettingKey)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (IsMenu)
+                {
+                    ChangeToMenu();
+                }
+                else
+                {
+                    ChangeToPause();
+                }
+            }
+        }
+    }
 }
 
+/// <summary>
+/// Datos de la configuracion del juego a guardar y cargar
+/// </summary>
 [System.Serializable]
 struct ConfigData
 {
