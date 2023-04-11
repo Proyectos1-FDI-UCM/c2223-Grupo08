@@ -5,21 +5,71 @@ using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
-    private bool _isGrounded = true;    //Indica si a caido al suelo
-    private bool _isJumping = false;    //Indica si esta en la accion de saltar
-
-    [SerializeField]
-    private float _jumpTime = 0.3f;   //Valor inicial del contador 
-    private float _jumpTimeCounter = 0f;    //Contador para el tiempo en el aire
-
-    [SerializeField]
-    private float _frameTime = 0.1f;
-    private float _frameTimeCounter = 0;
-
+    #region references
+    /// <summary>
+    /// Referencia al MovementController del jugador
+    /// </summary>
     [SerializeField]
     private MovementController _movementController;
+    /// <summary>
+    /// Valor inicial del contador entre frames
+    /// </summary>
+    [SerializeField]
+    private float _frameTime = 0.1f;
+    /// <summary>
+    /// Valor inicial del contador de salto
+    /// </summary>
+    [SerializeField]
+    private float _jumpTime = 0.3f;
+    #endregion
 
+    #region properties
+    /// <summary>
+    /// Indica si a caido al suelo
+    /// </summary>
+    private bool _isGrounded = true;
 
+    /// <summary>
+    /// Indica si esta en la accion de saltar
+    /// </summary>
+    private bool _isJumping = false;
+
+    /// <summary>
+    /// Contador para el tiempo en el aire
+    /// </summary>
+    private float _jumpTimeCounter = 0f;
+
+    /// <summary>
+    /// Contador para el tiempo entre frames
+    /// </summary>
+    private float _frameTimeCounter = 0;
+    #endregion
+
+    #region methods
+    /// <summary>
+    /// Para de saltar
+    /// </summary>
+    public void StopJumping()
+    {
+        _isJumping = false;
+    }
+
+    /// <summary>
+    /// Esta en el suelo
+    /// </summary>
+    private void Grounded()
+    {
+        _isGrounded = true;
+    }
+
+    /// <summary>
+    /// No esta en el suelo
+    /// </summary>
+    private void NotGrounded()
+    {
+        _isGrounded = false;
+    }
+    #endregion
 
     // Update is called once per frame
     void Update()
@@ -50,7 +100,7 @@ public class InputController : MonoBehaviour
                 _frameTimeCounter -= Time.deltaTime;
             }
         }
-        // en caso de levantar la tecla, impide volver a conseguir el impulso
+        // En caso de levantar la tecla, impide volver a conseguir el impulso
         else if (Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Jump]))
         {
             _isJumping = false;
@@ -83,20 +133,5 @@ public class InputController : MonoBehaviour
         {
             MenusManager.PauseGame();
         }
-    }
-
-    public void StopJumping()
-    {
-        _isJumping = false;
-    }
-
-    private void Grounded()
-    {
-        _isGrounded = true;
-    }
-
-    private void NotGrounded()
-    {
-        _isGrounded = false;
     }
 }
