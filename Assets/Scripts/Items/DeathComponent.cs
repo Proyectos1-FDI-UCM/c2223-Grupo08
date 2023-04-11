@@ -6,21 +6,9 @@ public class DeathComponent : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Slime" && PlayerManager.Instance.IsAlive()) {
-        PlayerManager.Instance.SetAlive(false);
-        PlayerManager.Instance.EnableInputs(false);
-        PlayerManager.Instance.SendMessage("IsDeath", true);
-        Invoke("PlayDeath", 1); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
+        if (collision.gameObject.tag == "Slime" && PlayerManager.Instance.IsAlive())
+        {
+            PlayerManager.Instance.GetComponent<LiveComponent>().Death();
         }
     }
-
-    #region methods
-    /// <summary>
-    /// Manda el mensaje al player para que muera
-    /// </summary>
-    //Comprobar si no es necesario el SendMessage
-    private void PlayDeath(){
-        PlayerManager.Instance.SendMessage("Death");
-    }
-    #endregion
 }
