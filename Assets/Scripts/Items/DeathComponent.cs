@@ -14,7 +14,12 @@ public class DeathComponent : MonoBehaviour
         }
     }
 
+    #region methods
+    /// <summary>
+    /// Manda el mensaje al player para que muera
+    /// </summary>
     private void PlayDeath(){
         PlayerManager.Instance.SendMessage("Death");
     }
+    #endregion
 }
