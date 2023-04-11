@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class RockComponent : MonoBehaviour
 {
-
-    private Animator _anim;
+    #region references
+    /// <summary>
+    /// Tiempo de vida de la roca
+    /// </summary>
+    [SerializeField]
     private float time = 0.3f;
+
+    #endregion
+
+    #region properties
+    /// <summary>
+    /// Referencia al animador
+    /// </summary>
+    private Animator _anim;
+    #endregion
 
     private void Awake()
     {
@@ -19,6 +31,7 @@ public class RockComponent : MonoBehaviour
         StartCoroutine(Destruir(time));
     }
 
+    //Cambiarlo por solamente el destroy que permite pasarle segundos
     IEnumerator Destruir(float time)
     {
         yield return new WaitForSeconds(time);
