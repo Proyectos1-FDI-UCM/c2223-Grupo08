@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    private AudioSource _audio;
+    private AudioSource _audio; 
 
     [SerializeField] private AudioClip _audioDoorOpen;
     [SerializeField] private AudioClip _audioDoorClosed;
@@ -26,9 +26,8 @@ public class AudioController : MonoBehaviour
         _audio.Play();
     }
 
-    public void PlaySound(AudioClip clip) 
-    { 
-
-
+    public void PlaySound(int Pos) 
+    {
+        
     }
 }
