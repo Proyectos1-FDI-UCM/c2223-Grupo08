@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class PlatformComponent : MonoBehaviour
 {
+    #region references
+    /// <summary>
+    /// Referencia al objeto que va a activar
+    /// </summary>
     [SerializeField]
-    private GameObject targetGameObject;    //El objeto que va a activar
+    private GameObject targetGameObject;
+    #endregion
 
+    #region properties
+    /// <summary>
+    /// Indica si esta activado el objeto
+    /// </summary>
     private bool _activated = false;
-    private int _count = 0;
 
+    /// <summary>
+    /// Contador para saber si siguen habiendo cosas en el objeto
+    /// </summary>
+    private int _count = 0;
+    #endregion
+
+    //Cambiar el SendMessage por un OpenDoor
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag != "IgnoreAll")
@@ -23,6 +38,7 @@ public class PlatformComponent : MonoBehaviour
         }
     }
 
+    //Cambiar el SendMessage por un OpenDoor
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag != "IgnoreAll")
