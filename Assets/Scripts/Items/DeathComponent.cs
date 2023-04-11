@@ -18,6 +18,7 @@ public class DeathComponent : MonoBehaviour
     /// <summary>
     /// Manda el mensaje al player para que muera
     /// </summary>
+    //Comprobar si no es necesario el SendMessage
     private void PlayDeath(){
         PlayerManager.Instance.SendMessage("Death");
     }
