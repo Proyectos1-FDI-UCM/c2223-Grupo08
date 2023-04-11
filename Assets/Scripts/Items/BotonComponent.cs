@@ -28,6 +28,7 @@ public class BotonComponent : MonoBehaviour
     /// <summary>
     /// Reinicia el boton y pasa a estar desactivado
     /// </summary>
+    //Cambiar el SendMessage y llamar directamente al CloseDoor
     public void ResetBoton()
     {
         targetGameObject.SendMessage("DeactivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
@@ -42,6 +43,7 @@ public class BotonComponent : MonoBehaviour
         _animator= GetComponent<Animator>();
     }
 
+    //Cambiar el SendMessage y llamar directamente al OpenDoor
     private void OnCollisionEnter2D(Collision2D collision)
     {
         targetGameObject.SendMessage("ActivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
