@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 491064637390026162}
   - component: {fileID: 8757444663445510554}
   - component: {fileID: 2273477466751518176}
-  m_Layer: 3
+  m_Layer: 14
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpTime: 0.3
   _frameTime: 0.1
+  _movementController: {fileID: 0}
 --- !u!114 &5059875968906271271
 MonoBehaviour:
   m_ObjectHideFlags: 0
