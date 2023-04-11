@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class EatingBallComponent : MonoBehaviour
 {
+    #region properties
+    /// <summary>
+    /// Contador para asegurarse que no se activa 2 veces o mas
+    /// </summary>
     private int _count = 0;
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
