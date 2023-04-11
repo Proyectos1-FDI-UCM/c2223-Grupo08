@@ -2100,7 +2100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 750560867}
-  targetFrameRate: 60
+  targetFrameRate: 120
   _boxes: {fileID: 1516735765}
   _balls: {fileID: 1952975575}
   _buttons: {fileID: 911812306}
