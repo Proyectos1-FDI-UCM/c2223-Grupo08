@@ -124341,7 +124341,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 11, y: 13, z: 0}
@@ -135372,6 +135372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5059875968906271264, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _movementController
+      value: 
+      objectReference: {fileID: 1942052640}
     - target: {fileID: 5059875968906271265, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: particles
       value: 
@@ -135464,6 +135468,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d856fcaf174e232409c1818483d8b265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1942052640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+  m_PrefabInstance: {fileID: 1942052637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9f93d2fc3cbc348ae462dd57fe6334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1946954568
