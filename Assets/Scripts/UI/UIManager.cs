@@ -7,16 +7,35 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    #region references
+    /// <summary>
+    /// GameObjects con el fade
+    /// </summary>
     [SerializeField]
     private GameObject _fade; 
     
+    /// <summary>
+    /// GameObject de la barra de bolas
+    /// </summary>
     [SerializeField]
     private IncrementSizeBarra _balls;
+    #endregion
+
+    #region properties
+    /// <summary>
+    /// Indica si esta en animacion
+    /// </summary>
     private bool _inAnimation;
 
     public bool IsInAnimation() { return _inAnimation; }
+    #endregion
 
-    //Animacion para quitar el fundido a negro
+    #region methods
+    /// <summary>
+    /// Animacion para quitar el fundido a negro
+    /// </summary>
+    /// <returns></returns>
+    // Mirar si se puede quitar la corutina
     public IEnumerator FadeOut()
     {
         _inAnimation = true;
@@ -35,7 +54,11 @@ public class UIManager : MonoBehaviour
         _inAnimation = false;
     }
 
-    //Animacion para poner el fundido a negro
+    /// <summary>
+    /// Animacion para poner el fundido a negro
+    /// </summary>
+    /// <returns></returns>
+    // Mirar si se puede quitar la corutina
     public IEnumerator FadeIn()
     {
         _inAnimation = true;
@@ -53,6 +76,10 @@ public class UIManager : MonoBehaviour
         _inAnimation = false;
     }
 
+    /// <summary>
+    /// Actualiza la barra de bolas
+    /// </summary>
+    /// <param name="size">Numero de bolas</param>
     public void ResizeBallsBar(int size)
     {
         _balls.ResizeBar(size);
