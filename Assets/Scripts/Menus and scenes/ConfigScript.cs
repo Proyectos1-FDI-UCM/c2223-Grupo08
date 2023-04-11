@@ -68,6 +68,7 @@ public class ConfigScript : MonoBehaviour
     /// <summary>
     /// Lista de los codigos de los botones
     /// </summary>
+    //Transformarlo en un Diccionario
     public static List<KeyCode> ButtonsCodes =new List<KeyCode>{ KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Space, KeyCode.X, KeyCode.R };
 
     /// <summary>
