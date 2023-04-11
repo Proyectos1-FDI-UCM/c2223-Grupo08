@@ -47,6 +47,7 @@ public class DoorComponent : MonoBehaviour
 
     #region methods
 
+    //Eliminar activate y deactivate
     /// <summary>
     /// Abre la puerta
     /// </summary>
