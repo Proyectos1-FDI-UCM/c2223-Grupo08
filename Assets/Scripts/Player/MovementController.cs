@@ -44,7 +44,6 @@ public class MovementController : MonoBehaviour
         {
             _acceleration += _maxVelocity * Time.deltaTime;
             float y = _rigidbody2D.velocity.y;
-            Debug.Log(y);
             _rigidbody2D.velocity = new Vector2(_acceleration, y);
         }
         else

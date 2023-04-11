@@ -12,21 +12,44 @@ enum Buttons { Left = 0, Right = 1, Jump = 2, Drop = 3, Reset = 4};
 
 public class ConfigScript : MonoBehaviour
 {
+    #region references
+    /// <summary>
+    /// Referencia el desplegable de los FPS
+    /// </summary>
+    [SerializeField]
+    private TMP_Dropdown FPS_dropdown;
+
+    /// <summary>
+    /// Referencia el desplegable de los modos de ventana
+    /// </summary>
+    [SerializeField]
+    private TMP_Dropdown Mode_dropdown;
+
+    /// <summary>
+    /// Referencia el desplegable de la resolucion
+    /// </summary>
+    [SerializeField]
+    private TMP_Dropdown Resolution_dropdown;
+
+    /// <summary>
+    /// Referencia al deslizable del volumen
+    /// </summary>
+    [SerializeField]
+    private Slider Volume_Slider;
+
+    /// <summary>
+    /// El array de los textos de los botones
+    /// </summary>
+    [SerializeField]
+    private TMP_Text[] buttons_texts;
+    #endregion
+
+    #region properties
     public static MenusManager PreviusSceneManager;
     public static bool IsMenu;
 
     private string[] buttonsTexts = { "LeftArrow", "RightArrow", "Space", "X", "R"};
 
-    [SerializeField]
-    private TMP_Dropdown FPS_dropdown;
-    [SerializeField]
-    private TMP_Dropdown Mode_dropdown;
-    [SerializeField]
-    private TMP_Dropdown Resolution_dropdown;
-    [SerializeField]
-    private Slider Volume_Slider;
-    [SerializeField]
-    private TMP_Text[] buttons_texts;
 
     private bool IsGettingKey = false;
 
@@ -34,6 +57,7 @@ public class ConfigScript : MonoBehaviour
 
 
     private ConfigData _configData = new ConfigData(2, 2, 3);
+    #endregion
 
     private void Start()
     {
