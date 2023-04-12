@@ -3335,6 +3335,8 @@ MonoBehaviour:
   _audioWalk: {fileID: 8300000, guid: 25aac2f79c9099045ad84fe56c4b585b, type: 3}
   _audioJump: {fileID: 8300000, guid: 30753983aebbcb94597066a58c8d0bcb, type: 3}
   _audioDeath: {fileID: 8300000, guid: f7b3c846fe412d94fb63fe211bfd8d76, type: 3}
+  _audioBox: {fileID: 0}
+  _audioLava: {fileID: 0}
 --- !u!1 &1048368613 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4093482759395015470, guid: ed49a37da5fd0f845ba975c4fa094b12, type: 3}
@@ -45376,7 +45378,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 51, y: -4, z: 0}
@@ -46150,6 +46152,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
+      propertyPath: _WalkAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: cf8ef9b903a4e644799bd1578c358da5, type: 3}
     - target: {fileID: 5059875968906271271, guid: e164ea2e3b977054cb73ea292ecea0a7, type: 3}
       propertyPath: _maxVelocity
       value: 5
