@@ -16,7 +16,7 @@ public class NextRoomComponent : MonoBehaviour
         if (_count == 0)
         {
             gameObject.active = false;
-            GameManager.Instance.nextRoom(GetComponentInParent<DoorComponent>());
+            GameManager.Instance.passToNextRoom(GetComponentInParent<DoorComponent>());
             _count++;
         }
         

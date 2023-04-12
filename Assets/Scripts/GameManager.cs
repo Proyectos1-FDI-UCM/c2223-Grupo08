@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
     ///Reinicia los objetos y el personaje de la sala con una pequeña animación
     ///<summary>
 
-    //Necesario revision
+    //Mirar si se puede quitar la corutina
     public IEnumerator ResetRoom()
     {
         PlayerManager.Instance.EnableInputs(false);
@@ -232,9 +232,7 @@ public class GameManager : MonoBehaviour
     ///Mueve la camara a la siguiente sala
     ///</summary>
     ///<param name="door">La puerta entre la sala actual y la siguiente</param>
-
-    //Cambiar el nombre a uno mejor
-    public void nextRoom(DoorComponent door)
+    public void passToNextRoom(DoorComponent door)
     {
         _currentRoom++;
         _playerManager.EnableInputs(false);

@@ -9,7 +9,7 @@ public class BotonComponent : MonoBehaviour
     /// El objeto que va a activar
     /// </summary>
     [SerializeField]
-    private GameObject targetGameObject;
+    private DoorComponent targetDoor;
     #endregion
 
     #region properties
@@ -28,10 +28,9 @@ public class BotonComponent : MonoBehaviour
     /// <summary>
     /// Reinicia el boton y pasa a estar desactivado
     /// </summary>
-    //Cambiar el SendMessage y llamar directamente al CloseDoor
     public void ResetBoton()
     {
-        targetGameObject.SendMessage("DeactivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
+        targetDoor.CloseDoor();
         _activated = false;
 
         _animator.SetBool("IsPressed", false);
@@ -43,10 +42,9 @@ public class BotonComponent : MonoBehaviour
         _animator= GetComponent<Animator>();
     }
 
-    //Cambiar el SendMessage y llamar directamente al OpenDoor
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        targetGameObject.SendMessage("ActivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
+        targetDoor.OpenDoor();
         _activated = true;
 
         _animator.SetBool("IsPressed", true);

@@ -75,14 +75,14 @@ public class InputController : MonoBehaviour
     void Update()
     {
         //Da un impulso inicia e inicializa el contador en el aire
-        if (Input.GetKeyDown(ConfigScript.ButtonsCodes[(int)Buttons.Jump]) && _isGrounded) {
+        if (Input.GetKeyDown(ConfigScript.ButtonsCodes[Buttons.Jump]) && _isGrounded) {
             _isJumping = true;
             _jumpTimeCounter = _jumpTime;
            _movementController.Jump();
             _frameTimeCounter = _frameTime;
         }
         //Aumenta el salto hasta cierto tiempo
-        else if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Jump]) && _isJumping) {
+        else if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Jump]) && _isJumping) {
             if (_frameTimeCounter < 0) {
                 if (_jumpTimeCounter > 0)
                 {
@@ -101,30 +101,30 @@ public class InputController : MonoBehaviour
             }
         }
         // En caso de levantar la tecla, impide volver a conseguir el impulso
-        else if (Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Jump]))
+        else if (Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Jump]))
         {
             _isJumping = false;
         }
 
-        if(Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Right]))
+        if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Right]))
         {
             _movementController.MoveRight();
         }
-        else if(Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Left]))
+        else if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Left]))
         {
             _movementController.MoveLeft();
         }
-        if (Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[(int)Buttons.Right]))
+        if (Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Right]))
         {
             _movementController.StopMoving();
         }
 
-        if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Drop]))
+        if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Drop]))
         {
             SendMessage("resetSize");
         }
 
-        if (Input.GetKey(ConfigScript.ButtonsCodes[(int)Buttons.Reset]))
+        if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Reset]))
         {
             StartCoroutine(GameManager.Instance.ResetRoom());
         }

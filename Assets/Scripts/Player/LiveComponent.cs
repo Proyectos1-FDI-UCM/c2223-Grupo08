@@ -6,26 +6,31 @@ public class LiveComponent : MonoBehaviour
 {
     #region properties
     /// <summary>
-    /// Referencia al animador
+    /// Referencia al PlayerAnimator
     /// </summary>
-    private Animator _animator;
+    private PlayerAnimator _playerAnimator;
+
+    /// <summary>
+    /// Referencia al PlayerManager
+    /// </summary>
+    private PlayerManager _playerManager;
     #endregion
 
     private void Start()
     {
-        _animator= GetComponent<Animator>();
+        _playerAnimator= GetComponent<PlayerAnimator>();
+        _playerManager = PlayerManager.Instance;
     }
 
     /// <summary>
     /// Mata al jugador
     /// </summary>
-    // Mirar si se puede quitar el SendMessage
     public void Death ()
     {
-        PlayerManager.Instance.SetAlive(false);
-        PlayerManager.Instance.EnableInputs(false);
-        PlayerManager.Instance.SendMessage("IsDeath", true);
-        Invoke("PlayDeath", 1); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
+        _playerManager.SetAlive(false);
+        _playerManager.EnableInputs(false);
+        _playerAnimator.IsDeath(true);
+        Invoke("PlayDeath", 1);
     }
 
     /// <summary>

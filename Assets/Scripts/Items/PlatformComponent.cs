@@ -9,7 +9,7 @@ public class PlatformComponent : MonoBehaviour
     /// Referencia al objeto que va a activar
     /// </summary>
     [SerializeField]
-    private GameObject targetGameObject;
+    private DoorComponent targetDoor;
     #endregion
 
     #region properties
@@ -24,31 +24,23 @@ public class PlatformComponent : MonoBehaviour
     private int _count = 0;
     #endregion
 
-    //Cambiar el SendMessage por un OpenDoor y revisar tag
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "IgnoreAll")
+        if (!_activated)
         {
-            if (!_activated)
-            {
-                targetGameObject.SendMessage("ActivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
-                _activated = true;
-            }
-            _count++;
+            targetDoor.OpenDoor();
+            _activated = true;
         }
+        _count++;
     }
 
-    //Cambiar el SendMessage por un OpenDoor y revisar tag
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "IgnoreAll")
+        _count--;
+        if(_count == 0)
         {
-            _count--;
-            if(_count == 0)
-            {
-                targetGameObject.SendMessage("DeactivateGameObject"); //Llama a la funcion del gameobject, tiene que tener una funcion con ese nombre para ser activado
-                _activated = false;
-            }
+            targetDoor.CloseDoor();
+            _activated = false;
         }
     }
 }

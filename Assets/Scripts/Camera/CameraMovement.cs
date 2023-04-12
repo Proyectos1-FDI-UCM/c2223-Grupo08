@@ -35,10 +35,9 @@ public class CameraMovement : MonoBehaviour
     /// Mueve la camara hacia una posicion dada con animacion
     /// </summary>
     /// <param name="target">Posicion a la que se quiere mover la camara</param>
-    //Comprobar si el -10 sobra
     public void MoveCamera(Vector2 target)
     {
-        _targetPos = new Vector3(target.x, target.y, -10);
+        _targetPos = new Vector3(target.x, target.y, _offset.z);
     }
 
     /// <summary>
@@ -47,7 +46,7 @@ public class CameraMovement : MonoBehaviour
     /// <param name="target">Posicion a la que se quiere mover la camara</param>
     public void setPosition(Vector2 target)
     {
-        _targetPos = new Vector3(target.x, target.y, -10);
+        _targetPos = new Vector3(target.x, target.y, _offset.z);
         transform.position = _targetPos;
     }
 

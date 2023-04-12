@@ -28,14 +28,6 @@ public class RockComponent : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _anim.SetTrigger("Destruido");
-        StartCoroutine(Destruir(time));
-    }
-
-    //Cambiarlo por solamente el destroy que permite pasarle segundos
-    IEnumerator Destruir(float time)
-    {
-        yield return new WaitForSeconds(time);
-
-        Destroy(gameObject);
+        Destroy(gameObject, time);
     }
 }

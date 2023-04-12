@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-enum Buttons { Left = 0, Right = 1, Jump = 2, Drop = 3, Reset = 4};
+public enum Buttons { Left = 0, Right = 1, Jump = 2, Drop = 3, Reset = 4};
 
 public class ConfigScript : MonoBehaviour
 {
@@ -53,7 +53,23 @@ public class ConfigScript : MonoBehaviour
     /// <summary>
     /// Indica si esta en el menu principal o en el de pausa
     /// </summary>
+    // Revisar si hace falta
     public static bool IsMenu;
+
+    /// <summary>
+    /// Boton que se esta seleccionando ahora mismo
+    /// </summary>
+    private Buttons buttonSelected;
+
+    /// <summary>
+    /// TMP_Text del boton que se esta seleccionando ahora mismo
+    /// </summary>
+    private TMP_Text textButton;
+
+    /// <summary>
+    /// Texto del boton antes de pulsarse 
+    /// </summary>
+    private string prevText;
 
     /// <summary>
     /// Array con los textos de los botones
@@ -68,8 +84,13 @@ public class ConfigScript : MonoBehaviour
     /// <summary>
     /// Lista de los codigos de los botones
     /// </summary>
-    //Transformarlo en un Diccionario
-    public static List<KeyCode> ButtonsCodes =new List<KeyCode>{ KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Space, KeyCode.X, KeyCode.R };
+    public static Dictionary<Buttons,KeyCode> ButtonsCodes =new Dictionary<Buttons, KeyCode>{
+        { Buttons.Left, KeyCode.LeftArrow }, 
+        { Buttons.Right, KeyCode.RightArrow },
+        { Buttons.Jump, KeyCode.Space }, 
+        { Buttons.Drop, KeyCode.X },
+        { Buttons.Reset, KeyCode.R } 
+    };
 
     /// <summary>
     /// Datos del guardado de configuracion
@@ -180,68 +201,14 @@ public class ConfigScript : MonoBehaviour
     /// <param name="position">Posicion del boton pulsado</param>
     public void ChangeButton(int position)
     {
-        IsGettingKey = true;
+        buttonSelected = (Buttons)position;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        TMP_Text button = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>();
+        textButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>();
         EventSystem.current.SetSelectedGameObject(null);
-        string prevText = button.text;
-        button.text = "";
-
-        StartCoroutine(GettingKey(position, button, prevText));
-    }
-
-    /// <summary>
-    /// recoge la tecla deseada
-    /// </summary>
-    /// <param name="position">Posicion del boton pulsado</param>
-    /// <param name="button">Text del boton pulsado</param>
-    /// <param name="prevText">Texto del boton antes de pulsarse</param>
-    /// <returns></returns>
-    
-    //Ver si se puede quitar la corutina
-    IEnumerator GettingKey(int position, TMP_Text button, string prevText)
-    {
-        yield return null;
-        bool exit = false;
-        while (!exit)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                button.text = prevText;
-                exit = true;
-            }
-            else if (Input.anyKeyDown)
-            {
-                foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
-                {
-                    if (Input.GetKey(vKey))
-                    {
-                        if (ButtonsCodes.Contains(vKey))
-                        {
-                            int p = ButtonsCodes.IndexOf(vKey);
-                            ButtonsCodes[p] = KeyCode.None;
-                            buttons_texts[p].text = "";
-                        }
-                        string e = vKey.ToString();
-                        ButtonsCodes[position] = vKey;
-                        button.text = e;
-                        buttonsTexts[position] = e;
-                        exit = true;
-                    }
-                }
-            }
-            yield return null;
-        }
-
-        _configData.ButtonsTexts = buttonsTexts;
-        _configData.ButtonsCodes = ButtonsCodes;
-        SaveFile();
-
-        IsGettingKey = false;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Input.ResetInputAxes();
+        prevText = textButton.text;
+        textButton.text = "";
+        IsGettingKey = true;
     }
 
     /// <summary>
@@ -337,6 +304,21 @@ public class ConfigScript : MonoBehaviour
         if (data.ButtonsCodes != null)
             ButtonsCodes = data.ButtonsCodes;
     }
+
+    /// <summary>
+    /// Para de esperar a recibir una tecla
+    /// </summary>
+    private void StopGettingKey()
+    {
+        _configData.ButtonsTexts = buttonsTexts;
+        _configData.ButtonsCodes = ButtonsCodes;
+        SaveFile();
+
+        IsGettingKey = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Input.ResetInputAxes();
+    }
     #endregion
 
     private void Start()
@@ -348,17 +330,55 @@ public class ConfigScript : MonoBehaviour
 
     private void Update()
     {
-        if (MenusManager.menuState == MenuState.ConfigMenu && !IsGettingKey)
+        if (MenusManager.menuState == MenuState.ConfigMenu)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (!IsGettingKey)
             {
-                if (IsMenu)
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    ChangeToMenu();
+                    if (IsMenu)
+                    {
+                        ChangeToMenu();
+                    }
+                    else
+                    {
+                        ChangeToPause();
+                    }
                 }
-                else
+            }
+            else if (IsGettingKey)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    ChangeToPause();
+                    textButton.text = prevText;
+                    StopGettingKey();
+                }
+                else if (Input.anyKeyDown)
+                {
+                    foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
+                    {
+                        if (Input.GetKey(vKey))
+                        {
+                            if (ButtonsCodes.ContainsValue(vKey))
+                            {
+                                Buttons repeatedButton = Buttons.Left;
+                                foreach (Buttons b in ButtonsCodes.Keys)
+                                {
+                                    if (ButtonsCodes[b] == vKey)
+                                    {
+                                        repeatedButton = b;
+                                    }
+                                }
+                                ButtonsCodes[repeatedButton] = KeyCode.None;
+                                buttons_texts[(int)repeatedButton].text = "";
+                            }
+                            string e = vKey.ToString();
+                            ButtonsCodes[buttonSelected] = vKey;
+                            textButton.text = e;
+                            buttonsTexts[(int)buttonSelected] = e;
+                            StopGettingKey();
+                        }
+                    }
                 }
             }
         }
@@ -374,7 +394,7 @@ struct ConfigData
     public int FPS_Value;
     public int Mode_Value;
     public int Resolution_Value;
-    public List<KeyCode> ButtonsCodes;
+    public Dictionary<Buttons,KeyCode> ButtonsCodes;
     public string[] ButtonsTexts;
 
     public ConfigData(int FPS_Value, int Mode_Value, int Resolution_Value)
@@ -382,7 +402,13 @@ struct ConfigData
         this.FPS_Value = FPS_Value;
         this.Mode_Value = Mode_Value;
         this.Resolution_Value = Resolution_Value;
-        this.ButtonsCodes = new List<KeyCode> { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Space, KeyCode.X, KeyCode.R };
+        this.ButtonsCodes = new Dictionary<Buttons, KeyCode>{
+            { Buttons.Left, KeyCode.LeftArrow },
+            { Buttons.Right, KeyCode.RightArrow },
+            { Buttons.Jump, KeyCode.Space },
+            { Buttons.Drop, KeyCode.X },
+            { Buttons.Reset, KeyCode.R }
+        };
         this.ButtonsTexts =new string[] { "LeftArrow", "RightArrow", "Space", "X", "R" };
     }
 }

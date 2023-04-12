@@ -43,7 +43,7 @@ public class PlayerAnimator : MonoBehaviour
     /// Indica al animador que el jugador esta muerto o no
     /// </summary>
     /// <param name="b">Si esta muerto o no</param>
-    private void IsDeath(bool b)
+    public void IsDeath(bool b)
     {
         _animator.SetBool("IsDeath", b);
     }
@@ -51,8 +51,7 @@ public class PlayerAnimator : MonoBehaviour
     /// <summary>
     /// Indica al animador si esta cargando la partida
     /// </summary>
-    //Nombrar mejor esto
-    public void LoadScene()
+    public void PlayLoadSceneAnimation()
     {
         _animator.SetBool("LoadScene", true);
     }

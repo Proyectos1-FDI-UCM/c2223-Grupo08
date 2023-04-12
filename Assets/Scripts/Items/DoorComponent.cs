@@ -47,23 +47,6 @@ public class DoorComponent : MonoBehaviour
 
     #region methods
 
-    //Eliminar activate y deactivate
-    /// <summary>
-    /// Abre la puerta
-    /// </summary>
-    private void ActivateGameObject()
-    {
-        OpenDoor();
-    }
-
-    /// <summary>
-    /// Cierra la puerta
-    /// </summary>
-    private void DeactivateGameObject()
-    {
-        CloseDoor();
-    }
-
     /// <summary>
     /// Vuelve a dejar la puerta como si fuera la primera vez que se abre
     /// </summary>
