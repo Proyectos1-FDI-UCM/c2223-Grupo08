@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
         Vector2 cameraPoint = _cameraAreas.GetComponentsInChildren<CameraAreaScript>()[_currentRoom].ClosestPoint(_playerManager.transform.position);
         Camera.main.GetComponent<CameraMovement>().setPosition(cameraPoint);
 
-        _playerManager.SendMessage("IsDeath", false);
+        _playerManager.GetComponent<PlayerAnimator>().IsDeath(false);
 
         StartCoroutine(_uiManager.FadeOut());
         yield return new WaitWhile(() => _uiManager.IsInAnimation());

@@ -7,11 +7,6 @@ public class InputController : MonoBehaviour
 {
     #region references
     /// <summary>
-    /// Referencia al MovementController del jugador
-    /// </summary>
-    [SerializeField]
-    private MovementController _movementController;
-    /// <summary>
     /// Valor inicial del contador entre frames
     /// </summary>
     [SerializeField]
@@ -28,6 +23,11 @@ public class InputController : MonoBehaviour
     /// Indica si a caido al suelo
     /// </summary>
     private bool _isGrounded = true;
+
+    /// <summary>
+    /// Referencia al MovementController del jugador
+    /// </summary>
+    private MovementController _movementController;
 
     /// <summary>
     /// Indica si esta en la accion de saltar
@@ -57,19 +57,17 @@ public class InputController : MonoBehaviour
     /// <summary>
     /// Esta en el suelo
     /// </summary>
-    private void Grounded()
+    /// <param name="b">Si esta en el suelo o no</param>
+    public void Grounded(bool b)
     {
-        _isGrounded = true;
-    }
-
-    /// <summary>
-    /// No esta en el suelo
-    /// </summary>
-    private void NotGrounded()
-    {
-        _isGrounded = false;
+        _isGrounded = b;
     }
     #endregion
+
+    void Start()
+    {
+        _movementController = GetComponent<MovementController>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -121,7 +119,7 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Drop]))
         {
-            SendMessage("resetSize");
+            PlayerManager.Instance.resetSize();
         }
 
         if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Reset]))

@@ -26,17 +26,10 @@ public class PlayerAnimator : MonoBehaviour
     /// <summary>
     /// Indica al animador que el jugador esta en el suelo
     /// </summary>
-    private void Grounded()
+    /// <param name="b">Si esta en el suelo o no</param>
+    public void Grounded(bool b)
     {
-        _animator.SetBool("isGrounded", true);
-    }
-
-    /// <summary>
-    /// Indica al animador que el jugador no esta en el suelo
-    /// </summary>
-    private void NotGrounded()
-    {
-        _animator.SetBool("isGrounded", false);
+        _animator.SetBool("isGrounded", b);
     }
 
     /// <summary>

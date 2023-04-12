@@ -34,6 +34,11 @@ public class PlayerManager : MonoBehaviour
     private PlayerAnimator _playerAnimator;
 
     /// <summary>
+    /// Referencia al inputController
+    /// </summary>
+    private InputController _inputController;
+
+    /// <summary>
     /// Indica si esta vivo el jugador
     /// </summary>
     private bool _isAlive = true;
@@ -109,7 +114,7 @@ public class PlayerManager : MonoBehaviour
     /// <param name="enabled">Si estan activos o no</param>
     public void EnableInputs(bool enabled)
     {
-        gameObject.GetComponent<InputController>().enabled = enabled;
+        _inputController.enabled = enabled;
         if (!enabled)
             _movementController.StopMoving();
     }
@@ -124,11 +129,23 @@ public class PlayerManager : MonoBehaviour
     {
         StartCoroutine(_playerAnimator.nextRoomAnim(_spawns[currentRoom].position, cameraPoint, door));
     }
+
+    /// <summary>
+    /// Cambia el jugador a en el suelo(true) o en el aire(false)
+    /// </summary>
+    /// <param name="b">Indica si esta en el suelo o no</param>
+    public void SetGrounded(bool b){
+        _playerAnimator.Grounded(b);
+        _inputController.Grounded(b);
+    }
+
     #endregion
+
     private void Awake()
     {
         _instance = this;
         _movementController = GetComponent<MovementController>();
         _playerAnimator = GetComponent<PlayerAnimator>();
+        _inputController = GetComponent<InputController>();
     }
 }

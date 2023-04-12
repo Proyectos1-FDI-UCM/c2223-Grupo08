@@ -13,22 +13,17 @@ public class FeetComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "IgnoreAll") {
-            if (_count == 0)
-            {
-                SendMessageUpwards("Grounded");
-            }
-            _count++;
+        if (_count == 0)
+        {
+            PlayerManager.Instance.SetGrounded(true);
         }
+        _count++;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "IgnoreAll")
-        {
-            _count--;
-            if (_count == 0) {
-                SendMessageUpwards("NotGrounded"); 
-            }
+        _count--;
+        if (_count == 0) {
+            PlayerManager.Instance.SetGrounded(false); 
         }
     }
 }
