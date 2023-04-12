@@ -20,6 +20,7 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip _audioWalk;
     [SerializeField] private AudioClip _audioJump;
     [SerializeField] private AudioClip _audioDeath;
+    [SerializeField] private AudioClip _audioBox;
     #endregion
 
     #region 
@@ -55,7 +56,8 @@ public class AudioController : MonoBehaviour
             { Audios.MechanicalSaw, _audioMechanicalSaw},
             { Audios.Jump, _audioJump},
             { Audios.Death, _audioDeath},
-            { Audios.Walk, _audioWalk}
+            { Audios.Walk, _audioWalk},
+            {Audios.Box, _audioBox }
         };
     }
 }

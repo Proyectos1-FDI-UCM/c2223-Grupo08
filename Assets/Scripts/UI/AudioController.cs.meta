@@ -7,13 +7,13 @@ MonoImporter:
   - _audioDoorOpen: {fileID: 8300000, guid: f5f9be7ddd48c9c408ee2223a3aad48f, type: 3}
   - _audioDoorClosed: {fileID: 8300000, guid: dd321fd2993399b439341511ad2d738b, type: 3}
   - _audioButton: {fileID: 8300000, guid: 9aade7fda10870f41b79ccda2366c688, type: 3}
-  - _audioPlatform: {instanceID: 0}
+  - _audioPlatform: {fileID: 8300000, guid: f548d54f6303d344b8d8968de193e551, type: 3}
   - _audioRock: {fileID: 8300000, guid: c38eed73a4869ff42a44593b27424e5a, type: 3}
-  - _audioMechanicalSaw: {instanceID: 0}
+  - _audioMechanicalSaw: {fileID: 8300000, guid: 0fb4dc6eaebc5a749a77b8165bd723ec, type: 3}
   - _audioMusicMenu: {fileID: 8300000, guid: 338f0a149c53885419aed15f6afb30c1, type: 3}
-  - _audioMenuButton: {instanceID: 0}
-  - _audioWalk: {instanceID: 0}
-  - _audioJump: {instanceID: 0}
+  - _audioMenuButton: {fileID: 8300000, guid: 3b61d59e0afb45a49bdfc539c7d65af7, type: 3}
+  - _audioWalk: {fileID: 8300000, guid: cf8ef9b903a4e644799bd1578c358da5, type: 3}
+  - _audioJump: {fileID: 8300000, guid: 30753983aebbcb94597066a58c8d0bcb, type: 3}
   - _audioDeath: {fileID: 8300000, guid: f7b3c846fe412d94fb63fe211bfd8d76, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
