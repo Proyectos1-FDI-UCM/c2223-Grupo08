@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
     private UIManager _uiManager;
 
     /// <summary>
+    /// UI manager del juego
+    /// </summary>
+    [SerializeField]
+    private AudioController _audioController;
+
+    /// <summary>
     /// Los frames a los que corre el juego
     /// </summary>
     [SerializeField]
@@ -255,6 +261,11 @@ public class GameManager : MonoBehaviour
     public void ResizeBallsBar(int size)
     {
         _uiManager.ResizeBallsBar(size);
+    }
+
+    public void PlaySound(Audios audio, bool loop = false)
+    {
+        _audioController.PlaySound(audio, loop);
     }
     #endregion
 

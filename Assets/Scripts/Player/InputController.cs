@@ -78,6 +78,7 @@ public class InputController : MonoBehaviour
             _jumpTimeCounter = _jumpTime;
            _movementController.Jump();
             _frameTimeCounter = _frameTime;
+            GameManager.Instance.PlaySound(Audios.Jump);
         }
         //Aumenta el salto hasta cierto tiempo
         else if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Jump]) && _isJumping) {
@@ -107,10 +108,12 @@ public class InputController : MonoBehaviour
         if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Right]))
         {
             _movementController.MoveRight();
+            GameManager.Instance.PlaySound(Audios.Walk);
         }
         else if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Left]))
         {
             _movementController.MoveLeft();
+            GameManager.Instance.PlaySound(Audios.Walk);
         }
         if (Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Right]))
         {

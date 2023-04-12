@@ -48,5 +48,6 @@ public class BotonComponent : MonoBehaviour
         _activated = true;
 
         _animator.SetBool("IsPressed", true);
+        GameManager.Instance.PlaySound(Audios.Button);
     }
 }

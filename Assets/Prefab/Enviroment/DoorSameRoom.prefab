@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CameraArea: {fileID: 0}
+  _isOpenFromBeginning: 0
+  _openDoorAudio: {fileID: 8300000, guid: f5f9be7ddd48c9c408ee2223a3aad48f, type: 3}
+  _closeDoorAudio: {fileID: 8300000, guid: dd321fd2993399b439341511ad2d738b, type: 3}
 --- !u!95 &6862732863509081616
 Animator:
   serializedVersion: 4

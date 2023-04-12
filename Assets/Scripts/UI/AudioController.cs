@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Audios { MusicMenu, DoorOpen, DoorClosed, Button, Platform, Rock, MechanicalSaw, MenuButton, Walk, Jump, Death };
+
 public class AudioController : MonoBehaviour
 {
     #region references
@@ -24,17 +26,36 @@ public class AudioController : MonoBehaviour
     /// <summary>
     /// Refetencia al AudioSource
     /// </summary>
-    private AudioSource _audio;
+    private AudioSource _audioSource;
+    private Dictionary<Audios, AudioClip> _audios;
     #endregion
     #region methods
-    public void PlaySound(int Pos)
+    public void PlaySound(Audios audio, bool loop = false)
     {
-
+        _audioSource.clip = _audios[audio];
+        _audioSource.loop = loop;
+        _audioSource.Play();
+    }
+    public void StopSound(Audios audio, bool loop = false)
+    {
+        _audioSource.Stop();
     }
     #endregion
-    private void Start()
+    private void Awake()
     {
-        _audio = GetComponent<AudioSource>();
-        _audio.Play();
+        _audioSource = GetComponent<AudioSource>();
+        _audios = new Dictionary<Audios, AudioClip>{
+            { Audios.MusicMenu, _audioMusicMenu},
+            { Audios.MenuButton, _audioMenuButton},
+            { Audios.DoorOpen, _audioDoorOpen},
+            { Audios.DoorClosed, _audioDoorClosed},
+            { Audios.Button, _audioButton},
+            { Audios.Platform, _audioPlatform},
+            { Audios.Rock, _audioRock},
+            { Audios.MechanicalSaw, _audioMechanicalSaw},
+            { Audios.Jump, _audioJump},
+            { Audios.Death, _audioDeath},
+            { Audios.Walk, _audioWalk}
+        };
     }
 }

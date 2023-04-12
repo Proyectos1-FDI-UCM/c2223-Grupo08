@@ -16,6 +16,12 @@ public class DoorComponent : MonoBehaviour
     /// </summary>
     [SerializeField]
     private bool _isOpenFromBeginning = false;
+
+    [SerializeField]
+    private AudioClip _openDoorAudio;
+
+    [SerializeField]
+    private AudioClip _closeDoorAudio;
     #endregion
 
     #region properties
@@ -43,6 +49,11 @@ public class DoorComponent : MonoBehaviour
     /// La posicion de la puerta
     /// </summary>
     private Vector2 DoorPosition;
+
+    /// <summary>
+    /// Referencia al AudioSource
+    /// </summary>
+    private AudioSource _audioSource;
     #endregion
 
     #region methods
@@ -67,6 +78,8 @@ public class DoorComponent : MonoBehaviour
         _collider.enabled = false;
         _animator.SetBool("isOpen", true);
         _isFirstTime = true;
+        _audioSource.clip = _openDoorAudio;
+        _audioSource.Play();
     }
 
     /// <summary>
@@ -76,6 +89,8 @@ public class DoorComponent : MonoBehaviour
     {
         _collider.enabled = true;
         _animator.SetBool("isOpen", false);
+        _audioSource.clip = _closeDoorAudio;
+        _audioSource.Play();
     }
 
     /// <summary>
@@ -113,6 +128,7 @@ public class DoorComponent : MonoBehaviour
         _animator = GetComponent<Animator>();
         _collider= GetComponent<BoxCollider2D>();
         CameraMovementComponent = Camera.main.GetComponent<CameraMovement>();
+        _audioSource= GetComponent<AudioSource>();
         DoorPosition = this.transform.position;
         if (_isOpenFromBeginning)
         {

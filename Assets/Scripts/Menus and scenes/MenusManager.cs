@@ -12,6 +12,11 @@ public class MenusManager : MonoBehaviour
     /// GameObject de la UI
     /// </summary>
     [SerializeField] private GameObject UI;
+
+    /// <summary>
+    /// Referencia al AudioController
+    /// </summary>
+    [SerializeField] private AudioController _audioController;
     #endregion
     #region properties
     /// <summary>
@@ -30,7 +35,7 @@ public class MenusManager : MonoBehaviour
         if (firstTimeRuning)
         {
             ConfigScript.LoadInputs();
-            firstTimeRuning = false; 
+            firstTimeRuning = false;
             menuState = MenuState.StartMenu;
         }
     }
@@ -41,7 +46,7 @@ public class MenusManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.isPaused && menuState == MenuState.PauseMenu)
             {
                 UnpauseGame();
-            } 
+            }
         }
     }
 
@@ -59,7 +64,7 @@ public class MenusManager : MonoBehaviour
     /// <summary>
     /// Carga la escena de juego desde el menu una vez pulsado el boton
     /// </summary>
-    public void ChangeToGameScene() 
+    public void ChangeToGameScene()
     {
         SceneManager.LoadScene("Level 1");
         Time.timeScale = 1.0f;
@@ -88,7 +93,7 @@ public class MenusManager : MonoBehaviour
     {
         Input.ResetInputAxes();
         SceneManager.LoadScene("Pausa", LoadSceneMode.Additive);
-        Time.timeScale= 0f;
+        Time.timeScale = 0f;
         menuState = MenuState.PauseMenu;
         GameManager.Instance.isPaused = true;
     }
@@ -153,6 +158,10 @@ public class MenusManager : MonoBehaviour
     {
         UI.active = !UI.active;
         ConfigScript.PreviusSceneManager = this;
+    }
+
+    public void PlayButtonAudio(){
+        _audioController.PlaySound(Audios.MenuButton);
     }
     #endregion
 }
