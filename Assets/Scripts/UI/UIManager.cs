@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     /// GameObjects con el fade
     /// </summary>
     [SerializeField]
-    private GameObject _fade; 
+    private Animator _fadeAnimator; 
     
     /// <summary>
     /// GameObject de la barra de bolas
@@ -31,49 +31,29 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region methods
+
     /// <summary>
     /// Animacion para quitar el fundido a negro
     /// </summary>
-    /// <returns></returns>
-    // Mirar si se puede quitar la corutina
-    public IEnumerator FadeOut()
+    public void FadeIn()
     {
-        _inAnimation = true;
-        _fade.SetActive(true);
-
-        Color c = _fade.GetComponent<Image>().color;
-        for (float alpha = 1; alpha >= 0; alpha -= 0.05f)
-        {
-            c.a = alpha;
-            c.a += alpha;
-            _fade.GetComponent<Image>().color = c;
-            yield return new WaitForSeconds(0.05f);
-        }
-
-        _fade.SetActive(false);
-        _inAnimation = false;
+        _fadeAnimator.SetBool("FadeOut", false);
     }
 
     /// <summary>
     /// Animacion para poner el fundido a negro
     /// </summary>
-    /// <returns></returns>
-    // Mirar si se puede quitar la corutina
-    public IEnumerator FadeIn()
+    public void FadeOut()
     {
-        _inAnimation = true;
-        _fade.SetActive(true);
+        _fadeAnimator.SetBool("FadeOut", true);
+    }
 
-        Color c = _fade.GetComponent<Image>().color;
-        for (float alpha = 0; alpha <= 1; alpha += 0.05f)
-        {
-            c.a = alpha;
-            c.a += alpha;
-            _fade.GetComponent<Image>().color = c;
-            yield return new WaitForSeconds(0.05f);
-        }
-
-        _inAnimation = false;
+    /// <summary>
+    /// Quita el fundido en negro al principio del nivel
+    /// </summary>
+    public void PlayStartTransition()
+    {
+        _fadeAnimator.SetTrigger("StartTransition");
     }
 
     /// <summary>

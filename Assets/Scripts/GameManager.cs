@@ -107,9 +107,7 @@ public class GameManager : MonoBehaviour
 
         CheckBoxes(0);
 
-        StartCoroutine(_uiManager.FadeOut());
-
-        _playerManager.EnableInputs(true);
+        _uiManager.PlayStartTransition();
     }
 
     ///<summary>
@@ -202,21 +200,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    ///<summary>
-    ///Reinicia los objetos y el personaje de la sala con una pequeña animación
-    ///<summary>
-
-    //Mirar si se puede quitar la corutina
-    public IEnumerator ResetRoom()
+    /// <summary>
+    /// Pone el fundido negro
+    /// </summary>
+    public void FadeOut()
     {
-        PlayerManager.Instance.EnableInputs(false);
+        _playerManager.EnableInputs(false);
+        _uiManager.FadeOut();
+    }
 
-        StartCoroutine(_uiManager.FadeIn());
-        yield return new WaitWhile(() =>_uiManager.IsInAnimation());
+    ///<summary>
+    ///Reinicia los objetos y el personaje de la sala
+    ///<summary>
+    public void ResetRoom()
+    {
 
         ResetBoxes();
         ResetBalls();
-        ResetButtons(); 
+        ResetButtons();
         ResetSaws();
         ResetDoors();
         _playerManager.resetSize();
@@ -227,11 +228,7 @@ public class GameManager : MonoBehaviour
 
         _playerManager.GetComponent<PlayerAnimator>().IsDeath(false);
 
-        StartCoroutine(_uiManager.FadeOut());
-        yield return new WaitWhile(() => _uiManager.IsInAnimation());
-
-        _playerManager.EnableInputs(true);
-        _playerManager.SetAlive(true);
+        _uiManager.FadeIn();
     }
 
     ///<summary>

@@ -108,12 +108,10 @@ public class InputController : MonoBehaviour
         if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Right]))
         {
             _movementController.MoveRight();
-            GameManager.Instance.PlaySound(Audios.Walk);
         }
         else if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Left]))
         {
             _movementController.MoveLeft();
-            GameManager.Instance.PlaySound(Audios.Walk);
         }
         if (Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Right]))
         {
@@ -127,7 +125,7 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Reset]))
         {
-            StartCoroutine(GameManager.Instance.ResetRoom());
+            GameManager.Instance.FadeOut();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isPaused)

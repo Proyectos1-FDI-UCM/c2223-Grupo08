@@ -35,9 +35,6 @@ public class MovementController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float _jumpPenalty = 0.25f;
-
-    [SerializeField]
-    private AudioClip _WalkAudio;
     #endregion
 
     #region properties
@@ -75,11 +72,6 @@ public class MovementController : MonoBehaviour
     {
         _jumpFactor = _jumpPenalty * size;
     }
-
-    /// <summary>
-    /// Referencia al AudioSource
-    /// </summary>
-    private AudioSource _audioSource;
     #endregion
 
     #region methods
@@ -108,8 +100,6 @@ public class MovementController : MonoBehaviour
             float y = _rigidbody2D.velocity.y;
             _rigidbody2D.velocity = new Vector2(_maxVelocity - _slowFactor, y);
         }
-        _audioSource.clip = _WalkAudio;
-        _audioSource.Play();
     }
 
     /// <summary>
@@ -128,8 +118,6 @@ public class MovementController : MonoBehaviour
             float y = _rigidbody2D.velocity.y;
             _rigidbody2D.velocity = new Vector2(-(_maxVelocity - _slowFactor), y);
         }
-        _audioSource.clip = _WalkAudio;
-        _audioSource.Play();
     }
 
     /// <summary>

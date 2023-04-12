@@ -39,6 +39,6 @@ public class LiveComponent : MonoBehaviour
     // Mirar si se puede quitar la corutina
     private void PlayDeath()
     {
-        StartCoroutine(GameManager.Instance.ResetRoom());
+        GameManager.Instance.FadeOut();
     }
 }

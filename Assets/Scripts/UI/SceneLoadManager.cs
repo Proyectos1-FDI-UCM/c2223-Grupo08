@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,20 +18,28 @@ public class SceneLoadManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private PlayerAnimator _playerAnimator;
-    #endregion
 
-    #region properties
     /// <summary>
     /// Referencia del animador
     /// </summary>
-    private Animator transitionAnimator;
+    [SerializeField]
+    private Animator fadeAnimator;
     #endregion
 
     #region methods
     /// <summary>
+    /// Reproduce la animacion de fin de nivel
+    /// </summary>
+    public void LoadNextScene()
+    {
+        fadeAnimator.SetTrigger("NextLevelTransition");
+    }
+
+    /// <summary>
     /// Carga la siguiente escena
     /// </summary>
-    void LoadNextScene()
+    /// <returns></returns>
+    public void NextSceneLoad()
     {
         int nextSceneIndex;
         if (NextSceneMenu)
@@ -41,28 +50,10 @@ public class SceneLoadManager : MonoBehaviour
         {
             nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         }
-        StartCoroutine(SceneLoad(nextSceneIndex));
-    }
-
-    /// <summary>
-    /// Carga la escena
-    /// </summary>
-    /// <param name="sceneIndex">La escena a cargar</param>
-    /// <returns></returns>
-    //Ver si se puede quitar la corutina
-    public IEnumerator SceneLoad(int sceneIndex)
-    {
-        transitionAnimator.SetTrigger("StartTransition");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(nextSceneIndex);
     }
     #endregion
 
-    void Start()
-    {
-        transitionAnimator = GetComponentInChildren<Animator>();
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerManager.Instance.EnableInputs(false);

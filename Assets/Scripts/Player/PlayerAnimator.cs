@@ -19,6 +19,13 @@ public class PlayerAnimator : MonoBehaviour
     /// Indica en que direccion esta mirando
     /// </summary>
     private bool faceRight = true;
+
+    /// <summary>
+    /// Indica si esta en la animacion de siguiente sala
+    /// </summary>
+    private bool inNextRoomAnim = false;
+
+    private NextRoomAnimData _nextRoomAnimData;
     #endregion
 
     #region methods
@@ -50,26 +57,18 @@ public class PlayerAnimator : MonoBehaviour
     }
 
     /// <summary>
-    /// Animacion de pasar a la siguiente sala
+    /// Activa la animacion de pasar a la siguiente sala
     /// </summary>
     /// <param name="target">Punto de destino que el jugador tiene que ir</param>
     /// <param name="cameraTarget">Punto al que tiene que ir la camara</param>
     /// <param name="door">La puerta que realiza la animacion</param>
-    /// <returns></returns>
-    // Mirar si se puede quitar la corutina
-    public IEnumerator nextRoomAnim(Vector2 target, Vector2 cameraTarget, DoorComponent door)
+    public void playNextRoomAnim(Vector2 target, Vector2 cameraTarget, DoorComponent door)
     {
-        Vector2 direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
-        Camera.main.GetComponent<CameraMovement>().MoveCamera(cameraTarget);
-        while (Vector2.Distance(transform.position, target) > 2f || Vector2.Distance(transform.position, target) < -2f)
-        {
-            _rigidbody2D.MovePosition(direction);
-            direction = Vector2.Lerp(transform.position, target, Time.deltaTime);
-            yield return null;
-        }
-        door.CloseDoor();
-        PlayerManager.Instance.EnableInputs(true);
+        _nextRoomAnimData = new NextRoomAnimData(target, cameraTarget, door);
+        Camera.main.GetComponent<CameraMovement>().MoveCamera(_nextRoomAnimData.cameraTarget);
+        inNextRoomAnim = true;
     }
+
     #endregion
     private void Start()
     {
@@ -95,6 +94,45 @@ public class PlayerAnimator : MonoBehaviour
             transform.localScale = newScale; 
             faceRight = true;
         }
+        if (inNextRoomAnim)
+        {
+            Vector2 direction = Vector2.Lerp(transform.position, _nextRoomAnimData.target, Time.deltaTime);
+            if (Vector2.Distance(transform.position, _nextRoomAnimData.target) > 2f || Vector2.Distance(transform.position, _nextRoomAnimData.target) < -2f)
+            {
+                _rigidbody2D.MovePosition(direction);
+            }
+            else {
+                _nextRoomAnimData.door.CloseDoor();
+                PlayerManager.Instance.EnableInputs(true); 
+            }
+        }
     }
+}
 
+/// <summary>
+/// Datos necesarios de la animacion de pasar sala
+/// </summary>
+struct NextRoomAnimData
+{
+    /// <summary>
+    /// Punto de destino que el jugador tiene que ir
+    /// </summary>
+    public Vector2 target;
+
+    /// <summary>
+    /// Punto al que tiene que ir la camara
+    /// </summary>
+    public Vector2 cameraTarget;
+
+    /// <summary>
+    /// La puerta que realiza la animacion
+    /// </summary>
+    public DoorComponent door;
+
+    public NextRoomAnimData(Vector2 target, Vector2 cameraTarget, DoorComponent door)
+    {
+        this.target = target;
+        this.cameraTarget = cameraTarget;
+        this.door = door;
+    }
 }

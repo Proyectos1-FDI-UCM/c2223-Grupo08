@@ -127,7 +127,7 @@ public class PlayerManager : MonoBehaviour
     /// <param name="door">Puerta que realiza la accion</param>
     public void moveToNextRoom(int currentRoom, Vector2 cameraPoint, DoorComponent door)
     {
-        StartCoroutine(_playerAnimator.nextRoomAnim(_spawns[currentRoom].position, cameraPoint, door));
+        _playerAnimator.playNextRoomAnim(_spawns[currentRoom].position, cameraPoint, door);
     }
 
     /// <summary>
