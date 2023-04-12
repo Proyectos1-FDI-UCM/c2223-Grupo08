@@ -1861,6 +1861,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2126346560788680874, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
+      propertyPath: fadeAnimator
+      value: 
+      objectReference: {fileID: 2028071031}
+    - target: {fileID: 2126346560788680874, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
       propertyPath: _playerAnimator
       value: 
       objectReference: {fileID: 1884787858}

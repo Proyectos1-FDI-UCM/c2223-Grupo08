@@ -10155,6 +10155,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2126346560788680874, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
+      propertyPath: fadeAnimator
+      value: 
+      objectReference: {fileID: 1417492025}
+    - target: {fileID: 2126346560788680874, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
       propertyPath: NextSceneMenu
       value: 1
       objectReference: {fileID: 0}
@@ -10212,6 +10216,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
+--- !u!114 &886401953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2126346560788680874, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
+  m_PrefabInstance: {fileID: 886401952}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a68baeef4028ff4cb3db4c1580e1c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &895330239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11944,7 +11959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef66194b74c6f84a8a1d1e253e34477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fade: {fileID: 1417492021}
+  _fadeAnimator: {fileID: 0}
   _balls: {fileID: 122587710}
 --- !u!114 &1203329080
 MonoBehaviour:
@@ -12503,6 +12518,8 @@ GameObject:
   - component: {fileID: 1417492024}
   - component: {fileID: 1417492023}
   - component: {fileID: 1417492022}
+  - component: {fileID: 1417492026}
+  - component: {fileID: 1417492025}
   m_Layer: 5
   m_Name: Fade
   m_TagString: Untagged
@@ -12568,6 +12585,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1417492025
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417492021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 849e623fd7a28af438d5acbcecc24b9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1417492026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417492021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bb07c4cbbab1e4d89907e56f2842db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneLoadManager: {fileID: 886401953}
 --- !u!1001 &1452695554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125521,7 +125571,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 96, y: 6, z: 0}
@@ -126635,6 +126685,8 @@ MonoBehaviour:
   _audioWalk: {fileID: 8300000, guid: 25aac2f79c9099045ad84fe56c4b585b, type: 3}
   _audioJump: {fileID: 8300000, guid: 30753983aebbcb94597066a58c8d0bcb, type: 3}
   _audioDeath: {fileID: 8300000, guid: f7b3c846fe412d94fb63fe211bfd8d76, type: 3}
+  _audioBox: {fileID: 0}
+  _audioLava: {fileID: 0}
 --- !u!1001 &2096248803
 PrefabInstance:
   m_ObjectHideFlags: 0
