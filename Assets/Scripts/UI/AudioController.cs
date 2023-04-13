@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Audios { MusicMenu, DoorOpen, DoorClosed, Button, Platform, Rock, MechanicalSaw, MenuButton, Walk, Jump, Death, Box , Lava };
+public enum Audios { MusicMenu, DoorOpen, DoorClosed, Button, Platform, Rock, MechanicalSaw, MenuButton, Walk, Jump, Death, Box , Lava, PickBall };
 
 public class AudioController : MonoBehaviour
 {
@@ -22,6 +22,7 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip _audioDeath;
     [SerializeField] private AudioClip _audioBox;
     [SerializeField] private AudioClip _audioLava;
+    [SerializeField] private AudioClip _audioBall;
     #endregion
 
     #region 
@@ -81,6 +82,7 @@ public class AudioController : MonoBehaviour
             { Audios.Walk, _audioWalk},
             { Audios.Box, _audioBox },
             { Audios.Lava, _audioLava },
+            { Audios.PickBall, _audioBall },
         };
     }
 }

@@ -11,7 +11,7 @@ public class DeathComponent : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == layer && PlayerManager.Instance.IsAlive())
+        if (((1<<collision.gameObject.layer) & layer.value) != 0 && PlayerManager.Instance.IsAlive())
         {
             PlayerManager.Instance.GetComponent<LiveComponent>().Death();
         }
