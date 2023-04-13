@@ -10162,7 +10162,7 @@ PrefabInstance:
       objectReference: {fileID: 1417492025}
     - target: {fileID: 2126346560788680874, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
       propertyPath: NextSceneMenu
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2126346560788680874, guid: b923d7e495b019d41a1c672109e4c513, type: 3}
       propertyPath: _playerAnimator
@@ -125723,7 +125723,7 @@ Tilemap:
       - {fileID: 532349970, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 11830665, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
       - {fileID: 730858865, guid: b16de3486f06ca746883ef618b4a168f, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 17, y: -2, z: 0}
