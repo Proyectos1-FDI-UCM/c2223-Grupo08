@@ -57,7 +57,7 @@ public class MenusManager : MonoBehaviour
     public void NewGame()
     {
         SaveScript.room = 0;
-        SaveScript.scene = "Level 1";
+        SaveScript.scene = "Level1";
         ChangeToGameScene();
     }
 
@@ -66,7 +66,7 @@ public class MenusManager : MonoBehaviour
     /// </summary>
     public void ChangeToGameScene()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level1");
         Time.timeScale = 1.0f;
     }
 
@@ -167,10 +167,21 @@ public class MenusManager : MonoBehaviour
         ConfigScript.PreviusSceneManager = this;
     }
 
+    /// <summary>
+    /// Reproduce el audio al presionar un boton
+    /// </summary>
     public void PlayButtonAudio(){
         _audioController.PlaySound(Audios.MenuButton);
     }
+    
+    /// <summary>
+     /// Reproduce el audio al guardar
+     /// </summary>
+    public void PlaySaveAudio()
+    {
+        _audioController.PlaySound(Audios.Save);
+    }
     #endregion
 
-    
+
 }

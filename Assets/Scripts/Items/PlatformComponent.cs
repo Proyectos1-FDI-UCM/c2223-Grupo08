@@ -22,12 +22,20 @@ public class PlatformComponent : MonoBehaviour
     /// Contador para saber si siguen habiendo cosas en el objeto
     /// </summary>
     private int _count = 0;
+
+    private AudioSource _audioSource;
     #endregion
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!_activated)
         {
+            _audioSource.Play();
             targetDoor.OpenDoor();
             _activated = true;
         }

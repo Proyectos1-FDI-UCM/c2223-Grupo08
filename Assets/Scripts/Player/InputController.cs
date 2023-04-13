@@ -164,6 +164,7 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Drop]))
         {
+            GameManager.Instance.PlaySound(Audios.LeaveBall);
             PlayerManager.Instance.resetSize();
         }
 

@@ -9,13 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: f7c84fb8cf23ff64ebae9123c8a4b04c
   - enabled: 1
-    path: Assets/Scenes/Prueba transicion.unity
-    guid: a91b71e4a9c66824f81db89c76e82c08
-  - enabled: 1
-    path: Assets/Scenes/Prueba 2 transicion.unity
-    guid: 2a06e6068d312364c90b80304a79fa82
-  - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Level1.unity
     guid: 886396001f22f40678c1017979209155
   - enabled: 1
     path: Assets/Scenes/Level2.unity
@@ -29,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pausa.unity
     guid: b7aa6460954f63242bce8b4875f449be
-  - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 886396001f22f40678c1017979209155
   m_configObjects: {}
