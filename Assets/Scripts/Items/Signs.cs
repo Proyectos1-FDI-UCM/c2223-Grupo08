@@ -19,8 +19,31 @@ public class Signs : MonoBehaviour
     [TextArea][SerializeField] private string text;
     #endregion
 
+    #region properties
+    private Dictionary<string, Buttons> buttons = new Dictionary<string, Buttons>() {
+        { "Left", Buttons.Left},
+        { "Right", Buttons.Right },
+        { "Jump", Buttons.Jump },
+        { "Drop", Buttons.Drop},
+        { "Reset", Buttons.Reset }
+    };
+    #endregion
+
     void Start()
     {
-        SignText.text = text;
+        string auxText = "";
+        string[] messages = text.Split("'");
+        for (int i = 0; i < messages.Length; i++)
+        {
+            if(i % 2 == 0)
+            {
+                auxText += messages[i];
+            }
+            else
+            {
+                auxText += ConfigScript.ButtonsCodes[buttons[messages[i]]].ToString();
+            }
+        }
+        SignText.text = auxText;
     }
 }

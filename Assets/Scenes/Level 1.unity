@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2270111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5878849812037828879, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 1665817439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9274295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1457,17 @@ Transform:
   m_Father: {fileID: 176506441}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &441714430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687017317052762838, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 1389607270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &447846701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2370,6 +2386,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5438916979910313721, guid: adf51fb89dc22654c95263885b1136bf, type: 3}
   m_PrefabInstance: {fileID: 765207483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &820161413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687017317052762838, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 268225109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &823987619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2705,6 +2732,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 723296762006036773, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
   m_PrefabInstance: {fileID: 1665817439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &953724055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c07003f4fb6654a81a997f4c74b838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SignText: {fileID: 1664130118}
+  text: "\xA1Pero cuidado, cuantas m\xE1s bolas tienes m\xE1s lento eres!"
 --- !u!1 &966974058 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3182579514605542859, guid: a5aa4b990611d314cb527781dd76afbf, type: 3}
@@ -3480,11 +3521,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9182286884997807426, guid: 6bd95f52b22ca5d48b351f6d47c7e04f, type: 3}
   m_PrefabInstance: {fileID: 1031959267}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1115040471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5878849812037828879, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 1389607270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1122396064 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2543408494837206986, guid: a5aa4b990611d314cb527781dd76afbf, type: 3}
   m_PrefabInstance: {fileID: 2093469567}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1169958585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687017317052762838, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 1522939821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208954634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4109,6 +4166,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1366008955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5878849812037828879, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 1522939821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1383844087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 723296762006036773, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
@@ -4127,7 +4189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SignText: {fileID: 2089428275}
-  text: Hola
+  text: "\xA1Recoge las bolas para hacerte m\xE1s fuerte!"
 --- !u!1001 &1389607270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4189,6 +4251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+--- !u!1 &1409211475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5878849812037828879, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 268225109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1455685514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4476,6 +4543,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 723296762006036773, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
   m_PrefabInstance: {fileID: 1389607270}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1621020777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115040471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c07003f4fb6654a81a997f4c74b838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SignText: {fileID: 441714430}
+  text: "\xA1Pulsa \"'Reset'\" para reiniciar la sala si te has atascado!"
 --- !u!1 &1647501318
 GameObject:
   m_ObjectHideFlags: 0
@@ -42838,6 +42919,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 723296762006036773, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
   m_PrefabInstance: {fileID: 268225109}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1651236261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409211475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c07003f4fb6654a81a997f4c74b838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SignText: {fileID: 820161413}
+  text: "\xA1Pulsa \"'Drop'\" para soltar las bolas que tienes!"
 --- !u!1 &1660858926
 GameObject:
   m_ObjectHideFlags: 0
@@ -44943,6 +45038,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1664130118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687017317052762838, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
+  m_PrefabInstance: {fileID: 1665817439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1665817439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46150,6 +46256,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 723296762006036773, guid: 3894543c08f2c1044ab4451b6901597b, type: 3}
   m_PrefabInstance: {fileID: 1522939821}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1923434309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366008955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c07003f4fb6654a81a997f4c74b838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SignText: {fileID: 1169958585}
+  text: "\xA1Cuidado con los pinchos!"
 --- !u!1 &1947215789
 GameObject:
   m_ObjectHideFlags: 0
