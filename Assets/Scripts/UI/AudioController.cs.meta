@@ -12,7 +12,7 @@ MonoImporter:
   - _audioMechanicalSaw: {fileID: 8300000, guid: 0fb4dc6eaebc5a749a77b8165bd723ec, type: 3}
   - _audioMusicMenu: {fileID: 8300000, guid: 338f0a149c53885419aed15f6afb30c1, type: 3}
   - _audioMenuButton: {fileID: 8300000, guid: 3b61d59e0afb45a49bdfc539c7d65af7, type: 3}
-  - _audioWalk: {fileID: 8300000, guid: cf8ef9b903a4e644799bd1578c358da5, type: 3}
+  - _audioWalk: {fileID: 8300000, guid: 230642813b56e334a89984a52e117507, type: 3}
   - _audioJump: {fileID: 8300000, guid: 30753983aebbcb94597066a58c8d0bcb, type: 3}
   - _audioDeath: {fileID: 8300000, guid: f7b3c846fe412d94fb63fe211bfd8d76, type: 3}
   - _audioBox: {fileID: 8300000, guid: 25aac2f79c9099045ad84fe56c4b585b, type: 3}
