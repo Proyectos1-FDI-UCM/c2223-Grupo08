@@ -32,6 +32,11 @@ public class AudioController : MonoBehaviour
     private Dictionary<Audios, AudioClip> _audios;
     #endregion
     #region methods
+    /// <summary>
+    /// Reproduce un sonido por el canal general
+    /// </summary>
+    /// <param name="audio">El nombre del sonido</param>
+    /// <param name="loop">Si esta en bucle o no</param>
     public void PlaySound(Audios audio, bool loop = false)
     {
         _audioSource.clip = _audios[audio];
