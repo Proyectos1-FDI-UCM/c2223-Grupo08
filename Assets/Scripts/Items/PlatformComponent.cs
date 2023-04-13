@@ -24,10 +24,13 @@ public class PlatformComponent : MonoBehaviour
     private int _count = 0;
 
     private AudioSource _audioSource;
+
+    private Animator _animator;
     #endregion
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -35,6 +38,7 @@ public class PlatformComponent : MonoBehaviour
     {
         if (!_activated)
         {
+            _animator.SetBool("ActivatePlatform", true); 
             _audioSource.Play();
             targetDoor.OpenDoor();
             _activated = true;
@@ -47,6 +51,7 @@ public class PlatformComponent : MonoBehaviour
         _count--;
         if(_count == 0)
         {
+            _animator.SetBool("ActivatePlatform", false); 
             targetDoor.CloseDoor();
             _activated = false;
         }
