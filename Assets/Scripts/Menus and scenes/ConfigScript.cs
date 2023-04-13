@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -249,20 +248,15 @@ public class ConfigScript : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             ConfigData data = (ConfigData)bf.Deserialize(file);
             file.Close();
-            if (data.FPS_Value != null)
-                _configData.FPS_Value = data.FPS_Value;
+            _configData.FPS_Value = data.FPS_Value;
 
-            if (data.Mode_Value != null)
-                _configData.Mode_Value = data.Mode_Value;
+            _configData.Mode_Value = data.Mode_Value;
 
-            if (data.Resolution_Value != null)
-                _configData.Resolution_Value = data.Resolution_Value;
+            _configData.Resolution_Value = data.Resolution_Value;
 
-            if (data.ButtonsCodes != null)
-                _configData.ButtonsCodes = data.ButtonsCodes;
+            _configData.ButtonsCodes = data.ButtonsCodes;
 
-            if (data.ButtonsTexts != null)
-                _configData.ButtonsTexts = data.ButtonsTexts;
+            _configData.ButtonsTexts = data.ButtonsTexts;
         }
         catch
         {
@@ -317,6 +311,7 @@ public class ConfigScript : MonoBehaviour
         }
         catch
         {
+            file.Close();
             Debug.LogError("Error al cargar la configuracion de botones");
         }
     }

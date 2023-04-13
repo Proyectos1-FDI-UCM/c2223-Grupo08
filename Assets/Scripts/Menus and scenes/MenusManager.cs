@@ -104,7 +104,7 @@ public class MenusManager : MonoBehaviour
     public void UnpauseGame()
     {
         Input.ResetInputAxes();
-        SceneManager.UnloadScene("Pausa");
+        SceneManager.UnloadSceneAsync("Pausa");
         Time.timeScale = 1.0f;
         menuState = MenuState.None;
         GameManager.Instance.isPaused = false;
@@ -115,9 +115,16 @@ public class MenusManager : MonoBehaviour
     /// </summary>
     public void LoadGame()
     {
-        SaveScript.LoadFile();
-        SceneManager.LoadScene(SaveScript.scene);
-        Time.timeScale = 1.0f;
+        try
+        {
+            SaveScript.LoadFile();
+            SceneManager.LoadScene(SaveScript.scene);
+            Time.timeScale = 1.0f;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e);
+        }
     }
 
     /// <summary>
@@ -134,7 +141,7 @@ public class MenusManager : MonoBehaviour
     public void ChangePauseToOptions()
     {
         SceneManager.LoadScene("Options", LoadSceneMode.Additive);
-        SceneManager.UnloadScene("Pausa");
+        SceneManager.UnloadSceneAsync("Pausa");
         ConfigScript.IsMenu = false;
         menuState = MenuState.ConfigMenu;
     }
@@ -145,7 +152,7 @@ public class MenusManager : MonoBehaviour
     public void ChangeMenuToOptions()
     {
         SceneManager.LoadScene("Options", LoadSceneMode.Additive);
-        UI.active = false;
+        UI.SetActive(false);
         ConfigScript.IsMenu = true;
         ConfigScript.PreviusSceneManager = this;
         menuState = MenuState.ConfigMenu;
@@ -156,7 +163,7 @@ public class MenusManager : MonoBehaviour
     /// </summary>
     public void ToggleUI()
     {
-        UI.active = !UI.active;
+        UI.SetActive(!UI.activeSelf);
         ConfigScript.PreviusSceneManager = this;
     }
 

@@ -23,11 +23,11 @@ public class IncrementSizeBarra : MonoBehaviour
         {
             if(i < size)
             {
-                _rellenoBolas[i].active = true;
+                _rellenoBolas[i].SetActive(true);
             }
             else
             {
-                _rellenoBolas[i].active = false;
+                _rellenoBolas[i].SetActive(false);
             }
         }
     }

@@ -49,16 +49,24 @@ public static class SaveScript
         if (File.Exists(destination)) file = File.OpenRead(destination);
         else
         {
-            Debug.LogError("File not found");
+            Debug.LogWarning("No se ha encontrado el archivo, se ha creado uno nuevo.");
             return;
         }
 
-        BinaryFormatter bf = new BinaryFormatter();
-        GameData data = (GameData)bf.Deserialize(file);
-        file.Close();
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            GameData data = (GameData)bf.Deserialize(file);
+            file.Close();
 
-        SaveScript.room = data.room;
-        SaveScript.scene = data.scene;
+            SaveScript.room = data.room;
+            SaveScript.scene = data.scene;
+        }
+        catch
+        {
+            file.Close();
+            throw new System.Exception("Archivo de guardado corrupto");
+        }
     }
     #endregion
 }
