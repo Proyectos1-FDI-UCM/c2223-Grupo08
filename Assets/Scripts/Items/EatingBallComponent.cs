@@ -15,6 +15,7 @@ public class EatingBallComponent : MonoBehaviour
     {
         if (PlayerManager.Instance.getSize() < 5 && _count == 0)   //Impide que obtenga mas de 5 bolas
         {
+            GameManager.Instance.PlaySound(Audios.PickBall);
             Destroy(gameObject);
             PlayerManager.Instance.incrementSize();
             _count++;
