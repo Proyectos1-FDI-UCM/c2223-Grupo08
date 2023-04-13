@@ -50,6 +50,7 @@ public class SceneLoadManager : MonoBehaviour
         {
             nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         }
+        SaveScript.room = 0;
         SceneManager.LoadScene(nextSceneIndex);
     }
     #endregion

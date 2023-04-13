@@ -88,7 +88,7 @@ public class SawComponent : MonoBehaviour
     }
     #endregion
 
-    private void Start()
+    private void Awake()
     {
         transform.position = _startPoint.position;
         _rigidbody = GetComponent<Rigidbody2D>();
