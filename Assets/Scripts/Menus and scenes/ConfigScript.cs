@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -239,28 +240,36 @@ public class ConfigScript : MonoBehaviour
         if (File.Exists(destination)) file = File.OpenRead(destination);
         else
         {
-            Debug.LogError("File not found");
+            Debug.LogWarning("No se ha encontrado el archivo, se ha creado uno nuevo.");
             return false;
         }
 
-        BinaryFormatter bf = new BinaryFormatter();
-        ConfigData data = (ConfigData)bf.Deserialize(file);
-        file.Close();
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            ConfigData data = (ConfigData)bf.Deserialize(file);
+            file.Close();
+            if (data.FPS_Value != null)
+                _configData.FPS_Value = data.FPS_Value;
 
-        if (data.FPS_Value != null)
-            _configData.FPS_Value = data.FPS_Value;
+            if (data.Mode_Value != null)
+                _configData.Mode_Value = data.Mode_Value;
 
-        if (data.Mode_Value != null)
-            _configData.Mode_Value = data.Mode_Value;
+            if (data.Resolution_Value != null)
+                _configData.Resolution_Value = data.Resolution_Value;
 
-        if (data.Resolution_Value != null)
-            _configData.Resolution_Value = data.Resolution_Value;
+            if (data.ButtonsCodes != null)
+                _configData.ButtonsCodes = data.ButtonsCodes;
 
-        if (data.ButtonsCodes != null)
-            _configData.ButtonsCodes = data.ButtonsCodes;
-
-        if (data.ButtonsTexts != null)
-            _configData.ButtonsTexts = data.ButtonsTexts;
+            if (data.ButtonsTexts != null)
+                _configData.ButtonsTexts = data.ButtonsTexts;
+        }
+        catch
+        {
+            file.Close();
+            Debug.LogError("Archivo de configuracion corrupto, se ha reparado");
+            SaveFile();
+        }
 
         return true;
     }
@@ -293,16 +302,23 @@ public class ConfigScript : MonoBehaviour
         if (File.Exists(destination)) file = File.OpenRead(destination);
         else
         {
-            Debug.LogError("File not found");
+            Debug.LogWarning("No se ha encontrado el archivo, se ha creado uno nuevo.");
             return;
         }
 
-        BinaryFormatter bf = new BinaryFormatter();
-        ConfigData data = (ConfigData)bf.Deserialize(file);
-        file.Close();
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            ConfigData data = (ConfigData)bf.Deserialize(file);
+            file.Close();
 
-        if (data.ButtonsCodes != null)
-            ButtonsCodes = data.ButtonsCodes;
+            if (data.ButtonsCodes != null)
+                    ButtonsCodes = data.ButtonsCodes;
+        }
+        catch
+        {
+            Debug.LogError("Error al cargar la configuracion de botones");
+        }
     }
 
     /// <summary>
