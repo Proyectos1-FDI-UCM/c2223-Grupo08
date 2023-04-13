@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1254578445258793804}
   - component: {fileID: 8765245570344787615}
   - component: {fileID: 1048265283721447195}
+  - component: {fileID: 3433510677493889285}
   m_Layer: 3
   m_Name: Player
   m_TagString: Slime
@@ -226,9 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931e34ab6b3ccd242aa59812d6250e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpTime: 0.3
   _frameTime: 0.1
-  _movementController: {fileID: 0}
+  _jumpTime: 0.3
 --- !u!114 &5059875968906271271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +304,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1666fbb774a71f40baff79ec3ed40d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &3433510677493889285
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059875968906271274}
+  m_Enabled: 1
 --- !u!1 &5059875969473517874
 GameObject:
   m_ObjectHideFlags: 0

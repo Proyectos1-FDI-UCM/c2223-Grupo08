@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RockComponent : MonoBehaviour
 {
+    private AudioSource _audioRock;
     #region references
     /// <summary>
     /// Tiempo de vida de la roca
@@ -22,11 +23,13 @@ public class RockComponent : MonoBehaviour
 
     private void Awake()
     {
+        _audioRock = GetComponent<AudioSource>();
         _anim = GetComponentInChildren<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        _audioRock.Play();
         _anim.SetTrigger("Destruido");
         Destroy(gameObject, time);
     }
