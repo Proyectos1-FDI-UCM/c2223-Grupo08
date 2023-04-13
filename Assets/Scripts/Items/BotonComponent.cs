@@ -30,7 +30,7 @@ public class BotonComponent : MonoBehaviour
     /// </summary>
     public void ResetBoton()
     {
-        targetDoor.CloseDoor();
+        targetDoor.CloseDoor(false);
         _activated = false;
 
         _animator.SetBool("IsPressed", false);

@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
     {
         _playerManager.EnableInputs(false);
 
+        ResetDoors();
         ResetBoxes();
         ResetBalls();
         ResetButtons(); 
@@ -215,11 +216,11 @@ public class GameManager : MonoBehaviour
     public void ResetRoom()
     {
 
+        ResetDoors();
         ResetBoxes();
         ResetBalls();
         ResetButtons();
         ResetSaws();
-        ResetDoors();
         _playerManager.resetSize();
         _playerManager.goToSpawn(_currentRoom);
 
@@ -260,9 +261,32 @@ public class GameManager : MonoBehaviour
         _uiManager.ResizeBallsBar(size);
     }
 
+    /// <summary>
+    /// Reproduce un sonido por el canal general
+    /// </summary>
+    /// <param name="audio">El nombre del sonido</param>
+    /// <param name="loop">Si esta en bucle o no</param>
     public void PlaySound(Audios audio, bool loop = false)
     {
         _audioController.PlaySound(audio, loop);
+    }
+
+    /// <summary>
+    /// Devuelve el sonido del diccionario de sonidos
+    /// </summary>
+    /// <param name="audio">El sonido a recibir</param>
+    /// <returns>El sonido del diccionario</returns>
+    public AudioClip GetSoundClip(Audios audio)
+    {
+        return _audioController.GetSoundClip(audio);
+    }
+
+    /// <summary>
+    /// Para todos los sonidos del juego
+    /// </summary>
+    public void StopSounds()
+    {
+        _playerManager.StopSounds();
     }
     #endregion
 

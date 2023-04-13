@@ -30,6 +30,21 @@ public class InputController : MonoBehaviour
     private MovementController _movementController;
 
     /// <summary>
+    /// Referencia al AudioSource
+    /// </summary>
+    private AudioSource _audioSource;
+
+    /// <summary>
+    /// Sonido al saltar
+    /// </summary>
+    private AudioClip _jumpAudio;
+
+    /// <summary>
+    /// Sonido al moverse
+    /// </summary>
+    private AudioClip _walkAudio;
+
+    /// <summary>
     /// Indica si esta en la accion de saltar
     /// </summary>
     private bool _isJumping = false;
@@ -62,11 +77,22 @@ public class InputController : MonoBehaviour
     {
         _isGrounded = b;
     }
+
+    /// <summary>
+    /// Para el sonido
+    /// </summary>
+    public void StopSound()
+    {
+        _audioSource.Stop();
+    }
     #endregion
 
     void Start()
     {
         _movementController = GetComponent<MovementController>();
+        _audioSource = GetComponent<AudioSource>();
+        _jumpAudio = GameManager.Instance.GetSoundClip(Audios.Jump);
+        _walkAudio = GameManager.Instance.GetSoundClip(Audios.Jump);
     }
 
     // Update is called once per frame
@@ -78,7 +104,9 @@ public class InputController : MonoBehaviour
             _jumpTimeCounter = _jumpTime;
            _movementController.Jump();
             _frameTimeCounter = _frameTime;
-            GameManager.Instance.PlaySound(Audios.Jump);
+            _audioSource.clip = _jumpAudio;
+            _audioSource.loop = false;
+            _audioSource.Play();
         }
         //Aumenta el salto hasta cierto tiempo
         else if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Jump]) && _isJumping) {
@@ -107,15 +135,31 @@ public class InputController : MonoBehaviour
 
         if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Right]))
         {
+            if(!_audioSource.isPlaying && _isGrounded)
+            {
+                _audioSource.clip = _walkAudio;
+                _audioSource.loop = true;
+                _audioSource.Play();
+            }
             _movementController.MoveRight();
         }
         else if(Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Left]))
         {
+            if (!_audioSource.isPlaying && _isGrounded)
+            {
+                _audioSource.clip = _walkAudio;
+                _audioSource.loop = true;
+                _audioSource.Play();
+            }
             _movementController.MoveLeft();
         }
         if (Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Left])|| Input.GetKeyUp(ConfigScript.ButtonsCodes[Buttons.Right]))
         {
             _movementController.StopMoving();
+            if(_audioSource.clip == _walkAudio)
+            {
+                _audioSource.Stop();
+            }
         }
 
         if (Input.GetKey(ConfigScript.ButtonsCodes[Buttons.Drop]))

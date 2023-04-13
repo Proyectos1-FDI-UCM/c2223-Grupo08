@@ -12,16 +12,10 @@ public class DoorComponent : MonoBehaviour
     private CameraAreaScript _CameraArea;
 
     /// <summary>
-    /// Indica si debe estar abierta desde el principio
+    /// Indica si esta abierta
     /// </summary>
     [SerializeField]
-    private bool _isOpenFromBeginning = false;
-
-    [SerializeField]
-    private AudioClip _openDoorAudio;
-
-    [SerializeField]
-    private AudioClip _closeDoorAudio;
+    private bool _isOpen = false;
     #endregion
 
     #region properties
@@ -54,6 +48,16 @@ public class DoorComponent : MonoBehaviour
     /// Referencia al AudioSource
     /// </summary>
     private AudioSource _audioSource;
+
+    /// <summary>
+    /// Sonido al abrirse la puerta
+    /// </summary>
+    private AudioClip _openDoorAudio;
+
+    /// <summary>
+    /// Sonido al cerrarse la puerta
+    /// </summary>
+    private AudioClip _closeDoorAudio;
     #endregion
 
     #region methods
@@ -64,33 +68,50 @@ public class DoorComponent : MonoBehaviour
     public void resetFirstTime()
     {
         _isFirstTime = false;
+        CloseDoor(false);
     }
 
     /// <summary>
     /// Abre la puerta y si es la primera vez que se abre, hace una pequeña animacion
     /// </summary>
-    public void OpenDoor()
+    /// <param name="playSound">Si se quiere reproducir el sonido o no</param>
+    public void OpenDoor(bool playSound = true)
     {
-        if (_isFirstTime == false)
+        if (!_isOpen)
         {
-            CameraAnimToDoor();
+            if (_isFirstTime == false)
+            {
+                PlayerManager.Instance.StopSounds();
+                CameraAnimToDoor();
+            }
+            _collider.enabled = false;
+            _animator.SetBool("isOpen", true);
+            _isFirstTime = true;
+            if (playSound)
+            {
+                _audioSource.clip = _openDoorAudio;
+                _audioSource.Play();
+            }
+            _isOpen = true;
         }
-        _collider.enabled = false;
-        _animator.SetBool("isOpen", true);
-        _isFirstTime = true;
-        _audioSource.clip = _openDoorAudio;
-        _audioSource.Play();
     }
 
     /// <summary>
     /// Cierra la puerta
     /// </summary>
-    public void CloseDoor()
+    /// <param name="playSound">Si se quiere reproducir el sonido o no</param>
+    public void CloseDoor(bool playSound = true)
     {
-        _collider.enabled = true;
-        _animator.SetBool("isOpen", false);
-        _audioSource.clip = _closeDoorAudio;
-        _audioSource.Play();
+        if (_isOpen) {
+            _collider.enabled = true;
+            _animator.SetBool("isOpen", false);
+            if (playSound)
+            {
+                _audioSource.clip = _closeDoorAudio;
+                _audioSource.Play();
+            }
+            _isOpen = false;
+        }
     }
 
     /// <summary>
@@ -130,11 +151,16 @@ public class DoorComponent : MonoBehaviour
         CameraMovementComponent = Camera.main.GetComponent<CameraMovement>();
         _audioSource= GetComponent<AudioSource>();
         DoorPosition = this.transform.position;
-        if (_isOpenFromBeginning)
+        if (_isOpen)
         {
             _isFirstTime = true;
             OpenDoor();
         }
     }
 
+    private void Start()
+    {
+        _openDoorAudio = GameManager.Instance.GetSoundClip(Audios.DoorOpen);
+        _closeDoorAudio = GameManager.Instance.GetSoundClip(Audios.DoorClosed);
+    }
 }

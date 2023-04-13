@@ -139,6 +139,13 @@ public class PlayerManager : MonoBehaviour
         _inputController.Grounded(b);
     }
 
+    /// <summary>
+    /// Para todos los sonidos del jugador
+    /// </summary>
+    public void StopSounds()
+    {
+        _inputController.StopSound();
+    }
     #endregion
 
     private void Awake()

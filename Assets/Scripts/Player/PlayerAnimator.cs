@@ -104,6 +104,7 @@ public class PlayerAnimator : MonoBehaviour
             else {
                 _nextRoomAnimData.door.CloseDoor();
                 PlayerManager.Instance.EnableInputs(true);
+                PlayerManager.Instance.StopSounds();
                 inNextRoomAnim = false;
             }
         }

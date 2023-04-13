@@ -38,9 +38,25 @@ public class AudioController : MonoBehaviour
         _audioSource.loop = loop;
         _audioSource.Play();
     }
-    public void StopSound(Audios audio, bool loop = false)
+
+    /// <summary>
+    /// Para el sonido
+    /// </summary>
+    /// <param name="audio"></param>
+    /// <param name="loop"></param>
+    public void StopSound(Audios audio)
     {
         _audioSource.Stop();
+    }
+
+    /// <summary>
+    /// Devuelve el sonido del diccionario de sonidos
+    /// </summary>
+    /// <param name="audio">El sonido a recibir</param>
+    /// <returns>El sonido del diccionario</returns>
+    public AudioClip GetSoundClip(Audios audio)
+    {
+        return _audios[audio];
     }
     #endregion
     private void Awake()
