@@ -124851,7 +124851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef66194b74c6f84a8a1d1e253e34477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeAnimator: {fileID: 0}
+  _fadeAnimator: {fileID: 737283379}
   _balls: {fileID: 1509998951}
 --- !u!114 &523412391
 MonoBehaviour:
