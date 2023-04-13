@@ -43,6 +43,16 @@ public class SawComponent : MonoBehaviour
     /// Referencia al rigidbody de la sierra
     /// </summary>
     private Rigidbody2D _rigidbody;
+
+    /// <summary>
+    /// Ignora la condicion de X si esta en linea recta
+    /// </summary>
+    private bool _ignoreXAxys = false;
+
+    /// <summary>
+    /// Ignora la condicion de Y si esta en linea recta
+    /// </summary>
+    private bool _ignoreYAxys = false;
     #endregion
 
     #region methods
@@ -62,7 +72,11 @@ public class SawComponent : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         direction = (_endPoint.position - _startPoint.position).normalized;
 
-        if (direction.x >= 0)
+        if (direction.x == 0)
+        {
+            _ignoreXAxys = true;
+        }
+        else if (direction.x > 0)
         {
             minV.x = _startPoint.position.x;
             maxV.x = _endPoint.position.x;
@@ -73,11 +87,16 @@ public class SawComponent : MonoBehaviour
             maxV.x = _startPoint.position.x;
         }
 
-        if (direction.y >= 0)
+        if (direction.y == 0)
+        {
+            _ignoreYAxys = true;
+        }
+        else if (direction.y > 0)
         {
             minV.y = _startPoint.position.y;
             maxV.y = _endPoint.position.y;
         }
+        else
         {
             minV.y = _endPoint.position.y;
             maxV.y = _startPoint.position.y;
@@ -86,12 +105,11 @@ public class SawComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.x < minV.x || transform.position.x > maxV.x)
+        if (transform.position.x < minV.x || transform.position.x > maxV.x || _ignoreXAxys)
         {
-            if (transform.position.y < minV.y || transform.position.y > maxV.y)
+            if (transform.position.y < minV.y || transform.position.y > maxV.y || _ignoreYAxys)
                 direction = -direction;
         }
-
         _rigidbody.velocity = direction * _velocity;
     }
 }
