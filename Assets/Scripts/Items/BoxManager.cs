@@ -16,6 +16,11 @@ public class BoxManager : MonoBehaviour
     /// Referencia al rigidbody2D de la caja
     /// </summary>
     private Rigidbody2D _rigidbody2D;
+
+    /// <summary>
+    /// Referencia al audioSource de la caja
+    /// </summary>
+    private AudioSource _audioSource;
     #endregion
 
     #region methods
@@ -38,5 +43,18 @@ public class BoxManager : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (_rigidbody2D.velocity.x != 0 && !_audioSource.isPlaying)
+        {
+            _audioSource.Play();
+        }
+        else if(_rigidbody2D.velocity.x == 0 && _audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+        }
     }
 }
