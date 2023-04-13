@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private UIManager _uiManager;
 
     /// <summary>
-    /// UI manager del juego
+    /// Audio controller del juego
     /// </summary>
     [SerializeField]
     private AudioController _audioController;

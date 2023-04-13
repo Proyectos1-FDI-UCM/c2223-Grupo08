@@ -34,7 +34,7 @@ public class MenusManager : MonoBehaviour
     {
         if (firstTimeRuning)
         {
-            ConfigScript.LoadInputs();
+            ConfigScript.LoadInitialConfig();
             firstTimeRuning = false;
             menuState = MenuState.StartMenu;
         }

@@ -95,7 +95,7 @@ public class ConfigScript : MonoBehaviour
     /// <summary>
     /// Datos del guardado de configuracion
     /// </summary>
-    private ConfigData _configData = new ConfigData(2, 2, 3);
+    private ConfigData _configData = new ConfigData(2, 2, 3, 100);
     #endregion
     #region methods
 
@@ -172,6 +172,13 @@ public class ConfigScript : MonoBehaviour
                 break;
         }
         _configData.Resolution_Value = Resolution_dropdown.value;
+        SaveFile();
+    }
+
+    public void ChageVolume()
+    {
+        _configData.Volume = (int)Volume_Slider.value;
+        AudioListener.volume = ((float)_configData.Volume) / 100;
         SaveFile();
     }
 
@@ -254,6 +261,8 @@ public class ConfigScript : MonoBehaviour
 
             _configData.Resolution_Value = data.Resolution_Value;
 
+            _configData.Volume = data.Volume;
+
             _configData.ButtonsCodes = data.ButtonsCodes;
 
             _configData.ButtonsTexts = data.ButtonsTexts;
@@ -277,6 +286,7 @@ public class ConfigScript : MonoBehaviour
         FPS_dropdown.value = _configData.FPS_Value;
         Resolution_dropdown.value = _configData.Resolution_Value;
         Mode_dropdown.value = _configData.Mode_Value;
+        Volume_Slider.value = _configData.Volume;
         ButtonsCodes = _configData.ButtonsCodes;
         buttonsTexts = _configData.ButtonsTexts;
         for (int i = 0; i < 5; i++)
@@ -288,7 +298,7 @@ public class ConfigScript : MonoBehaviour
     /// <summary>
     /// Carga los inputs de los datos
     /// </summary>
-    public static void LoadInputs()
+    public static void LoadInitialConfig()
     {
         string destination = Application.persistentDataPath + "/config.dat";
         FileStream file;
@@ -307,7 +317,11 @@ public class ConfigScript : MonoBehaviour
             file.Close();
 
             if (data.ButtonsCodes != null)
-                    ButtonsCodes = data.ButtonsCodes;
+            {
+                ButtonsCodes = data.ButtonsCodes;
+            }
+
+            AudioListener.volume = ((float)data.Volume) / 100;
         }
         catch
         {
@@ -405,14 +419,16 @@ struct ConfigData
     public int FPS_Value;
     public int Mode_Value;
     public int Resolution_Value;
+    public int Volume;
     public Dictionary<Buttons,KeyCode> ButtonsCodes;
     public string[] ButtonsTexts;
 
-    public ConfigData(int FPS_Value, int Mode_Value, int Resolution_Value)
+    public ConfigData(int FPS_Value, int Mode_Value, int Resolution_Value, int Volume)
     {
         this.FPS_Value = FPS_Value;
         this.Mode_Value = Mode_Value;
         this.Resolution_Value = Resolution_Value;
+        this.Volume = Volume;
         this.ButtonsCodes = new Dictionary<Buttons, KeyCode>{
             { Buttons.Left, KeyCode.LeftArrow },
             { Buttons.Right, KeyCode.RightArrow },
