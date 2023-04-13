@@ -58,6 +58,14 @@ public class AudioController : MonoBehaviour
     }
 
     /// <summary>
+    /// Pausa el sonido
+    /// </summary>
+    public void PauseSound()
+    {
+        _audioSource.Pause();
+    }
+
+    /// <summary>
     /// Devuelve el sonido del diccionario de sonidos
     /// </summary>
     /// <param name="audio">El sonido a recibir</param>

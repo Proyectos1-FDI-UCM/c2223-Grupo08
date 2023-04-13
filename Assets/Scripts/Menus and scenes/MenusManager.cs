@@ -95,6 +95,7 @@ public class MenusManager : MonoBehaviour
         SceneManager.LoadScene("Pausa", LoadSceneMode.Additive);
         Time.timeScale = 0f;
         menuState = MenuState.PauseMenu;
+        GameManager.Instance.PauseSounds();
         GameManager.Instance.isPaused = true;
     }
 
@@ -107,6 +108,7 @@ public class MenusManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("Pausa");
         Time.timeScale = 1.0f;
         menuState = MenuState.None;
+        GameManager.Instance.PlaySounds();
         GameManager.Instance.isPaused = false;
     }
 

@@ -142,6 +142,22 @@ public class DoorComponent : MonoBehaviour
         CameraToDoor();
         Invoke("CameraReturnToPlayer", 2f);
     }
+
+    /// <summary>
+    /// Pausa el sonido
+    /// </summary>
+    public void PauseSound()
+    {
+        _audioSource.Pause();
+    }
+
+    /// <summary>
+    /// Pausa el sonido
+    /// </summary>
+    public void ResumeSound()
+    {
+        _audioSource.Play();
+    }
     #endregion
 
     private void Awake()

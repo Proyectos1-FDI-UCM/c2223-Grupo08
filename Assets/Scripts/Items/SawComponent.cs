@@ -53,6 +53,11 @@ public class SawComponent : MonoBehaviour
     /// Ignora la condicion de Y si esta en linea recta
     /// </summary>
     private bool _ignoreYAxys = false;
+
+    /// <summary>
+    /// Referencia al AudioSource
+    /// </summary>
+    private AudioSource _audioSource;
     #endregion
 
     #region methods
@@ -61,8 +66,25 @@ public class SawComponent : MonoBehaviour
     /// </summary>
     public void ResetObj()
     {
+        transform.position = _startPoint.position;
         direction = (_endPoint.position - _startPoint.position).normalized;
         _rigidbody.velocity = direction * _velocity;
+    }
+    
+    /// <summary>
+    /// Pausa el sonido
+    /// </summary>
+    public void PauseSound()
+    {
+        _audioSource.Pause();
+    }
+    
+    /// <summary>
+     /// Continua el sonido
+     /// </summary>
+    public void ResumeSound()
+    {
+        _audioSource.Play();
     }
     #endregion
 
@@ -70,6 +92,7 @@ public class SawComponent : MonoBehaviour
     {
         transform.position = _startPoint.position;
         _rigidbody = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
         direction = (_endPoint.position - _startPoint.position).normalized;
 
         if (direction.x == 0)

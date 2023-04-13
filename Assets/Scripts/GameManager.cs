@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
     private GameObject _buttons;
 
     /// <summary>
+    /// Gameobject con los gameobjects de los botones
+    /// </summary>
+    [SerializeField]
+    private GameObject _saws;
+
+    /// <summary>
     /// Gameobject con los gameobjects de las areas de las camaras
     /// </summary>
     [SerializeField]
@@ -55,6 +61,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject _doors;
+
+    /// <summary>
+    /// Referencia al sound manager de la lava
+    /// </summary>
+    [SerializeField]
+    [Tooltip("Se puede dejar en null")]
+    private SoundManager _lavaAudioManager;
     #endregion
 
     #region properties
@@ -94,11 +107,17 @@ public class GameManager : MonoBehaviour
     {
         _playerManager.EnableInputs(false);
 
-        ResetDoors();
-        ResetBoxes();
-        ResetBalls();
-        ResetButtons(); 
-        ResetSaws();
+        if(_doors != null)
+            ResetDoors();
+        if(_boxes != null)
+            ResetBoxes();
+        if(_balls != null)
+            ResetBalls();
+        if(_buttons != null)
+            ResetButtons(); 
+        if(_saws != null)
+            ResetSaws();
+
         _playerManager.resetSize();
        
         _playerManager.goToSpawn(_currentRoom);
@@ -191,12 +210,12 @@ public class GameManager : MonoBehaviour
     ///<summary>
     public void ResetSaws()
     {
-        SawComponent[] spawnManagers = _buttons.GetComponentsInChildren<SawComponent>();
+        SawComponent[] spawnManagers = _saws.GetComponentsInChildren<SawComponent>();
         if (spawnManagers.Length != 0)
         {
-            foreach (SawComponent button in spawnManagers)
+            foreach (SawComponent saw in spawnManagers)
             {
-                button.ResetObj();
+                saw.ResetObj();
             }
         }
     }
@@ -215,12 +234,16 @@ public class GameManager : MonoBehaviour
     ///<summary>
     public void ResetRoom()
     {
-
-        ResetDoors();
-        ResetBoxes();
-        ResetBalls();
-        ResetButtons();
-        ResetSaws();
+        if(_doors != null)
+            ResetDoors();
+        if(_boxes != null)
+            ResetBoxes();
+        if(_balls != null)
+            ResetBalls();
+        if(_buttons != null)
+            ResetButtons();
+        if(_saws != null)
+            ResetSaws();
         _playerManager.resetSize();
         _playerManager.goToSpawn(_currentRoom);
 
@@ -288,6 +311,49 @@ public class GameManager : MonoBehaviour
     public void StopSounds()
     {
         _playerManager.StopSounds();
+    }
+    
+    /// <summary>
+    /// Para todos los sonidos del juego
+    /// </summary>
+    public void PauseSounds()
+    {
+        _playerManager.StopSounds();
+        _audioController.PauseSound();
+
+        if (_saws != null) {
+            SawComponent[] spawnManagers = _saws.GetComponentsInChildren<SawComponent>();
+            if (spawnManagers.Length != 0)
+            {
+                foreach (SawComponent saw in spawnManagers)
+                {
+                    saw.PauseSound();
+                }
+            } 
+        }
+        if (_lavaAudioManager != null)
+            _lavaAudioManager.PauseSounds();
+    }
+    
+    /// <summary>
+    /// Para todos los sonidos del juego
+    /// </summary>
+    public void PlaySounds()
+    {
+        if (_saws != null)
+        {
+            SawComponent[] spawnManagers = _saws.GetComponentsInChildren<SawComponent>();
+            if (spawnManagers.Length != 0)
+            {
+                foreach (SawComponent saw in spawnManagers)
+                {
+                    saw.ResumeSound();
+                }
+            }
+        }
+
+        if(_lavaAudioManager != null)
+            _lavaAudioManager.ResumeSounds();
     }
     #endregion
 

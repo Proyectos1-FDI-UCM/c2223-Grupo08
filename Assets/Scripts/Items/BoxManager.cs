@@ -39,6 +39,22 @@ public class BoxManager : MonoBehaviour
             _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
+
+    /// <summary>
+    /// Pausa el sonido
+    /// </summary>
+    public void PauseSound()
+    {
+        _audioSource.Pause();
+    }
+
+    /// <summary>
+    /// Pausa el sonido
+    /// </summary>
+    public void ResumeSound()
+    {
+        _audioSource.Play();
+    }
     #endregion
     private void Awake()
     {
