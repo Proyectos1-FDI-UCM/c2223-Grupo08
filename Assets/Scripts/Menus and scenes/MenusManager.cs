@@ -184,6 +184,7 @@ public class MenusManager : MonoBehaviour
         _audioController.PlaySound(Audios.Save);
     }
     #endregion
+
     #region methods_version_de_prueba_del_juego
     public void ChangeSceneToLevel2()
     {
@@ -198,6 +199,11 @@ public class MenusManager : MonoBehaviour
     public void ChangeSceneToLevel4()
     {
         SceneManager.LoadScene("Level4");
+        Time.timeScale = 1.0f;
+    }
+    public void ChangeSceneToPruebasAceleracion()
+    {
+        SceneManager.LoadScene("Pruebas");
         Time.timeScale = 1.0f;
     }
     #endregion
